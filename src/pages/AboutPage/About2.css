@@ -1,0 +1,145 @@
+/* General styles */
+.parallax-text-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 60px 0;
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  height: 60vh;
+}
+
+.about-box {
+  padding: 20px 0;
+  background: lightgray;
+  background-position: center;
+  text-align: center;
+  height: 65vh;
+  width: 100%;
+  position: relative;
+}
+
+.fade-in-text {
+  color: rgba(230, 115, 14, 1);
+  animation: fadeIn 4s ease-out;
+  opacity: 1;
+}
+
+.fade-in-subtext {
+  animation: fadeIn 2s ease-out;
+}
+
+.divider {
+  height: 2px;
+  width: 75%;
+  background-color: rgba(40, 39, 161, 0.93);
+  margin: 12px auto;
+  margin-bottom: 14px;
+}
+
+.text-content {
+  margin-top: 20px;
+}
+
+/* Vision & Values Section */
+.vision-values-box {
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  animation: fadeIn 2s ease-out;
+}
+
+.vision-values-container {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* max-width: 1200px; */
+}
+
+.values-card{ 
+  margin-right: 0;
+  right: 0px;
+  left: 20px; 
+  position: relative;
+}
+
+
+.vision-card,
+.values-card {
+  flex: 1;
+  background: linear-gradient(135deg, rgba(230, 115, 14, .6), rgba(40, 39, 161, 0.5));
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+}
+
+.vision-title,
+.values-title {
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.vision-list,
+.values-list {
+  text-align: left;
+  color: white;
+  list-style-type: circle;
+}
+
+.fade-in-list {
+  animation: slideIn 2s ease-out;
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+.divider-vertical {
+  width: 2px;
+  background-color: rgba(40, 39, 161, 0.93);
+  margin: 0 20px;
+  margin-right: 41px;
+  position: relative; 
+  left: 10px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .parallax-text-container {
+    padding: 30px 15px;
+    font-size: 24px;
+  }
+
+  .about-box {
+    height: auto;
+    padding: 15px;
+  }
+
+  .vision-values-box {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .vision-values-container {
+    flex-direction: column;
+  }
+
+  .vision-card,
+  .values-card {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .vision-title,
+  .values-title {
+    font-size: 1.5rem;
+  }
+
+  .vision-list,
+  .values-list {
+    font-size: 0.9rem;
+  }
+}

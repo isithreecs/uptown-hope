@@ -1,0 +1,6 @@
+.background .MuiPaper-root:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+    background-color: #f5f5f5;
+    background-image: url('../coverImages/geometric-background-with-shapes-four-different-colors.jpg');
+}

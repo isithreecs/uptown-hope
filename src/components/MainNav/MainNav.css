@@ -5,6 +5,14 @@
     z-index: 5;
     padding-left: 1rem;
     padding-right: 2rem;
+    transition: opacity 0.3s ease-in-out;
+    color: rgba(230, 115, 14, 1);
+    border-radius: 2%;
+    background: linear-gradient(175deg, rgba(218, 220, 226, .6), #ffffff);
+}
+
+.navbar.hidden {
+    opacity: 0;
 }
 
 .navbar-brand .nav-logo {
@@ -19,12 +27,43 @@
     font-size: 17px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgba(230, 115, 14, 1) !important;
+    position: relative; 
+    transition: color 0.3s ease;
+    margin: 30px;
+}
+
+/* Top underline */
+.nav-link:before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #0b2ca3;
+    transition: width 0.3s ease;
+}
+
+/* Bottom underline */
+.nav-link:after {
+    content: "";
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #0b2ca3;
+    transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-    background-color: #0b2ca3; /*will change background-color of element on hover */
-    color: white !important; 
-    border-radius: 50%;
+    color: #0b2ca3;
+}
+
+/* Expand both the top and bottom underlines on hover */
+.nav-link:hover:before,
+.nav-link:hover:after {
+    width: 100%; 
 }
 
 .nav-link:active {
@@ -32,9 +71,10 @@
 }
 
 @media (max-width: 1400px) {
+    .nav-link {
+        font-size: 16px;
+    }
     .nav-link:hover {
-        background-color: #0b2ca3; /*will change background-color of element on hover */
-        color: white !important; 
-        border-radius: 4vw;
+        color: #0b2ca3;
     }
 }
