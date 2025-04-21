@@ -2,7 +2,10 @@ import React from "react";
 import { Box, Typography, Grid2, Card, CardContent, CardMedia, Button, keyframes } from '@mui/material';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPeace, faSun, faHourglass2, faHandsHelping } from "@fortawesome/free-solid-svg-icons";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+{/* My attempt at responsiveness by import of an external .js file with the media styling. Similar to a .css page  */}
+// import { mobileDevice, mobileStyle, isTablet, tabletStyle, desktopStyle } from "../HomePage/HomePageMediaStyling"; 
 
 
 const scaleUp = keyframes`
@@ -15,6 +18,8 @@ const scaleUp = keyframes`
     color: rgba(230, 115, 23, 0.8);
     }
 `;
+
+
 
 const Home2 = () => {
   
@@ -34,6 +39,7 @@ const Home2 = () => {
           className="homepage-background-photo"
           elevation={7}
           sx={{
+            // ...mobileDevice ? mobileStyle : isTablet ? tabletStyle : desktopStyle, (media styling with custom component)
             height: "135vh",
             backgroundImage: `url(${require("../coverImages/uptownhope_bkgrd.png")})`,
             backgroundSize: "cover",
@@ -43,6 +49,7 @@ const Home2 = () => {
             alignItems: "center",
             color: "white",
             textAlign: "center",
+            px: 2,
           }}
         >
         </Box>

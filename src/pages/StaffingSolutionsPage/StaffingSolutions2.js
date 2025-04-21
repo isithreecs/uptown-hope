@@ -47,7 +47,7 @@ const StaffingSolutions2 = () => {
             </Box>
           )}
         </Typography>
-        <Collapse in={open} timeout="auto" unmountOnExit>
+        <Collapse in={open} timeout="auto"> {/* 'unmountOnExit' shifts the text to center and then to the left when hovered */}
           <Box
             component="ul"
             sx={{
@@ -184,7 +184,7 @@ const StaffingSolutions2 = () => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: { xs: 300, sm: 400 }, // media styling
+          width: { xs: '90vw', sm: "400px" }, // media styling
           bgcolor: "white",
           borderRadius: "10px",
           boxShadow: 24,
@@ -246,7 +246,7 @@ const StaffingSolutions2 = () => {
 
  
   const renderPaper = (category) => (
-    <Grid2 item xs={12} sm={6} md={3}>
+    <Grid2 item xs={12} sm={6} md={3} sx={{ display: "flex", justifyContent: "center" }}>
       <Paper
         elevation={14}
         sx={{
@@ -290,6 +290,7 @@ const StaffingSolutions2 = () => {
   return (
     <div>
       {/* Parallax Section */}
+      
       <Parallax
         className="parallax-section"
         bgImage={require("../coverImages/corporate1.jpg")}
@@ -307,7 +308,7 @@ const StaffingSolutions2 = () => {
             padding: "60px 0",
             textAlign: "center",
             color: "white",
-            fontSize: "32px",
+            fontSize: "4vw",
             height: "60vh",
           }}
         >
@@ -334,6 +335,7 @@ const StaffingSolutions2 = () => {
         style={{
           backgroundColor: "#f5f5f5",
           padding: "50px 0",
+          minHeight: "calc(100vh - 60vh)", // Content doesn't overlap the footer
         }}
       >
         <Grid2

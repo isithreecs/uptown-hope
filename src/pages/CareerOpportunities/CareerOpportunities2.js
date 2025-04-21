@@ -322,12 +322,6 @@ const CareerOpportunities = () => {
                   display: "flex",
                 }}
               >
-                {/* Left Side (List of Positions) */}
-                {/* <Grid2
-                    container
-                    spacing={2}
-                    sx={{ display: "flex", justifyContent: "space-between" }}
-                  ></Grid2> */}
 
                 {/* Left Side (Image) */}
                 <Grid2 item xs={12} sm={7} md={7} sx={{ margin: 2 }}>

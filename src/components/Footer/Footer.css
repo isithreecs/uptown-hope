@@ -34,6 +34,14 @@ footer {
 	text-shadow: 2px 2px 5px rgba(230, 114, 15, 0.9);
 }
 
+.footer-email-link { 
+	transition: text-shadow 0.3s ease;
+}
+
+.footer-email-link:hover { 
+	text-shadow: 2px 2px 5px rgba(230, 114, 15, 0.9);
+}
+
 .footer-top-links {
 	width: 100%;
 	display: flex;

@@ -16,8 +16,8 @@ const Footer = () => {
             <a href="/staffing-solutions">Staffing Solutions</a>
             <a href="/contact">Contact</a>
             {/*Added Login Page*/}
-            {/* <a href="/Login">Login</a>
-            <a href="/SignUp">SignUp</a> */}
+            {/* <a href="/Login">Login/SignUp</a> */}
+            {/* <a href="/SignUp">SignUp</a> */}
           </p>
         </div>
 
@@ -25,6 +25,7 @@ const Footer = () => {
           
 			<div className="footer-left">
 				<div className="logo">
+					<a href="/Home2" className="footer-logo-link">
 				<img
 					src="../images/uptownhope_logo.jpeg"
 					width="240"
@@ -32,7 +33,7 @@ const Footer = () => {
 					paddingLeft="1"
 					className="logo"
 					alt="Uptown Hope logo"
-				/>
+				/></a>
 				</div>
 			</div>
 			
@@ -55,7 +56,7 @@ const Footer = () => {
 			<div>
 				<i className="fa fa-envelope"></i>
 				<p>
-				<span>
+				<span class="footer-email-link">
 					<a href="mailto:info.uptownhope@gmail.com">
 					info.uptownhope@gmail.com
 					</a>
