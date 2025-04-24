@@ -3,66 +3,94 @@ import './Footer.css';
 import { SocialIcon } from 'react-social-icons';
 
 const Footer = () => {
-    return(
-        <footer className="footer-distributed">
+    return (
+      <footer className="footer-distributed">
+        <div className="footer-top-links">
+          <p className="footer-links">
+            <a href="/" className="link-1">
+              Home
+            </a>
+            <a href="/about">About</a>
+            <a href="/services">Services</a>
+            <a href="/employment">Careers</a>
+            <a href="/staffing-solutions">Staffing Solutions</a>
+            <a href="/contact">Contact</a>
+            {/*Added Login Page*/}
+            {/* <a href="/Login">Login/SignUp</a> */}
+            {/* <a href="/SignUp">SignUp</a> */}
+          </p>
+        </div>
+
+        <div className="footer-content">
+          
 			<div className="footer-left">
 				<div className="logo">
-					<img
-						src="../images/uptownhope_logo.jpeg"
-						width="170"
-						height="100"
-						paddingLeft="1"
-						className="logo"
-						alt="Uptown Hope logo"
-					/>
+					<a href="/Home2" className="footer-logo-link">
+				<img
+					src="../images/uptownhope_logo.jpeg"
+					width="240"
+					height="200"
+					paddingLeft="1"
+					className="logo"
+					alt="Uptown Hope logo"
+				/></a>
 				</div>
-				<p className="footer-links">
-					<a href="/" className="link-1">Home</a>
-					<a href="/about">About</a>
-					<a href="/services">Services</a>
-					<a href="/employment">Career Opportunities</a>
-					<a href="/staffing-solutions">Staffing Solutions</a>
-					<a href="/contact">Contact</a>
+			</div>
+			
+
+			<div className="footer-center">
+			<div>
+				<i className="fa fa-map-marker"></i>
+				<p>
+				<span>300 Redland Ct., Suite 309</span>{" "}
+				<br />
+				<span>Owings Mills, MD 21117</span>
 				</p>
 			</div>
-			<div className="footer-center">
-				<div>
-					<i className="fa fa-map-marker"></i>
-					<p><span>300 Redland Ct., Suite 309</span> <span>Owings Mills, MD 21117</span></p>
-				</div>
-				<div>
-					<i className="fa fa-phone"></i>
-					<p><span>(410) 363-9495</span></p>
-				</div>
-				<div>
-					<i className="fa fa-envelope"></i>
-					<p><span><a href="mailto:info.uptownhope@gmail.com">info.uptownhope@gmail.com</a></span></p>
-				</div>
+			<div>
+				<i className="fa fa-phone"></i>
+				<p>
+				<span>(410) 363-9495</span>
+				</p>
 			</div>
+			<div>
+				<i className="fa fa-envelope"></i>
+				<p>
+				<span class="footer-email-link">
+					<a href="mailto:info.uptownhope@gmail.com">
+					info.uptownhope@gmail.com
+					</a>
+				</span>
+				</p>
+			</div>
+			</div>
+
 			<div className="footer-right">
 				<p className="footer-company-about">
 					<span>Connect with us on social media</span>
 				</p>
 				<div className="footer-icons">
 					<div className="social-icons">
-						<SocialIcon className="linkedin" url="https://linkedin.com/company/uptown-hope-llc/" network="linkedin" />
+					<SocialIcon
+						className="linkedin"
+						url="https://linkedin.com/company/uptown-hope-llc/"
+						network="linkedin"
+					/>
 					</div>
 					<div className="social-icons">
-						<SocialIcon className="facebook" url="" network="facebook" />
-					</div>
-					{/* <div className="social-icons">
-						
-					</div>
-					<div className="social-icons">
-						
-					</div> */}
+					<SocialIcon className="facebook" url="" network="facebook" />
 				</div>
 			</div>
-			<br />
-			<br />
-			<span className="footer-copyright">© 2017 Uptown Hope. All Rights Reserved</span>
-		</footer>
-    )
+</div>
+        </div>
+        <br />
+        <br />
+        <span className="footer-copyright">
+          © 2017 Uptown Hope. All Rights Reserved
+        </span>
+
+      </footer>
+    );
 }
 
 export default Footer;

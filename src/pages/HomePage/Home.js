@@ -42,7 +42,7 @@ const Home = () => {
                         alt="Random" 
                         />
                     <p className="info-text">
-                        300 Redland Ct., Suite 200 <br />
+                        300 Redland Ct., Suite 309 <br />
                         Owings Mills, MD 21117 <br />
                         (410) 363-9495 <br />
                         <a href = "mailto: info.uptownhope@gmail.com">info.uptownhope@gmail.com</a>
