@@ -49,7 +49,17 @@ const Home2 = () => {
           }}
         >
         </Box>
-
+        <div 
+        className="about-company-card-container"
+        style={{display: "flex", height: "20vh", justifyContent: "center", alignItems: "center"}}>
+        <Typography variant="body2" sx={{ fontSize: "1.1em", m: 3, color: "#0b2ca3"}}>
+            <strong style={{fontSize: "23px"}}>Uptown Hope (UH) </strong>  
+            is a privately held limited liability company organized under the laws of the
+            State of Maryland. Uptown Hope offers staff support to organizations for a wide variety of
+            positions to cover staff shortages due to PTO, sickness, leave of absence, vacancies,
+            or to support sudden increase in workload due to growth and increased productivity needs.
+            </Typography>
+        </div>
         <Box
           className="clickable-cards-container">
           {/* '<Grid>' is deprecated in Material UI v5, and '<Grid2>' is the new replacement 
@@ -63,7 +73,7 @@ const Home2 = () => {
                 icon: faPeace,
                 color: "rgba(240, 119, 19, 0)",
                 title: "Holistic",
-                description: "approach to quality service provision",
+                description: "approach to quality service provision for clients and associates",
                 path: '/about2',
               },
               {
@@ -89,7 +99,7 @@ const Home2 = () => {
                 path: '/contact'
               },
             ].map((service, index) => (
-              <Grid2 item xs={12} sm={6} md={3} key={index}>
+              <Grid2 key={index}>
                 <Card
                 className="card"
                 elevation={8}
@@ -120,7 +130,7 @@ const Home2 = () => {
                     <Typography variant="h6" sx={{ fontWeight: 600, color: "rgba(230, 115, 14, 1)" }}>
                       {service.title}
                     </Typography>
-                    <Typography variant="body2" sx={{color: "rgb(8, 11, 209)"}}>
+                    <Typography variant="body2" sx={{color: "#0b2ca3"}}>
                       {service.description}
                     </Typography>
                   </CardContent>
@@ -128,6 +138,22 @@ const Home2 = () => {
               </Grid2>
             ))}
           </Grid2>
+        </Box>
+
+        <Box
+          className="homepage-footer"
+          sx={{
+            backgroundColor: "linear-gradient(175deg, lightgray, #ffffff)",
+            color: "rgba(230, 115, 14, 1)",
+            py: 3,
+            textAlign: "center",
+            mt: 5
+          }}
+        >
+            <Typography variant="body2" sx={{ fontSize: "1.1em"}}>
+            For a full list of positions we fill, please visit the{" "}
+            <strong><a href="/StaffingSolutions2" target="_self" alt="Services page" style={{color: "rgba(230, 115, 14, 1)", fontSize: "1.5em"}}>Staffing Solutions</a></strong> page.
+          </Typography>
         </Box>
 
         {/* Contact Section */}
@@ -143,12 +169,12 @@ const Home2 = () => {
           }}
         >
           <Grid2
-            container
+            container={true}
             spacing={4}
             justifyContent="center"
             alignItems="center"
           >
-            <Grid2 item xs={12} sm={6} md={4}>
+            <Grid2>
               <Box
                 sx={{
                   width: "100%",
@@ -157,7 +183,7 @@ const Home2 = () => {
                   borderRadius: "50%"
                 }}
               >
-                <Grid2 item xs={3} sm={6} md={4}>
+                <Grid2>
               <Typography 
               className="contact-section-text"
               variant="body1" sx={{mt: 2, fontSize: "17px"}} >
@@ -167,7 +193,7 @@ const Home2 = () => {
                 <Button
                   href="mailto:info.uptownhope@gmail.com"
                   sx={{
-                    color: "#2980b9",
+                    color: "#0b2ca3",
                     textDecoration: "none",
                     mt: 1,
                     "&:hover": {
@@ -182,36 +208,14 @@ const Home2 = () => {
                 <img
                   src="../images/sunshine.jpg"
                   alt="Sunshine"
-                  style={{ width: "25rem", height: "12.5rem" }}
+                  style={{ width: "25rem", height: "10rem" }}
                 />
               </Box>
             </Grid2>
           </Grid2>
         </Box>
-
-        {/* Footer */}
         
-        <Box
-          className="homepage-footer"
-          sx={{
-            backgroundColor: "linear-gradient(175deg, lightgray, #ffffff)",
-            color: "rgba(230, 115, 14, 1)",
-            py: 3,
-            textAlign: "center",
-          }}
-        >
-          <Typography variant="body2" sx={{ fontSize: "1.1em"}}>
-            <strong style={{fontSize: "23px"}}>Uptown Hope (UH) </strong>  
-            is a privately held limited liability company organized under the laws of the <br />
-            State of Maryland. Uptown Hope offers staff support to organizations for a wide variety of <br />
-            positions to cover staff shortages due to PTO, sickness, leave of absence, vacancies, <br />
-            or to support sudden increase in workload due to growth and increased productivity needs.
-            <br />
-            <br />
-            For a full list of positions we fill, please visit{" "}
-            <strong><a href="/services2" target="_self" alt="Services page" style={{color: "rgba(230, 115, 14, 1)", fontSize: "1.1em"}}>Services</a></strong> page.
-          </Typography>
-        </Box>
+        
       </div>
     );
 }

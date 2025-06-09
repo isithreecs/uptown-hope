@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Box, Typography, Grid2, Paper, Modal } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Parallax } from "react-parallax";
+import "./CareerOpp2.css";
 
 const CareerOpportunities = () => {
   let navigate = useNavigate();
@@ -10,47 +11,63 @@ const CareerOpportunities = () => {
     navigate("/contact");
   }
 
-  const modalContent = {
-    healthCare: {
-      cardTitle: "Health Care Staff Support",
-      title: "Healthcare",
-      content: (
-        <div>
-          <strong>
-            <ul>
-              <li>CMA</li>
-              <li>CNA</li>
-              <li>GNA</li>
-              <li>Direct Support Professional/CMT</li>
-              <li>Medical Records Clerk</li>
-              <li>Personal Care Assistant</li>
-              <li>Therapeutic Support Staff</li>
-            </ul>
+   const modalContent = {
+      healthCare: {
+        cardTitle: "Health Care Staff Support",
+        title: "Healthcare",
+        content: (
+          <Box>
+            Uptown Hope provides qualified healthcare practitioners to variety of Health
+            Care facilities, including hospitals, clinics, and other related medical facilities
+            and institutions (short-term or long-term temporary, permanent full-time or part-time, or
+            associates). Typical positions are: 
+            <br />
+            <br />
+            <strong>
+          <ul>
+            <li>CMA</li>
+            <li>CNA</li>
+            <li>GNA</li>
+            <li>Direct Support Professional/CMT</li>
+            <li>Medical Records Clerk</li>
+            <li>Personal Care Assistant</li>
+            <li>Therapeutic Support Staff</li>
+          </ul>
           </strong>
-        </div>
-      ),
-      backgroundImage: require("../coverImages/background_image.jpg"),
-    },
-    nursing: {
-      cardTitle: "Nursing Referral Service Support",
-      title: "Nursing",
-      content: (
-        <div>
+          </Box>
+        ),
+        backgroundImage: require("../coverImages/background_image.jpg"),
+      },
+      nursing: {
+        cardTitle: "Nursing Referral Service Support", 
+        title: "Nursing",
+        content: (<Box>
+          Uptown Hope provides qualified licensed or certified health professionals or care
+          providers to provide nursing services, home health aid services, or other home 
+          health care services to variety of Health Care facilities, including hospitals, 
+          clinics and other related medical facilities and institutions (short-term or 
+          long-term temporary, permanent full-time or part-time, or associates). Typical 
+          positions are: 
+          <br />
+          <br />
           <strong>
-            <ul>
-              <li>LPN</li>
-              <li>RN</li>
-            </ul>
+          <ul>
+            <li>LPN</li>
+            <li>RN</li>
+          </ul>
           </strong>
-        </div>
-      ),
-      backgroundImage: require("../coverImages/background_image.jpg"),
-    },
-    administration: {
-      cardTitle: "Administrative and other Clerical Support",
-      title: "Administration",
-      content: (
-        <div>
+        </Box>),
+        backgroundImage: require("../coverImages/background_image.jpg"),
+      },
+      administration: {
+        cardTitle: "Administrative and other Clerical Support", 
+        title: "Administration",
+        content: (<Box>
+          Uptown Hope provides qualified administrative support staff to a 
+          variety of organizations (short-term or long-term temporary, permanent full-time
+          or part-time, or associates). Typical positions are: 
+          <br /> 
+          <br />
           <strong>
             <ul>
               <li>Receptionist</li>
@@ -59,15 +76,19 @@ const CareerOpportunities = () => {
               <li>Office Manager/Coordinator</li>
             </ul>
           </strong>
-        </div>
-      ),
-      backgroundImage: require("../coverImages/background_image.jpg"),
-    },
-    finance: {
-      cardTitle: "Accounting and Finance Support",
-      title: "Finance",
-      content: (
-        <div>
+          </Box>
+        ),
+        backgroundImage: require("../coverImages/background_image.jpg"),
+      },
+      finance: {
+        cardTitle: "Accounting and Finance Support",
+        title: "Finance",
+        content: (<Box>
+          Uptown Hope provides qualified Accounting and Finance support to a variety of 
+          organizations (short-term or long-term temporary, permanent full-time or part-time,
+          or associates). Typical positions are: 
+          <br />
+          <br />
           <strong>
             <ul>
               <li>Bookkeeper</li>
@@ -77,322 +98,230 @@ const CareerOpportunities = () => {
               <li>Senior Accountant</li>
             </ul>
           </strong>
-        </div>
-      ),
-      backgroundImage: require("../coverImages/background_image.jpg"),
-    },
-  };
-
-  const paperStyling = {
-    padding: 10,
-    textAlign: "center",
-    height: "250px",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: "20px",
-  };
-
-  const [openModal, setOpenModal] = useState(null);
-
-  const handleOpenModal = (category) => setOpenModal(category);
-  const handleCloseModal = () => setOpenModal(null);
-
-  const renderModal = (category) => (
-    <Modal
-      open={openModal === category}
-      onClose={handleCloseModal}
-      sx={{ alignItems: "left", justifyContent: "center" }}
-    >
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: { xs: 300, sm: 400 }, // media styling
-          bgcolor: "white",
-          borderRadius: "10px",
-          boxShadow: 24,
-          p: 4,
-        }}
+        </Box>),
+        backgroundImage: require("../coverImages/background_image.jpg"),
+      },
+    };
+  
+    const paperStyling = {
+      padding: 10,
+      textAlign: "center",
+      height: "15.5rem",
+      justifyContent: "center",
+      alignItems: "center",
+      borderRadius: "20px",
+    };
+  
+    const [openModal, setOpenModal] = useState(null);
+  
+    const handleOpenModal = (category) => setOpenModal(category);
+    const handleCloseModal = () => setOpenModal(null);
+  
+   
+    const renderModal = (category) => (
+      <Modal
+        open={openModal === category}
+        onClose={handleCloseModal}
+        sx={{ alignItems: "left", justifyContent: "center" }}
       >
-        <Typography
-          variant="h6"
-          component="h2"
-          sx={{ fontWeight: "bold", textAlign: "center", marginBottom: 2 }}
-        >
-          {modalContent[category].cardTitle}
-        </Typography>
-
         <Box
           sx={{
-            width: "100%",
-            height: "2px",
-            backgroundColor: "rgba(40, 39, 161, 0.93)",
-            marginBottom: 2,
-          }}
-        ></Box>
-
-        <Typography sx={{ mt: 2 }}>{modalContent[category].content}</Typography>
-
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 2,
-            flexDirection: "row",
-            mt: 3,
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: { xs: '90vw', sm: "400px" }, // media styling
+            bgcolor: "white",
+            borderRadius: "10px",
+            boxShadow: 24,
+            p: 4,
           }}
         >
-          <Button
-            variant="contained"
+          <Typography variant="h6" component="h2" sx={{ fontWeight: "bold", textAlign: "center", marginBottom: 2 }}>
+            {modalContent[category].cardTitle}
+          </Typography>
+  
+          <Box 
             sx={{
-              backgroundColor: "rgba(40, 39, 161, 0.83)",
-              borderRadius: "10px",
-              padding: "10px 30px",
-              fontSize: "12px",
-              color: "white",
-              height: "60px",
-              width: "60px",
+              width: "100%",
+              height: "2px", 
+              backgroundColor: "rgba(40, 39, 161, 0.93)",
+              marginBottom: 2, 
+            }}></Box>
+  
+          <Typography component="div" sx={{ mt: 2 }}>
+            {modalContent[category].content}
+          </Typography>
+  
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 2,
+              flexDirection: "row",
               mt: 3,
-              "&:hover": {
-                transform: "scale(1.1)",
-              },
             }}
-            onClick={handleClick}
           >
-            Apply Now
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "rgba(40, 39, 161, 0.83)",
+                borderRadius: "10px",
+                padding: "10px 30px",
+                fontSize: "12px",
+                color: "white",
+                height: "60px",
+                width: "60px",
+                mt: 3,
+                "&:hover": {
+                  transform: "scale(1.1)",
+                },
+              }}
+              onClick={handleClick}
+            >
+              Apply Now
+            </Button>
+          </Box>
+  
+          <Button onClick={handleCloseModal} sx={{ mt: 2, alignItems: "flex-start", position: "absolute", left: "10px", bottom: "10px" }}>
+            Close
           </Button>
         </Box>
-
-        <Button
-          onClick={handleCloseModal}
+      </Modal>
+    );
+  
+   
+    const renderPaper = (category) => (
+      <React.Fragment key={category}>
+      <Grid2 
+      container={true}
+      key={category}  
+      sx={{ display: "flex", justifyContent: "center" }}>
+        <Paper
+          className="staffing-card"
+          elevation={14}
           sx={{
-            mt: 2,
-            alignItems: "flex-start",
-            position: "absolute",
-            left: "10px",
-            bottom: "10px",
-          }}
-        >
-          Close
-        </Button>
-      </Box>
-    </Modal>
-  );
-
-  const renderPaper = (category) => (
-    <Grid2 item xs={12} sm={6} md={3}>
-      <Paper
-        elevation={14}
-        sx={{
-          ...paperStyling,
-          backgroundImage: `url(${modalContent[category].backgroundImage})`,
-          backgroundSize: "cover",
-          color: "rgba(40, 39, 161, 0.93)",
-          "&:hover": {
-            transform: "scale(1.05)",
-            boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.2)",
-          },
-        }}
-      >
-        <Typography variant="h4">{modalContent[category].title}</Typography>
-        <Button
-          variant="contained"
-          onClick={() => handleOpenModal(category)}
-          sx={{
-            backgroundColor: "lightgray",
-            width: "200px",
-            borderRadius: "20px",
-            mt: 6,
-            fontSize: { xs: "12px", sm: "14px", md: "16px" },
-            color: "rgba(230, 115, 14, 1)",
+            ...paperStyling,
+            backgroundImage: `url(${modalContent[category].backgroundImage})`,
+            backgroundSize: "cover",
+            color: "rgba(40, 39, 161, 0.93)",
             "&:hover": {
-              transform: "scale(1.1)",
-              transition: "0.3s",
-              color: "rgba(230, 115, 14, 1)",
+              transform: "scale(1.05)",
+              boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.2)",
             },
-            padding: "8px 16px",
           }}
         >
-          Click for info
-        </Button>
-      </Paper>
-      {renderModal(category)}
-    </Grid2>
-  );
+          <Typography variant="h4">{modalContent[category].title}</Typography>
+          <Button
+            variant="contained"
+            onClick={() => handleOpenModal(category)}
+            sx={{
+              backgroundColor: "lightgray",
+              width: "200px",
+              borderRadius: "20px",
+              mt: 6,
+              color: "rgba(230, 115, 14, 1)",
+              "&:hover": {
+                transform: "scale(1.1)",
+                transition: "0.3s",
+                color: "rgba(230, 115, 14, 1)",
+              },
+              padding: "8px 16px",
+            }}
+          >
+            Click for info
+          </Button>
+        </Paper>
+      </Grid2>
+        {renderModal(category)}
+      </React.Fragment>
+    );
 
   return (
-    <div>
-      {/* Parallax Section */}
+    <Box>
       <Parallax
         bgImage={require("../coverImages/application.jpg")}
         strength={300}
         bgImageStyle={{
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: "80vh",
+          height: "95vh",
         }}
-        alt="Career Opportunities Background"
       >
-        <div
-          style={{
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            padding: "60px 0",
-            textAlign: "center",
-            color: "white",
-            fontSize: "32px",
-            height: "60vh",
-          }}
-        >
-          <Typography
-            variant="h2"
-            sx={{
-              fontWeight: "bold",
-              color: "rgba(230, 115, 14, 1)",
-            }}
-          >
-            Careers at Uptown Hope
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: "white",
-              marginTop: "10px",
-            }}
-          >
-            As an Associate at Uptown Hope, you'll have the freedom to work when
-            you want, where you want!
-          </Typography>
+        <div className="parallax-section">
+          <div className="header-content">
+            <Typography variant="h2" className="page-title">
+              Careers at Uptown Hope
+            </Typography>
+            <Typography variant="body1" className="page-subtitle">
+              As an Associate at Uptown Hope, you'll have the freedom to work
+              when you want, where you want!
+            </Typography>
+          </div>
         </div>
       </Parallax>
 
-      {/* Page Content Section */}
       <Box sx={{ flexGrow: 1 }}>
-        <Grid2 container spacing={3} justifyContent="center">
-          <Grid2 item xs={12}>
-            <Paper
-              elevation={8}
-              sx={{
-                height: "80vh",
-                width: "60vw",
-                marginBottom: "40px",
-                marginTop: "40px",
-                padding: 3,
-                borderRadius: "10px",
-                background: "rgba(218, 220, 226, .6)",
-              }}
-            >
-              {/* Title */}
-              <Box sx={{ textAlign: "center" }}>
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontWeight: "bold",
-                    marginBottom: "10px",
-                    color: "rgba(230, 115, 14, 1)",
-                  }}
-                >
+        <Grid2
+          className="main-page"
+          container={true} 
+          spacing={3}
+          justifyContent="center"
+        >
+          <Grid2>
+            <Paper className="content-main" elevation={14}>
+              <Box className="main-header">
+                <Typography variant="h5" className="highlight-text">
                   Looking for a fresh start or a new Career?
-                </Typography>
-                {/* First Text */}
-                <Typography
-                  variant="body1"
-                  sx={{ textAlign: "center", marginBottom: "20px" }}
-                >
-                  Take a look at the positions we offer down below!
                 </Typography>
               </Box>
 
-              <Box sx={{ marginTop: 2, padding: "2px" }}>
+              <Box className="main-description">
                 <Typography variant="body1">
-                  If you are interested in any of the positions email us via the
+                  If you are interested in any of our positions email us via the
                   email address listed below or simply click the "Contact Us"
                   button at the bottom of this page. Including a pdf copy of
                   your resume, if applicable, would be greatly appreciated.
                 </Typography>
               </Box>
 
-              {/* Content Layout */}
-              <Box
-                sx={{
-                  padding: "1rem",
-                  maxWidth: "100%",
-                  height: "55vh",
-                  display: "flex",
-                }}
-              >
-
-                {/* Left Side (Image) */}
-                <Grid2 item xs={12} sm={7} md={7} sx={{ margin: 2 }}>
+              <Box className="image-container">
+                <Grid2 className="image-box">
                   <img
-                    alt="Direct Support and Client"
                     src="../images/direct_care.jpg"
-                    height="450rem"
-                    width="535rem"
-                    style={{
-                      maxWidth: "100%",
-                      objectFit: "cover",
-                      borderRadius: "5%",
-                    }}
+                    alt="Direct Support"
+                    className="image-style"
                   />
                 </Grid2>
-
-                {/*Right Side Image */}
-                <Grid2 item xs={12} sm={7} md={7} sx={{ margin: 2 }}>
+                <Grid2 className="image-box">
                   <img
-                    alt="Holding Hands - Direct Support"
                     src="../images/holding_hands_nursing_care.jpg"
-                    height="450rem"
-                    width="535rem"
-                    style={{
-                      maxWidth: "100%",
-                      objectFit: "cover",
-                      borderRadius: "5%",
-                    }}
+                    alt="Holding Hands"
+                    className="image-style"
                   />
                 </Grid2>
               </Box>
             </Paper>
+
+            <Grid2 className="modals-container" container={true} spacing={12}>
+              {["healthCare", "nursing", "administration", "finance"].map(
+                (category) => renderPaper(category)
+              )}
+            </Grid2>
           </Grid2>
         </Grid2>
-        <Grid2
-          container
-          spacing={12}
-          sx={{
-            height: "30vh",
-            marginTop: "25px",
-            marginBottom: "110px",
-            padding: "30px 10px",
-            justifyContent: "center",
-          }}
-        >
-          {["healthCare", "nursing", "administration", "finance"].map(
-            (category) => renderPaper(category)
-          )}
-        </Grid2>
 
-        <Box sx={{ marginTop: 3, textAlign: "center" }}>
+        <Box className="contact-container">
           <Button
             variant="outlined"
             onClick={handleClick}
-            sx={{
-              fontWeight: "bold",
-              borderRadius: "30px",
-              padding: "10px 30px",
-              fontSize: "16px",
-              marginBottom: "10px",
-              color: "rgba(230, 115, 14, 1)",
-              "&:hover": {
-                backgroundColor: "rgba(230, 115, 14, 0.1)",
-              },
-            }}
+            className="contact-button"
           >
             Contact Us
           </Button>
         </Box>
       </Box>
-    </div>
+    </Box>
   );
 };
 

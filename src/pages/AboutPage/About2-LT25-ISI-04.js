@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Parallax } from "react-parallax";
-import { Typography, Box, Grid2, Paper, Collapse, List, ListItem } from "@mui/material";
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import { Typography, Box, Grid2, Paper, Collapse } from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import './About2.css';
 
@@ -12,18 +11,17 @@ const HoverDropdown = ({ title, children, icon }) => {
 
     return (
 
-      
+     
       <Box
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
       style={{ marginBottom: 2, cursor: 'pointer', width: 'fit-content' }}
     >
-      {/* {component="div"} renders the Typography tag as a <div> instead of <p> to avoid nesting issues */}
-      <Typography component="div" style={{ fontWeight: 'bold', listStyle: 'none', marginBottom: '6px' }}>
+      <Typography style={{ fontWeight: 'bold', listStyle: 'none', marginBottom: '6px' }}>
         {title && icon && <Box style={{ mr: 1 }}>{title}{icon}</Box>}
       </Typography>
       <Collapse in={open} timeout="auto" unmountOnExit>
-        <Box component="div" style={{ pl: 2, mt: 1 }}>
+        <Box component="ul" style={{ pl: 2, mt: 1 }}>
           {children}
         </Box>
       </Collapse>
@@ -34,11 +32,11 @@ const HoverDropdown = ({ title, children, icon }) => {
 
     const About2 = () => {
 
-  
+ 
 
   return (
-    
-    <Box className="background">
+   
+    <div className="background">
       {/* Parallax Section */}
       <Parallax
       className="parallax-background"
@@ -53,8 +51,8 @@ const HoverDropdown = ({ title, children, icon }) => {
         }}
         alt="About Us Background"
       >
-        <Box className="parallax-text-container">
-        <Box className="header-title-and-text-container"
+        <div className="parallax-text-container">
+        <div className="header-title-and-text-container"
           style={{justifyContent: "center", alignItems: "center", position: "relative", top: "25%"}}>
           <Typography
             className="header-title"
@@ -70,14 +68,14 @@ const HoverDropdown = ({ title, children, icon }) => {
           >
             Discover the mission, vision, and values at Uptown Hope!
           </Typography>
-          </Box>
-        </Box>
+          </div>
+        </div>
       </Parallax>
 
       {/* H.O.P.E. Section */}
       <Box className="hope-section">
         <Grid2 container spacing={3} justifyContent="center">
-          <Grid2>
+          <Grid2 xs={12}>
             <Paper
             className="main-div"
               elevation={8}
@@ -103,7 +101,7 @@ const HoverDropdown = ({ title, children, icon }) => {
                   H.O.P.E.
                 </Typography>
                 <Typography
-                  className="hope-text"
+                className="hope-text"
                   variant="body1"
                   style={{
                     fontWeight: "bold",
@@ -115,12 +113,12 @@ const HoverDropdown = ({ title, children, icon }) => {
               </Box>
 
               {/* Motto, Mission, Vision, Values */}
-              <Grid2 className="main-content"
-              container 
+              <Box className="main-content"
+              container
               spacing={4}
               justifyContent={"center"}
               alignItems="center">
-              <Grid2 className="content-block">
+              <Grid2 className="content-block" item xs={12} sm={6} md={3}>
                 <Box className="text-block top-left-block">
                   <Typography
                     className="motto-title"
@@ -129,7 +127,7 @@ const HoverDropdown = ({ title, children, icon }) => {
                     >
                     Motto
                   </Typography>
-                  <Typography 
+                  <Typography
                   className="text"
                   style={{ color: "gray", fontStyle: "italic" }}>
                     Positive Outlook, Open and Healthy Mind are the keys
@@ -146,10 +144,10 @@ const HoverDropdown = ({ title, children, icon }) => {
                   >
                     Mission
                   </Typography>
-                  <Typography 
+                  <Typography
                   className="text"
                   style={{ color: "gray", fontStyle: "italic" }}>
-                    The mission of Uptown Hope is to take a holistic 
+                    The mission of Uptown Hope is to take a holistic
                     approach in delivering quality service, leveraging the
                     unique opportunity to enhance clients' productivity
                     through effective staff augmentation with
@@ -179,7 +177,7 @@ const HoverDropdown = ({ title, children, icon }) => {
                   >
                     Vision
                   </Typography>
-                  <Typography 
+                  <Typography
                   className="text"
                   style={{ color: "gray", fontStyle: "italic" }}>
                     Uptown Hope is dedicated to delivering high-quality
@@ -191,8 +189,8 @@ const HoverDropdown = ({ title, children, icon }) => {
                     to add value to our clients' processes.
                   </Typography>
                 </Box>
-                
-                
+               
+               
                 <Box className="text-block bottom-right-block">
                   <Typography
                     className="values-title"
@@ -210,18 +208,20 @@ const HoverDropdown = ({ title, children, icon }) => {
                     financial growth.
                   </Typography>
                 </Box>
+             
               </Grid2>
-            </Grid2>
+            </Box>
 
               <Grid2
               className="leadership-container"
-              container 
+              container
               spacing={4}
               justifyContent={"center"}
               alignItems="center"
               style={{ marginTop: "5.5em" }}>
               <Grid2
                 className="leadership-block"
+                item
               >
                 <Typography
                   className="leadership-title"
@@ -230,9 +230,9 @@ const HoverDropdown = ({ title, children, icon }) => {
                 >
                   Leadership Credentials
                 </Typography>
-                <Typography 
+                <Typography
                 className="leadership-text"
-                style={{ color: "gray", fontStyle: "italic", marginBottom: "2em" }}>
+                style={{ color: "gray", fontStyle: "italic" }}>
                   Our administrative and management staff have extensive and
                   relevant experience as well as proven success managing and
                   ensuring growth and productivity of organizations in different
@@ -242,73 +242,60 @@ const HoverDropdown = ({ title, children, icon }) => {
                   organization.
                 </Typography>
 
-                
+                <br />
+                <br />
                 <Box style={{ textAlign: "left" }}>
                   <HoverDropdown
                     title="Uptown Hope, LLC - Founder and CEO"
                     icon={<KeyboardArrowDownIcon />}
                   >
-                    <List>
-                      <ListItem>
-                        <ArrowRightIcon />
-                        Extensive background, achievements, and effectiveness in
-                        the following areas:
-                        </ListItem>
-                        <ListItem>
-                          <ArrowRightIcon />
-                        Business Planning, Development, Operation and
-                        Administration, Financial management and oversight,
-                        Leadership.
-                      </ListItem>
-                      <ListItem>
-                        <ArrowRightIcon />
-                        Over 40 years of administrative, financial, management and
-                        leadership experience in the financial, healthcare,
-                        insurance, and human service industries.
-                      </ListItem>
-                      <ListItem>
-                        <ArrowRightIcon />
-                        Proven success in providing effective overall leadership
-                        and oversight within the agency and between agencies and
-                        external constituencies.
-                      </ListItem>
-                      <ListItem>
-                        <ArrowRightIcon />
-                        Strategic planner responsible for assuming that the agency
-                        has a long-range strategy and makes consistent and timely
-                        progress to achieve its mission.
-                      </ListItem>
-                      <ListItem>
-                        <ArrowRightIcon />
-                        A focused leader who can develop and implement strategic
-                        plans and promote active and broad participation by
-                        employees and associates to provide the necessary support
-                        for the growth and success of our clients.
-                      </ListItem>
-                    </List>
+                    <li>
+                      Extensive background, achievements, and effectiveness in
+                      the following areas:
+                      <br />
+                      Business Planning, Development, Operation and
+                      Administration, Financial management and oversight,
+                      Leadership.
+                    </li>
+                    <li>
+                      Over 40 years of administrative, financial, management and
+                      leadership experience in the financial, healthcare,
+                      insurance, and human service industries.
+                    </li>
+                    <li>
+                      Proven success in providing effective overall leadership
+                      and oversight within the agency and between agencies and
+                      external constituencies.
+                    </li>
+                    <li>
+                      Strategic planner responsible for assuming that the agency
+                      has a long-range strategy and makes consistent and timely
+                      progress to achieve its mission.
+                    </li>
+                    <li>
+                      A focused leader who can develop and implement strategic
+                      plans and promote active and broad participation by
+                      employees and associates to provide the necessary support
+                      for the growth and success of our clients.
+                    </li>
                   </HoverDropdown>
 
                   <HoverDropdown
                     title="Uptown Hope, LLC - CFO"
                     icon={<KeyboardArrowDownIcon />}
                   >
-                    <List>
-                    <ListItem>
-                      <ArrowRightIcon />
+                    <li>
                       A meticulous, dedicated high-energy professional and
                       administrator.
-                    </ListItem>
-                    <ListItem>
-                      <ArrowRightIcon />
+                    </li>
+                    <li>
                       Proven ability and extensive background and experience in
                       financial management.
-                    </ListItem>
-                    <ListItem>
-                      <ArrowRightIcon />
+                    </li>
+                    <li>
                       More than 40 years combined financial experience in the
                       financial, insurance and human services industries.
-                    </ListItem>
-                    </List>
+                    </li>
                   </HoverDropdown>
                 </Box>
               </Grid2>
@@ -319,7 +306,7 @@ const HoverDropdown = ({ title, children, icon }) => {
           </Grid2>
         </Grid2>
       </Box>
-    </Box>
+    </div>
   );
 };
 
