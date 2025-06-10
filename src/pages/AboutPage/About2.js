@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Parallax } from "react-parallax";
-import { Typography, Box, Grid2, Paper, Collapse, List, ListItem } from "@mui/material";
+import { Typography, Box, Grid2, Paper, Collapse, List, ListItem, Divider } from "@mui/material";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import './About2.css';
@@ -212,6 +212,10 @@ const HoverDropdown = ({ title, children, icon }) => {
                 </Box>
               </Grid2>
             </Grid2>
+
+            <Box display="flex" justifyContent="center">
+              <Divider sx={{ width: "90%", backgroundColor: "rgba(230, 115, 14, 1)", height: "2px" }} />
+            </Box>
 
               <Grid2
               className="leadership-container"
