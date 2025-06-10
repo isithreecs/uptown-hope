@@ -10,14 +10,11 @@ const Footer = () => {
             <a href="/" className="link-1">
               Home
             </a>
-            <a href="/about">About</a>
-            <a href="/services">Services</a>
-            <a href="/employment">Careers</a>
-            <a href="/staffing-solutions">Staffing Solutions</a>
+            <a href="/about2">About</a>
+            {/* <a href="/services">Services</a> */}
+            <a href="/career-opportunities">Careers</a>
+            <a href="/StaffingSolutions2">Staffing Solutions</a>
             <a href="/contact">Contact</a>
-            {/*Added Login Page*/}
-            {/* <a href="/Login">Login/SignUp</a> */}
-            {/* <a href="/SignUp">SignUp</a> */}
           </p>
         </div>
 
@@ -30,7 +27,7 @@ const Footer = () => {
 					src="../images/uptownhope_logo.jpeg"
 					width="240"
 					height="200"
-					paddingLeft="1"
+					paddingleft="1"
 					className="logo"
 					alt="Uptown Hope logo"
 				/></a>
@@ -40,7 +37,7 @@ const Footer = () => {
 
 			<div className="footer-center">
 			<div>
-				<i className="fa fa-map-marker"></i>
+				{/* <i className="fa fa-map-marker"></i> */}
 				<p>
 				<span>300 Redland Ct., Suite 309</span>{" "}
 				<br />
@@ -48,15 +45,15 @@ const Footer = () => {
 				</p>
 			</div>
 			<div>
-				<i className="fa fa-phone"></i>
+				{/* <i className="fa fa-phone"></i> */}
 				<p>
 				<span>(410) 363-9495</span>
 				</p>
 			</div>
 			<div>
-				<i className="fa fa-envelope"></i>
+				{/* <i className="fa fa-envelope"></i> */}
 				<p>
-				<span class="footer-email-link">
+				<span className="footer-email-link">
 					<a href="mailto:info.uptownhope@gmail.com">
 					info.uptownhope@gmail.com
 					</a>

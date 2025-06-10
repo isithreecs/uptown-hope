@@ -1,120 +1,97 @@
-.staffing {
-    background: url(../../pages/coverImages/corporate1.jpg) no-repeat center center fixed;
-    background-size: cover;
-    height: auto; 
-    background-position-y: 40px;
-    position: relative;
+.modals-container { 
+height: auto !important;
+width: 100% !important;
+margin-top: "20vh" !important;
+margin-bottom: "110vh" !important;
+padding: 30px 10px; 
+justify-content: center;
 }
 
-#pg-staffing {
-    margin: auto;
-    padding: .5em;
+.main-card { 
+  padding: 10px !important;
+  text-align: center; 
+  height: auto; 
+  width: 100%; 
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px; 
 }
 
-.cover {
-    height: 60vh;
+.staffing-solutions-columns {  
+  margin: 0 auto !important; 
+  gap: .5rem !important; 
+  display: grid !important; 
+  grid-template-columns: 2fr 30rem 30%; 
+  justify-content: center; 
+  align-items: center; 
 }
 
-.wrapper {
-    background-color: #ffffff;
-    display: flex;
+@media (min-width: 1680px) {
+  .bullet-points-right { 
+    position: relative; 
+    left: 30px; 
+  }
+}
+
+@media (max-width: 1590px) { 
+  .staffing-solutions-columns { 
+    display: flex !important;
+    flex-direction: column !important; 
+    gap: 4px; 
+  }
+
+  .main-card { 
+    width: 100%; 
+    height: auto !important; 
+    padding: 10px !important; 
+    text-align: center; 
     justify-content: center;
     align-items: center;
+  }
+
+  .bullet-points-left { order: 1; }
+  .bullet-points-right { order: 2; }
+  .image-container { order: 3; }
 }
 
-.page-content-staffing {
-    text-align: center; 
-    width: 70vw;
-    height: auto;
+@media (min-width: 1200px) {
+  .staffing-solutions-columns {
+    flex-direction: row !important;
+  }
 }
 
-#title {
-    margin: auto;
-    padding: 20px;
-    background-color: #e8e8ea;
-    color: rgba(230, 115, 14, 1);
-}
+@media (max-width: 615px) { 
 
-.staff-content {
-    display: flex;
-    margin-top: 2em;
-    font-size: large;
-}
+  .main-card { 
+    height: auto !important; 
+    width: 85vw !important; 
+  align-items: center !important;}
 
- .staff-1 { 
-    text-align: left;
-    padding-right: 1em;
-    width: 55%;
-    padding-left: 2em;
-}
+  .modals-container { 
+    justify-content: center !important;
+  }
 
-.button {
-    text-align: center;
-    padding-top: 30px;
-    padding-bottom: 20px;
-}
+  .staffing-solutions-columns {
+    justify-content: center !important; 
+    align-items: center !important;
+  }
 
-.staff-2 {
-    margin-right: 1em;
-    width: 30%;
-}
+  .image-container {
+    margin: 0 auto !important; 
+    justify-content: center !important; 
+    align-items: center !important; 
+    position: relative; 
+    right: 15px;
+  }
 
-.image-bus {
-    width: 29vw;
-    height: 37vh;
-    box-shadow: 12px 15px 5px #b4b4b4;
-}
+  .bullet-points-left, 
+  .bullet-points-right { 
+    width: 100% !important; 
+    height: auto !important; 
+    margin: 0 30px !important; 
+  }
 
-#contact {
-    width: 18vw;
-    height: 65px;
-}
-
-@media (max-width: 1150px) {
-    .staffing {
-        background: url(../../pages/coverImages/corporate1.jpg) no-repeat center center fixed;    
-        background-size: 950px 1000px;
-        -webkit-background-size: 950px 1000px;
-        -moz-background-size: 950px 1000px;
-        -o-background-size: 950px 1000px;
-        background-position-y: -150px;
-        position: relative;
-    }
-
-    .staff-content {
-        display: grid;
-    }
-
-    .staff-1 { 
-        width: 100%;
-        /* font-size: 1.7vw; */
-    }
-
-    .staff-2 {
-        margin-right: 1em;
-        width: 100%;
-    }
-
-    .image-bus {
-        width: 44vw;
-        height: 33vh;
-        box-shadow: 12px 15px 5px #b4b4b4;
-    }
-
-    #contact-us {
-        text-align: center;
-    }
-
-    #contact {
-        width: 38vw;
-        height: 58px;
-    }
-}
-
-@media (max-width: 900px) {
-    .image-bus {
-        width: 50vw;
-        height: 28vh;
-        box-shadow: 12px 15px 5px #b4b4b4;
-    }
+  .bullet-points-right { 
+    right: 10px !important;
+  }
 }
