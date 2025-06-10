@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Parallax } from "react-parallax";
-import { Typography, Box, Grid2, Paper, Collapse } from "@mui/material";
+import { Typography, Box, Grid2, Paper, Collapse, List, ListItem } from "@mui/material";
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import './About2.css';
 
@@ -11,16 +12,18 @@ const HoverDropdown = ({ title, children, icon }) => {
 
     return (
 
+      
       <Box
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
-      sx={{ marginBottom: 2, cursor: 'pointer', width: 'fit-content' }}
+      style={{ marginBottom: 2, cursor: 'pointer', width: 'fit-content' }}
     >
-      <Typography sx={{ fontWeight: 'bold', listStyle: 'none', marginBottom: '6px' }}>
-        {title && icon && <Box sx={{ mr: 1 }}>{title}{icon}</Box>}
+      {/* {component="div"} renders the Typography tag as a <div> instead of <p> to avoid nesting issues */}
+      <Typography component="div" style={{ fontWeight: 'bold', listStyle: 'none', marginBottom: '6px' }}>
+        {title && icon && <Box style={{ mr: 1 }}>{title}{icon}</Box>}
       </Typography>
       <Collapse in={open} timeout="auto" unmountOnExit>
-        <Box component="ul" sx={{ pl: 2, mt: 1 }}>
+        <Box component="div" style={{ pl: 2, mt: 1 }}>
           {children}
         </Box>
       </Collapse>
@@ -34,9 +37,12 @@ const HoverDropdown = ({ title, children, icon }) => {
   
 
   return (
-    <div className="background">
+    
+    <Box className="background">
       {/* Parallax Section */}
       <Parallax
+      className="parallax-background"
+        blur={0}
         bgImage={require("../coverImages/group_photo.jpg")}
         strength={300}
         bgImageStyle={{
@@ -47,29 +53,35 @@ const HoverDropdown = ({ title, children, icon }) => {
         }}
         alt="About Us Background"
       >
-        <div className="parallax-text-container">
+        <Box className="parallax-text-container">
+        <Box className="header-title-and-text-container"
+          style={{justifyContent: "center", alignItems: "center", position: "relative", top: "25%"}}>
           <Typography
+            className="header-title"
             variant="h2"
-            sx={{ fontWeight: "bold", color: "rgba(230, 115, 14, 1)" }}
+            style={{ fontWeight: "bold", color: "rgba(230, 115, 14, 1)" }}
           >
             Learn More About Us!
           </Typography>
           <Typography
+            className="header-text"
             variant="body1"
-            sx={{ fontWeight: "bold", color: "white", marginTop: "20px" }}
+            style={{ fontWeight: "bold", color: "white", marginTop: "20px", fontSize: "1.5rem" }}
           >
-            Discover our mission, vision, and values at Uptown Hope!
+            Discover the mission, vision, and values at Uptown Hope!
           </Typography>
-        </div>
+          </Box>
+        </Box>
       </Parallax>
 
       {/* H.O.P.E. Section */}
       <Box className="hope-section">
         <Grid2 container spacing={3} justifyContent="center">
-          <Grid2 xs={12}>
+          <Grid2>
             <Paper
+            className="main-div"
               elevation={8}
-              sx={{
+              style={{
                 height: "145vh",
                 width: "80vw",
                 marginBottom: "40px",
@@ -79,11 +91,11 @@ const HoverDropdown = ({ title, children, icon }) => {
                 background: "rgba(218, 220, 226, .6)",
               }}
             >
-              <Box sx={{ textAlign: "center" }}>
+              <Box style={{ textAlign: "center" }}>
                 <Typography
+                  className="hope-title"
                   variant="h2"
-                  sx={{
-                    fontWeight: "bold",
+                  style={{
                     marginBottom: "10px",
                     color: "rgba(230, 115, 14, 1)",
                   }}
@@ -91,8 +103,9 @@ const HoverDropdown = ({ title, children, icon }) => {
                   H.O.P.E.
                 </Typography>
                 <Typography
+                  className="hope-text"
                   variant="body1"
-                  sx={{
+                  style={{
                     fontWeight: "bold",
                     color: "rgba(230, 115, 14, 1)",
                   }}
@@ -101,108 +114,52 @@ const HoverDropdown = ({ title, children, icon }) => {
                 </Typography>
               </Box>
 
-              {/* Dual Grid for Motto and Mission */}
-              <Box
-                className="motto-and-mission-section"
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  marginTop: "50px",
-                }}
-              >
-                <Grid2
-                  sx={{ position: "relative", right: "155px", top: "30px" }}
-                >
+              {/* Motto, Mission, Vision, Values */}
+              <Grid2 className="main-content"
+              container 
+              spacing={4}
+              justifyContent={"center"}
+              alignItems="center">
+              <Grid2 className="content-block">
+                <Box className="text-block top-left-block">
                   <Typography
+                    className="motto-title"
                     variant="h4"
-                    sx={{ color: "rgba(230, 115, 14, 1)" }}
-                  >
+                    style={{ color: "rgba(230, 115, 14, 1)"}}
+                    >
                     Motto
                   </Typography>
-                  <Typography sx={{ color: "gray", fontStyle: "italic" }}>
-                    Positive Outlook, Open and Healthy Mind <br /> are the keys
-                    to success. Ability and <br /> Opportunity begin with
+                  <Typography 
+                  className="text"
+                  style={{ color: "gray", fontStyle: "italic" }}>
+                    Positive Outlook, Open and Healthy Mind are the keys
+                    to success. Ability and Opportunity begin with
                     Preparation and Availability.
                   </Typography>
-                </Grid2>
-                <Grid2
-                  sx={{ position: "relative", left: "155px", top: "30px" }}
-                >
+                </Box>
+
+                <Box className="text-block top-right-block">
                   <Typography
+                    className="mission-title"
                     variant="h4"
-                    sx={{ color: "rgba(230, 115, 14, 1)" }}
+                    style={{ color: "rgba(230, 115, 14, 1)" }}
                   >
                     Mission
                   </Typography>
-                  <Typography sx={{ color: "gray", fontStyle: "italic" }}>
-                    The mission of Uptown Hope is to take a holistic <br />{" "}
-                    approach in delivering quality service, leveraging the{" "}
-                    <br /> unique opportunity to enhance clients' productivity{" "}
-                    <br /> through effective staff augmentation with
-                    well-trained, <br /> qualified, and empowered staff and
+                  <Typography 
+                  className="text"
+                  style={{ color: "gray", fontStyle: "italic" }}>
+                    The mission of Uptown Hope is to take a holistic 
+                    approach in delivering quality service, leveraging the
+                    unique opportunity to enhance clients' productivity
+                    through effective staff augmentation with
+                    well-trained, qualified, and empowered staff and
                     associates.
                   </Typography>
-                </Grid2>
-              </Box>
+                </Box>
 
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  marginTop: "50px",
-                }}
-              >
-                <Grid2
-                  sx={{ position: "relative", right: "155px", top: "30px" }}
-                >
-                  <Typography
-                    variant="h4"
-                    sx={{ color: "rgba(230, 115, 14, 1)" }}
-                  >
-                    Vision
-                  </Typography>
-                  <Typography sx={{ color: "gray", fontStyle: "italic" }}>
-                    Uptown Hope is dedicated to delivering high-quality <br />{" "}
-                    staffing services that foster a positive experience <br />{" "}
-                    through open, collaborative relationships with <br />{" "}
-                    clients, staff, and associates. Our goal <br /> is to
-                    consistently offer cost-effective and <br /> efficient
-                    staffing solutions, utiliziing our holistic <br /> approach
-                    to add value to our clients' processes.
-                  </Typography>
-                </Grid2>
-                <Grid2
-                  sx={{ position: "relative", left: "155px", top: "40px" }}
-                >
-                  <Typography
-                    variant="h4"
-                    sx={{ color: "rgba(230, 115, 14, 1)" }}
-                  >
-                    Values
-                  </Typography>
-                  <Typography sx={{ color: "gray", fontStyle: "italic" }}>
-                    Our fundamental beliefs and principles revolve around <br />{" "}
-                    building relationships with our clients, employees, <br />{" "}
-                    and associates which go beyond financial gains, but focus{" "}
-                    <br /> on a culture of involvement, partnership,
-                    collaboration, <br /> and personal, professional, and
-                    financial growth.
-                  </Typography>
-                </Grid2>
-              </Box>
-
-              <Grid2
-                item
-                xs={12}
-                sm={7}
-                md={7}
-                sx={{
-                  position: "relative",
-                  bottom: "25em",
-                  right: "10px",
-                }}
-              >
                 <img
+                  id="image-1"
                   alt="Direct Support and Client"
                   src="../images/Hands_together_Diversity_hero.jpg"
                   height="450rem"
@@ -213,23 +170,69 @@ const HoverDropdown = ({ title, children, icon }) => {
                     borderRadius: "5%",
                   }}
                 />
+
+                <Box className="text-block bottom-left-block">
+                  <Typography
+                    className="vision-title"
+                    variant="h4"
+                    style={{ color: "rgba(230, 115, 14, 1)" }}
+                  >
+                    Vision
+                  </Typography>
+                  <Typography 
+                  className="text"
+                  style={{ color: "gray", fontStyle: "italic" }}>
+                    Uptown Hope is dedicated to delivering high-quality
+                    staffing services that foster a positive experience
+                    through open, collaborative relationships with
+                    clients, staff, and associates. Our goal is to
+                    consistently offer cost-effective and efficient
+                    staffing solutions, utiliziing our holistic approach
+                    to add value to our clients' processes.
+                  </Typography>
+                </Box>
+                
+                
+                <Box className="text-block bottom-right-block">
+                  <Typography
+                    className="values-title"
+                    variant="h4"
+                    style={{ color: "rgba(230, 115, 14, 1)" }}
+                  >
+                    Values
+                  </Typography>
+                  <Typography className="text" style={{ color: "gray", fontStyle: "italic" }}>
+                    Our fundamental beliefs and principles revolve around
+                    building relationships with our clients, employees,
+                    and associates which go beyond financial gains, but focus
+                    on a culture of involvement, partnership,
+                    collaboration, and personal, professional, and
+                    financial growth.
+                  </Typography>
+                </Box>
               </Grid2>
+            </Grid2>
 
               <Grid2
-                sx={{
-                  position: "relative",
-                  bottom: "22rem",
-                  right: "1em",
-                  margin: 4,
-                }}
+              className="leadership-container"
+              container 
+              spacing={4}
+              justifyContent={"center"}
+              alignItems="center"
+              style={{ marginTop: "5.5em" }}>
+              <Grid2
+                className="leadership-block"
               >
                 <Typography
+                  className="leadership-title"
                   variant="h4"
-                  sx={{ color: "rgba(230, 115, 14, 1)", mb: "6px" }}
+                  style={{ color: "rgba(230, 115, 14, 1)", mb: "6px" }}
                 >
                   Leadership Credentials
                 </Typography>
-                <Typography sx={{ color: "gray", fontStyle: "italic" }}>
+                <Typography 
+                className="leadership-text"
+                style={{ color: "gray", fontStyle: "italic", marginBottom: "2em" }}>
                   Our administrative and management staff have extensive and
                   relevant experience as well as proven success managing and
                   ensuring growth and productivity of organizations in different
@@ -239,68 +242,84 @@ const HoverDropdown = ({ title, children, icon }) => {
                   organization.
                 </Typography>
 
-                <br />
-                <br />
-                <Box sx={{ textAlign: "left" }}>
+                
+                <Box style={{ textAlign: "left" }}>
                   <HoverDropdown
                     title="Uptown Hope, LLC - Founder and CEO"
                     icon={<KeyboardArrowDownIcon />}
                   >
-                    <li>
-                      Extensive background, achievements, and effectiveness in
-                      the following areas:
-                      <br />
-                      Business Planning, Development, Operation and
-                      Administration, Financial management and oversight,
-                      Leadership.
-                    </li>
-                    <li>
-                      Over 40 years of administrative, financial, management and
-                      leadership experience in the financial, healthcare,
-                      insurance, and human service industries.
-                    </li>
-                    <li>
-                      Proven success in providing effective overall leadership
-                      and oversight within the agency and between agencies and
-                      external constituencies.
-                    </li>
-                    <li>
-                      Strategic planner responsible for assuming that the agency
-                      has a long-range strategy and makes consistent and timely
-                      progress to achieve its mission.
-                    </li>
-                    <li>
-                      A focused leader who can develop and implement strategic
-                      plans and promote active and broad participation by
-                      employees and associates to provide the necessary support
-                      for the growth and success of our clients.
-                    </li>
+                    <List>
+                      <ListItem>
+                        <ArrowRightIcon />
+                        Extensive background, achievements, and effectiveness in
+                        the following areas:
+                        </ListItem>
+                        <ListItem>
+                          <ArrowRightIcon />
+                        Business Planning, Development, Operation and
+                        Administration, Financial management and oversight,
+                        Leadership.
+                      </ListItem>
+                      <ListItem>
+                        <ArrowRightIcon />
+                        Over 40 years of administrative, financial, management and
+                        leadership experience in the financial, healthcare,
+                        insurance, and human service industries.
+                      </ListItem>
+                      <ListItem>
+                        <ArrowRightIcon />
+                        Proven success in providing effective overall leadership
+                        and oversight within the agency and between agencies and
+                        external constituencies.
+                      </ListItem>
+                      <ListItem>
+                        <ArrowRightIcon />
+                        Strategic planner responsible for assuming that the agency
+                        has a long-range strategy and makes consistent and timely
+                        progress to achieve its mission.
+                      </ListItem>
+                      <ListItem>
+                        <ArrowRightIcon />
+                        A focused leader who can develop and implement strategic
+                        plans and promote active and broad participation by
+                        employees and associates to provide the necessary support
+                        for the growth and success of our clients.
+                      </ListItem>
+                    </List>
                   </HoverDropdown>
 
                   <HoverDropdown
                     title="Uptown Hope, LLC - CFO"
                     icon={<KeyboardArrowDownIcon />}
                   >
-                    <li>
+                    <List>
+                    <ListItem>
+                      <ArrowRightIcon />
                       A meticulous, dedicated high-energy professional and
                       administrator.
-                    </li>
-                    <li>
+                    </ListItem>
+                    <ListItem>
+                      <ArrowRightIcon />
                       Proven ability and extensive background and experience in
                       financial management.
-                    </li>
-                    <li>
+                    </ListItem>
+                    <ListItem>
+                      <ArrowRightIcon />
                       More than 40 years combined financial experience in the
                       financial, insurance and human services industries.
-                    </li>
+                    </ListItem>
+                    </List>
                   </HoverDropdown>
                 </Box>
               </Grid2>
+              </Grid2>
+
+
             </Paper>
           </Grid2>
         </Grid2>
       </Box>
-    </div>
+    </Box>
   );
 };
 

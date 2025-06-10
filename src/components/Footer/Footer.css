@@ -114,8 +114,14 @@ footer {
 	text-decoration: none;
 }
 
+.icons {
+	display: flex; 
+	flex-direction: row;
+	font-weight: 400; 
+}
+
 .footer-right .footer-icons {
-	margin-top: 1em;
+	margin-top: 2em;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
@@ -180,6 +186,11 @@ footer {
 	.footer-bottom {
 		text-align: center;
 		padding-left: 0;
+		gap: 1em;
+	}
+
+	.footer-right .footer-icons {
+		margin-top: 2rem;
 	}
 }
 
