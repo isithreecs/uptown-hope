@@ -10,9 +10,9 @@ const Footer = () => {
             <a href="/" className="link-1">
               Home
             </a>
-            <a href="/about2">About</a>
+            <a href="/about">About</a>
             <a href="/career-opportunities">Careers</a>
-            <a href="/StaffingSolutions2">Staffing Solutions</a>
+            <a href="/staffing-solutions">Staffing Solutions</a>
             <a href="/contact">Contact</a>
           </p>
         </div>
@@ -21,7 +21,7 @@ const Footer = () => {
           
 			<div className="footer-left">
 				<div className="logo">
-					<a href="/Home2" className="footer-logo-link">
+					<a href="/" className="footer-logo-link">
 				<img
 					src="../images/uptownhope_logo.jpeg"
 					width="240"

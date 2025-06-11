@@ -30,7 +30,7 @@ const MainNav = () => {
 
     return(
         <Navbar collapseOnSelect bg="light" expand="xxl">
-            <Navbar.Brand href="/Home">
+            <Navbar.Brand href="/">
                 <div className="nav-logo">
                     <img
                         src="../images/uptownhope_logo.jpeg"
