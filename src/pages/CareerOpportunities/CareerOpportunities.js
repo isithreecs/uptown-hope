@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Box, Typography, Grid2, Paper, Modal } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Parallax } from "react-parallax";
-import "./CareerOpp2.css";
+import "./CareerOpportunities.css";
 
 const CareerOpportunities = () => {
   let navigate = useNavigate();

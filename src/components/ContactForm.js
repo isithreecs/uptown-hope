@@ -55,7 +55,7 @@ const ContactForm = () => {
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%' }}>
           <TextField
             name="name"
-            label="*Full Name"
+            label="Name"
             variant="outlined"
             value={values.name}
             onChange={handleChange}
@@ -67,7 +67,7 @@ const ContactForm = () => {
 
           <TextField
             name="email"
-            label="*Email"
+            label="Email"
             type="email"
             variant="outlined"
             value={values.email}
@@ -80,7 +80,7 @@ const ContactForm = () => {
 
           <TextField
             name="phoneNumber"
-            label="*(xxx)xxx-xxxx"
+            label="(xxx)xxx-xxxx"
             variant="outlined"
             value={values.phoneNumber}
             onChange={handleChange}
@@ -92,7 +92,7 @@ const ContactForm = () => {
 
           <TextField
             name="description"
-            label="*Message"
+            label="Message"
             variant="outlined"
             multiline
             rows={4}

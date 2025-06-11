@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, Grid2, Typography, Paper, Collapse } from "@mui/material";
 import { Parallax } from "react-parallax";
 import { useNavigate } from "react-router-dom";
-import "./staffingsolutions2.css"
+import "./StaffingSolutions.css"
 
 
 const HoverDropdown = ({ title, children, icon }) => {
@@ -51,7 +51,7 @@ const HoverDropdown = ({ title, children, icon }) => {
   );
 };
 
-const StaffingSolutions2 = () => {
+const StaffingSolutions = () => {
   let navigate = useNavigate();
 
   function handleClick() {
@@ -383,4 +383,4 @@ const StaffingSolutions2 = () => {
   );
 };
 
-export default StaffingSolutions2;
+export default StaffingSolutions;

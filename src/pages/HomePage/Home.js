@@ -3,7 +3,7 @@ import { Box, Typography, Grid2, Card, CardContent, CardMedia, Button, keyframes
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPeace, faSun, faHourglass2, faHandsHelping } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import './Home2.css';
+import './Home.css';
 
 
 const scaleUp = keyframes`
@@ -19,7 +19,7 @@ const scaleUp = keyframes`
 
 
 
-const Home2 = () => {
+const Home = () => {
   
   let navigate = useNavigate();
   
@@ -220,4 +220,4 @@ const Home2 = () => {
     );
 }
 
-export default Home2;
+export default Home;
