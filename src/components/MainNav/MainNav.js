@@ -17,11 +17,11 @@ const MainNav = () => {
       if (currentScroll > lastScrollTop) {
 
         // Scrolling down
-        navbar.classList.add("hidden"); // Add 'hidden' class to hide the navbar
+        navbar.classList.add("hidden"); // add.('hidden') class to hide the navbar
       } else {
 
         // Scrolling up
-        navbar.classList.remove("hidden"); // Remove 'hidden' class to show the navbar
+        navbar.classList.remove("hidden"); // remove.('hidden') class to show the navbar
       }
 
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll value
@@ -30,7 +30,7 @@ const MainNav = () => {
 
     return(
         <Navbar collapseOnSelect bg="light" expand="xxl">
-            <Navbar.Brand href="/Home2">
+            <Navbar.Brand href="/home">
                 <div className="nav-logo">
                     <img
                         src="../images/uptownhope_logo.jpeg"
@@ -43,16 +43,16 @@ const MainNav = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse className="justify-content-center">
                 <Nav className="mr-auto">
-                    <LinkContainer to="/Home2">
+                    <LinkContainer to="/home">
                         <Nav.Link>Home</Nav.Link>
                     </LinkContainer>
-                    <LinkContainer to="/about2">
+                    <LinkContainer to="/about">
                         <Nav.Link>About</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/career-opportunities">
                         <Nav.Link>Careers</Nav.Link>
                     </LinkContainer>
-                    <LinkContainer to="/StaffingSolutions2">
+                    <LinkContainer to="/staffing-solutions">
                         <Nav.Link>Staffing Solutions</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/contact">
