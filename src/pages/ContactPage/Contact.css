@@ -286,3 +286,195 @@ button:focus {
 .subtitle {
     font-size: 12px;
 }
+
+
+
+/* Small Devices */
+/* Responsive style for a vertical layout on smaller screens */ 
+/* When 900px and smaller the contact form will remain at the top while the overlay to 
+   toggle between forms remains at the bottom */
+
+@media screen and (max-width: 900px) { 
+    .box-main { 
+        width: 90vw; 
+        flex-direction: column; 
+        min-height: 100vh; 
+        height: auto; 
+        position: relative; 
+        overflow: hidden; 
+    }
+
+    .main-box-form { 
+        width: 100%; 
+        height: auto; 
+        min-height: 60vh; 
+        max-height: 70vh; 
+        overflow-y: auto;
+        position: absolute; 
+        transition: all 0.6s ease-in-out; 
+    }
+
+    .associate-box { 
+        top: 0;
+        left: 0; 
+        width: 100%; 
+        opacity: 1;
+        z-index: 2;
+        transform: translateY(0); 
+    }
+
+    .contractor-box { 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        opacity: 0;
+        z-index: 1;
+        transform: translateY(100%);
+    }
+
+
+    .box-main.right-panel-active .associate-box { 
+        transform: translateY(-100%); 
+        opacity: 0; 
+        z-index: 1; 
+    }
+
+    .box-main.right-panel-active .contractor-box { 
+        transform: translateY(0); 
+        opacity: 1; 
+        z-index: 5; 
+        animation: show 0.6s; 
+    }
+
+
+    .box-main.left-panel-active .associate-box { 
+        transform: translateY(0); 
+        opacity: 1; 
+        z-index: 5; 
+        animation: show 0.6s; 
+    }
+
+    .box-main.left-panel-active .contractor-box { 
+        transform: translateY(100%); 
+        opacity: 0; 
+        z-index: 1; 
+    }
+
+    .overlay-box { 
+        width: 100%;
+        height: auto;
+        min-height: 30vh;  
+        left: 0; 
+        bottom: 0; 
+        top: 55vh; 
+        position: absolute;  
+        z-index: 100; 
+        transition: transform 0.6s ease-in-out;
+    }
+
+    .overlay { 
+        width: 100%; 
+        height: 200%;
+        left: 0; 
+        bottom: 0; 
+        top: -100%;
+        position: absolute;
+        transition: transform 0.6s ease-in-out;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .box-main.right-panel-active .overlay { 
+        transform: translateY(50%); 
+    }
+
+    .box-main.left-panel-active .overlay { 
+        transform: translateY(0);
+    }
+
+    .overlay-panel { 
+        width: 100%; 
+        height: 50%; 
+        padding: 15px;
+        position: relative;
+        transform: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center; 
+    }
+
+    .overlay-left { 
+        order: 1;
+    }
+
+    .overlay-right { 
+        order: 2;
+    }
+
+    
+    .box-main.right-panel-active .overlay-left,
+    .box-main.right-panel-active .overlay-right,
+    .box-main.left-panel-active .overlay-left,
+    .box-main.left-panel-active .overlay-right { 
+        transform: none;
+    }
+
+    .form-container { 
+        padding: 10px; 
+        height: 100%; 
+        display: flex; 
+        justify-content: flex-start; 
+    }
+
+    .form-container input, 
+    .form-container textarea { 
+        font-size: 14px; 
+        padding: 8px; 
+        margin-bottom: 10px; 
+    }
+
+    .form-container form { 
+        max-height: 100%; 
+        overflow-y: auto; 
+        height: 50vh; 
+    }
+
+    .overlay-title { 
+        font-size: 18px;
+        margin-bottom: 10px;  
+    }
+
+    .paragraph-subtitle { 
+        font-size: 13px; 
+    }
+
+    .uptown-hope p, 
+    .uptown-hope a { 
+        font-size: 16px; 
+    }
+
+    .direction-button { 
+        font-size: 14px; 
+        padding: 8px 16px; 
+        margin-top: 10px; 
+    }
+
+    @media screen and (max-width: 390px) {
+        .overlay-box { 
+        width: 100%;
+        height: auto;
+        min-height: 30vh;  
+        left: 0; 
+        bottom: 0; 
+        top: 67vh; 
+        position: absolute;  
+        z-index: 100; 
+        transition: transform 0.6s ease-in-out;
+    }
+        
+    }
+
+
+}

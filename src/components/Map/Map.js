@@ -4,6 +4,7 @@ import './Map.css';
 import { Box } from "@mui/material";
 
 // A marker component rendered at a lat/lng
+
 const LocationPin = ({ text }) => (
   <div className="marker">
     <p className="title">{text}</p>
@@ -13,18 +14,17 @@ const LocationPin = ({ text }) => (
 const Map = ({ location, zoomLevel }) => {
   const mapRef = useRef(null);
 
-  // Optional: callback when map is loaded
-  const handleApiLoaded = ({ map, maps }) => {
-    // You can do things here like add markers, info windows, etc., if needed.
-    // No need for findDOMNode.
-    mapRef.current = map;
 
-    // Example: center the map (can be done outside if not needed here)
-    // map.setCenter(location);
+  const handleApiLoaded = ({ map, maps }) => {
+    mapRef.current = map;
   };
 
   return (
-    <Box className="map" sx={{ height: '100vh', width: '100%' }}>
+
+    // Changed the height from '100vh' to '80vh' so the 'Get Directions' button is visible when the
+    // user clicks on the page. Adjust as necessary.
+
+    <Box className="map" sx={{ height: '80vh', width: '100%' }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyCwNXLxVSXuq_2Gy3pUY6XZWxNjuVbkmYs' }}
         defaultCenter={location}

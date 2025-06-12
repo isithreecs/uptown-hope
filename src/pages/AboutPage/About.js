@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Parallax } from "react-parallax";
-import { Typography, Box, Grid2, Paper, Collapse, List, ListItem } from "@mui/material";
+import { Typography, Box, Grid2, Paper, Collapse, List, ListItem, Divider } from "@mui/material";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import './About.css';
@@ -10,27 +10,24 @@ const HoverDropdown = ({ title, children, icon }) => {
     const [open, setOpen] = useState(false);
 
     return (
-
       <Box
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      style={{ marginBottom: 2, cursor: 'pointer', width: 'fit-content' }}
-      >
-      {/* {component="div"} renders the Typography tag as a <div> instead of <p> to avoid nesting issues */}
-      <Typography component="div" style={{ fontWeight: 'bold', listStyle: 'none', marginBottom: '6px' }}>
-        {title && icon && <Box style={{ mr: 1 }}>{title}{icon}</Box>}
-      </Typography>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <Box component="div" style={{ pl: 2, mt: 1 }}>
-          {children}
-        </Box>
-      </Collapse>
-    </Box>
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+        style={{ marginBottom: 2, cursor: 'pointer', width: 'fit-content' }}>
+        {/* {component="div"} renders the Typography tag as a <div> instead of <p> to avoid nesting issues */}
+        <Typography component="div" style={{ fontWeight: 'bold', listStyle: 'none', marginBottom: '6px' }}>
+          {title && icon && <Box style={{ mr: 1 }}>{title}{icon}</Box>}
+        </Typography>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <Box component="div" style={{ pl: 2, mt: 1 }}>
+            {children}
+          </Box>
+        </Collapse>
+      </Box>
     );
   };
 
-
-  const About = () => {
+const About = () => {
 
     return (
       

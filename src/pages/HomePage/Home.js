@@ -36,7 +36,7 @@ const Home = () => {
         <Box
           className="homepage-background-photo"
           sx={{
-            height: "135vh",
+            height: "145vh",
             backgroundImage: `url(${require("../coverImages/uptownhope_bkgrd.png")})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -74,7 +74,7 @@ const Home = () => {
                 color: "rgba(240, 119, 19, 0)",
                 title: "Holistic",
                 description: "approach to quality service provision for clients and associates",
-                path: '/about2',
+                path: '/about'
               },
               {
                 icon: faSun,
@@ -89,7 +89,7 @@ const Home = () => {
                 color: "#16a085",
                 title: "Preparation",
                 description: "and commitment to achieve positive outcome for clients and associates",
-                path: '/StaffingSolutions2',
+                path: '/staffing-solutions'
               },
               {
                 icon: faHandsHelping,
@@ -152,7 +152,7 @@ const Home = () => {
         >
             <Typography variant="body2" sx={{ fontSize: "1.1em"}}>
             For a full list of positions we fill, please visit the{" "}
-            <strong><a href="/StaffingSolutions2" target="_self" alt="Services page" style={{color: "rgba(230, 115, 14, 1)", fontSize: "1.5em"}}>Staffing Solutions</a></strong> page.
+            <strong><a href="/staffing-solutions" target="_self" alt="Services page" style={{color: "rgba(230, 115, 14, 1)", fontSize: "1.5em"}}>Staffing Solutions</a></strong> page.
           </Typography>
         </Box>
 

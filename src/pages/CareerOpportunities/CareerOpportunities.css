@@ -80,6 +80,7 @@
   justify-content: center !important;
   align-items: center !important;
   text-align: center !important;
+  gap: 20px; 
 }
 
 .career-card {
@@ -91,6 +92,7 @@
   background-size: cover !important;
   color: rgba(40, 39, 161, 0.93) !important;
   transition: transform 0.3s ease !important;
+  flex: 0 0 auto !important; 
 }
 
 .card-face {  
@@ -134,7 +136,7 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 24px;
-  padding: 32px;
+  padding: 30px;
 }
 
 .modal-title {
@@ -198,4 +200,16 @@
   background-color: rgba(230, 115, 14, 0.1);
 }
 
-@media (max-width: 1810px) {.card-container{ padding: 30px 120px; }} 
+
+@media (max-width: 1810px) {.card-container{ padding: 30px 120px; }}
+
+@media (min-width: 1320px) and (max-width: 1770px) {
+  .card-container {
+    justify-content: center !important;
+  }
+
+  .career-card { 
+    flex: 0 0 calc(50% - 20px); 
+    max-width: 400px; 
+  }
+}

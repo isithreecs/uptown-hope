@@ -168,17 +168,17 @@ const CareerOpportunities = () => {
                 backgroundColor: "rgba(40, 39, 161, 0.83)",
                 borderRadius: "10px",
                 padding: "10px 30px",
-                fontSize: "12px",
+                fontSize: "10px",
                 color: "white",
                 height: "60px",
-                width: "60px",
+                width: "90px",
                 mt: 3,
                 "&:hover": {
                   transform: "scale(1.1)",
                 },
               }}
-              onClick={handleClick}
-            >
+              onClick={handleClick}>
+              Contact us here!
               Apply Now
             </Button>
           </Box>
@@ -229,7 +229,7 @@ const CareerOpportunities = () => {
               padding: "8px 16px",
             }}
           >
-            Click for info
+            ADDITIONAL INFO
           </Button>
         </Paper>
       </Grid2>

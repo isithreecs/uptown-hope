@@ -17,11 +17,11 @@ const MainNav = () => {
       if (currentScroll > lastScrollTop) {
 
         // Scrolling down
-        navbar.classList.add("hidden"); // Add 'hidden' class to hide the navbar
+        navbar.classList.add("hidden"); // add.('hidden') class to hide the navbar
       } else {
 
         // Scrolling up
-        navbar.classList.remove("hidden"); // Remove 'hidden' class to show the navbar
+        navbar.classList.remove("hidden"); // remove.('hidden') class to show the navbar
       }
 
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll value

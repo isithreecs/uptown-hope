@@ -7,7 +7,7 @@ const Footer = () => {
       <footer className="footer-distributed">
         <div className="footer-top-links">
           <p className="footer-links">
-            <a href="/" className="link-1">
+            <a href="/home" className="link-1">
               Home
             </a>
             <a href="/about">About</a>
@@ -22,14 +22,14 @@ const Footer = () => {
 			<div className="footer-left">
 				<div className="logo">
 					<a href="/" className="footer-logo-link">
-				<img
-					src="../images/uptownhope_logo.jpeg"
-					width="240"
-					height="200"
-					paddingleft="1"
-					className="logo"
-					alt="Uptown Hope logo"
-				/></a>
+          <img
+            src="../images/uptownhope_logo.jpeg"
+            width="240"
+            height="200"
+            paddingleft="1"
+            className="logo"
+            alt="Uptown Hope logo"
+          /></a>
 				</div>
 			</div>
 			
