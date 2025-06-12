@@ -36,7 +36,7 @@ const Home = () => {
         <Box
           className="homepage-background-photo"
           sx={{
-            height: "135vh",
+            height: "145vh",
             backgroundImage: `url(${require("../coverImages/uptownhope_bkgrd.png")})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
