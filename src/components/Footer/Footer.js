@@ -21,15 +21,15 @@ const Footer = () => {
           
 			<div className="footer-left">
 				<div className="logo">
-					<a href="/home" className="footer-logo-link">
-				<img
-					src="../images/uptownhope_logo.jpeg"
-					width="240"
-					height="200"
-					paddingleft="1"
-					className="logo"
-					alt="Uptown Hope logo"
-				/></a>
+					<a href="/" className="footer-logo-link">
+          <img
+            src="../images/uptownhope_logo.jpeg"
+            width="240"
+            height="200"
+            paddingleft="1"
+            className="logo"
+            alt="Uptown Hope logo"
+          /></a>
 				</div>
 			</div>
 			

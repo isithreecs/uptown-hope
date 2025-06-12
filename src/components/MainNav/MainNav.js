@@ -30,7 +30,7 @@ const MainNav = () => {
 
     return(
         <Navbar collapseOnSelect bg="light" expand="xxl">
-            <Navbar.Brand href="/home">
+            <Navbar.Brand href="/">
                 <div className="nav-logo">
                     <img
                         src="../images/uptownhope_logo.jpeg"
@@ -43,7 +43,7 @@ const MainNav = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse className="justify-content-center">
                 <Nav className="mr-auto">
-                    <LinkContainer to="/home">
+                    <LinkContainer to="/">
                         <Nav.Link>Home</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/about">

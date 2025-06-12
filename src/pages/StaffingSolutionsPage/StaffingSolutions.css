@@ -61,11 +61,10 @@ justify-content: center;
 }
 
 @media (max-width: 615px) { 
-
+  
   .parallax-section { 
     height: 65vh !important
   }
-
   .main-card { 
     height: auto !important; 
     width: 85vw !important; 
@@ -92,6 +91,7 @@ justify-content: center;
   .bullet-points-right { 
     width: 100% !important; 
     height: auto !important; 
+
     margin: 0 10px !important; 
     padding: 10px !important;
   }

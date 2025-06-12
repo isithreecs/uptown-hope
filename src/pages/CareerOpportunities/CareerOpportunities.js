@@ -177,9 +177,9 @@ const CareerOpportunities = () => {
                   transform: "scale(1.1)",
                 },
               }}
-              onClick={handleClick}
-            >
+              onClick={handleClick}>
               Contact us here!
+              Apply Now
             </Button>
           </Box>
   

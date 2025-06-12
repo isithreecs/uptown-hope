@@ -74,7 +74,7 @@ const Home = () => {
                 color: "rgba(240, 119, 19, 0)",
                 title: "Holistic",
                 description: "approach to quality service provision for clients and associates",
-                path: '/about',
+                path: '/about'
               },
               {
                 icon: faSun,
@@ -89,7 +89,7 @@ const Home = () => {
                 color: "#16a085",
                 title: "Preparation",
                 description: "and commitment to achieve positive outcome for clients and associates",
-                path: '/staffing-solutions',
+                path: '/staffing-solutions'
               },
               {
                 icon: faHandsHelping,

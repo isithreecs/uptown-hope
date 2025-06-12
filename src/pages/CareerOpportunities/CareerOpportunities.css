@@ -200,6 +200,7 @@
   background-color: rgba(230, 115, 14, 0.1);
 }
 
+
 @media (max-width: 1810px) {.card-container{ padding: 30px 120px; }}
 
 @media (min-width: 1320px) and (max-width: 1770px) {

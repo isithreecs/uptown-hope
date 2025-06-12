@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+
 import { Route, Routes } from 'react-router-dom'
 import MainNav from './components/MainNav/MainNav';
 import Footer from './components/Footer/Footer';
@@ -10,6 +10,7 @@ import About from './pages/AboutPage/About';
 import StaffingSolutions from './pages/StaffingSolutionsPage/StaffingSolutions';
 import Home from './pages/HomePage/Home';
 
+import './App.css';
 
 class App extends Component {
   
@@ -25,7 +26,6 @@ class App extends Component {
             <Route path='/career-opportunities' element={<CareerOpportunities />} />
             <Route path='/about' element={<About />} />
             <Route path='/staffing-solutions' element={<StaffingSolutions />} />
-            <Route path='/home' element={<Home />} />
           </Routes>
         </div>
         <Footer />
