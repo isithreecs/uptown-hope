@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, Grid2, Typography, Paper, Collapse } from "@mui/material";
 import { Parallax } from "react-parallax";
 import { useNavigate } from "react-router-dom";
-import "./Staffingsolutions.css"
+import "./StaffingSolutions.css"
 
 
 
