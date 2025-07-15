@@ -67,7 +67,7 @@ const ContactForm = ({ formType }) => {
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%' }}>
           <TextField
             name="name"
-            label="Name"
+            label={formType === 'contractor' ? "Company Name" : "Name"}
             variant="outlined"
             value={values.name}
             onChange={handleChange}
