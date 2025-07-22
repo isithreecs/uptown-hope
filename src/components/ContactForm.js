@@ -4,7 +4,8 @@ import { Box, Button, TextField } from '@mui/material';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-const ContactForm = () => {
+
+const ContactForm = ({ formType }) => {
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const phoneRegex = /^(\(?\d{0,4}\)?)?\s?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
@@ -18,6 +19,12 @@ const ContactForm = () => {
       .required("Must enter a phone number"),
     description: Yup.string().required("Please include a short description of your need!"),
   });
+
+  const getSuccessMessage = () => { 
+      return formType === 'contractor'
+      ? 'Success! You submitted your message as a contractor.'
+      : 'Success! You submitted your message as an associate.'; 
+  };
 
   return (
     <Formik
@@ -33,14 +40,19 @@ const ContactForm = () => {
           axios.post('http://localhost:5000/send', values)
             .then((response) => {
               if (response.data.status === 'success') {
-                alert('Message sent.');
+                alert(getSuccessMessage());
               } else {
                 alert('Message failed to send.');
               }
-            });
-
-          resetForm();
-          setSubmitting(false);
+            })
+            .catch((error) => {
+              console.error('Error sending message: ', error.message);
+              alert('Message failed to send.'); 
+            })
+            .finally(() => {
+              resetForm();
+              setSubmitting(false);
+            }); 
         }, 400);
       }}
     >
@@ -55,7 +67,7 @@ const ContactForm = () => {
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%' }}>
           <TextField
             name="name"
-            label="Name"
+            label={formType === 'contractor' ? "Company Name" : "Name"}
             variant="outlined"
             value={values.name}
             onChange={handleChange}

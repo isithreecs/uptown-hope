@@ -81,7 +81,7 @@ const Contact = () => {
                   <h1>Contractor Contact</h1>
                   <span className="subtitle">Contact us here if you're a contractor!</span>
                   
-                  <ContactForm />                  
+                  <ContactForm formType="contractor"/>                  
  
                 </div>
               </div>
@@ -92,7 +92,7 @@ const Contact = () => {
                   <h1>Associate Contact</h1>
                   <span className="subtitle">Contact us here if you're an associate!</span>
                   
-                  <ContactForm />
+                  <ContactForm formType="associate"/>
 
                 </div>
               </div>
