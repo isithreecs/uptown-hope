@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Parallax } from "react-parallax";
-import { Typography, Box, Grid2, Paper, Collapse, List, ListItem, Divider } from "@mui/material";
+import { Typography, Box, Grid2, Paper, Collapse, List, ListItem } from "@mui/material";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import './About.css';

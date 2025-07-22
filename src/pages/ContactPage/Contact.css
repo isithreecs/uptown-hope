@@ -20,7 +20,7 @@ p {
 }
 
 .uptown-hope {
-    padding-top: 1em;
+    /* padding-top: 1em; */
     text-align: center;
     margin: auto;
 }
@@ -36,7 +36,7 @@ p {
 }
 
 .contact-info-box {
-    width: 100%;
+    /* width: 100%; */
     text-align: center;
     margin: auto;
 }
