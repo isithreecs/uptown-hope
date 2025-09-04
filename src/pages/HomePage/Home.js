@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography, Grid2, Card, CardContent, CardMedia, Button, keyframes } from '@mui/material';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPeace, faSun, faHourglass2, faHandsHelping } from "@fortawesome/free-solid-svg-icons";
@@ -15,9 +14,7 @@ const scaleUp = keyframes`
     transform: scale(1.2);
     color: rgba(230, 115, 23, 0.8);
     }
-`;
-
-
+`; 
 
 const Home = () => {
   
@@ -36,8 +33,8 @@ const Home = () => {
         <Box
           className="homepage-background-photo"
           sx={{
-            height: "145vh",
-            backgroundImage: `url(${require("../coverImages/uptownhope_bkgrd.png")})`,
+            height: "115vh",
+            backgroundImage: `url(${require("../coverImages/open_door.jpg")})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             display: "flex",
@@ -45,20 +42,68 @@ const Home = () => {
             alignItems: "center",
             color: "white",
             textAlign: "center",
-            px: 2,
+            marginTop: "1em",
+            mx: "3em",
+            position: "relative"
           }}
         >
+          <Box >
+            <img
+            src="../images/uptownhope_logo.jpeg"
+            alt="Uptown Hope logo" 
+            width="750"
+            height="500" 
+            marginTop="0"/>
+            <Box className="header-title-and-text-container"
+              // style={{justifyContent: "center", alignItems: "center", position: "relative", }}
+              >
+              <Typography
+                className="header-title"
+                variant="h2"
+                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)" }}
+              >
+                Staffing done right. 
+              </Typography>
+              <Typography
+                className="header-text"
+                variant="body1"
+                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)", marginTop: "20px", fontSize: "1.5rem" }}
+              >
+                We connect the most qualified individuals to the companies that need them.
+              </Typography>
+              <br />
+              <Button 
+                variant="outlined"
+                sx={{
+                  backgroundColor: 'rgb(230, 115, 23)',
+                  borderRadius: '25px'
+                }}>
+                 Get Staffing 
+              </Button>
+              <Button
+                variant="outlined"
+                sx={{
+                  backgroundColor: 'rgb(230, 115, 23)',
+                  borderRadius: '25px'
+                }}>
+                Find Positions
+              </Button>
+              </Box>
+            </Box>
         </Box>
         <div 
         className="about-company-card-container"
-        style={{display: "flex", height: "20vh", justifyContent: "center", alignItems: "center"}}>
-        <Typography variant="body2" sx={{ fontSize: "1.1em", m: 3, color: "#0b2ca3"}}>
-            <strong style={{fontSize: "23px"}}>Uptown Hope (UH) </strong>  
-            is a privately held limited liability company organized under the laws of the
-            State of Maryland. Uptown Hope offers staff support to organizations for a wide variety of
-            positions to cover staff shortages due to PTO, sickness, leave of absence, vacancies,
-            or to support sudden increase in workload due to growth and increased productivity needs.
-            </Typography>
+        style={{display: "flex", 
+                height: "20vh", 
+                justifyContent: "center", 
+                alignItems: "center"}}>
+          <Typography variant="body2" sx={{ fontSize: "1.1em", m: 3, color: "#0b2ca3"}}>
+              <strong style={{fontSize: "23px"}}>Uptown Hope (UH) </strong>  
+                is a privately held limited liability company organized under the laws of the
+                State of Maryland. Uptown Hope offers staff support to organizations for a wide variety of
+                positions to cover staff shortages due to PTO, sickness, leave of absence, vacancies,
+                or to support sudden increase in workload due to growth and increased productivity needs.
+          </Typography>
         </div>
         <Box
           className="clickable-cards-container">
