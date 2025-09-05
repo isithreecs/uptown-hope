@@ -15,8 +15,8 @@ const Contact = () => {
   return (
     <Box sx={{ paddingTop:'75px' }}>
       <h2 id="title">Contact Us</h2>
-      <Box sx={{ display: 'flex', margin: '1em' }}>
-      <Box sx={{marginRight: '1em'}}>
+      <Box sx={{ display: 'flex', margin: '0 4em' }}>
+      <Box>
         <Map location={location} zoomLevel={17} className="map" />
          <div className="contact-info-box">
             <div className="uptown-hope">
@@ -46,11 +46,14 @@ const Contact = () => {
           borderRadius: '10px',
           boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
           position: 'relative',
-          // overflow: 'hidden',
+          overflow: 'hidden',
           width: '55vw',
-          margin: '5em 0', 
-          justifyContent: "center" }}>
-          <ContactForm formType="contact" className="form" />
+          margin: '5em 1em 5.5em 9.5em', 
+          justifyContent: "center" }}
+          >
+          <Box sx={{ margin: '3em 3em 1em 3em' }}>
+            <ContactForm formType="contact" className="form" />
+          </Box>
       </Box>
     </Box>
     </Box>

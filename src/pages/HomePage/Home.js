@@ -47,7 +47,7 @@ const Home = () => {
             position: "relative"
           }}
         >
-          <Box >
+          <Box>
             <img
             src="../images/uptownhope_logo.jpeg"
             alt="Uptown Hope logo" 

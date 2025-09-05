@@ -1,4 +1,3 @@
-import React from 'react';
 import axios from 'axios';
 import { Box, Button, TextField } from '@mui/material';
 import { Formik } from 'formik';
@@ -66,7 +65,14 @@ const ContactForm = ({ formType }) => {
         touched,
         errors,
       }) => (
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%' }}>
+        <Box component="form" 
+             noValidate 
+             onSubmit={handleSubmit} 
+             sx={{ display: 'flex', 
+                   flexDirection: 'column', 
+                   gap: 3.5,
+                   padding: '2em 5em 0 5em', 
+                   width: '100%' }}>
           <TextField
             name="name"
             label="name"
@@ -142,16 +148,16 @@ const ContactForm = ({ formType }) => {
             fullWidth
           />
 
-          <Box textAlign="right">
+          <Box textAlign="center">
             <Button 
               variant="contained" 
               sx={{ justifyContent: 'center',
                     alignItems: 'center',
                     backgroundColor: 'rgba(230, 115, 23, .9)',
-                    margin: '1.3em 0',
+                    margin: '1em 0',
                     fontWeight: 'bold',
                     borderRadius: '60px',
-                    padding: '10px 30px', 
+                    padding: '10px 55px', 
                     fontSize: '16px', 
                     borderColor: 'rgba(15, 3, 196, 1)',
                     color: 'rgba(15, 3, 196, 1)',
