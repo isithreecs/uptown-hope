@@ -42,17 +42,22 @@ const Home = () => {
             alignItems: "center",
             color: "white",
             textAlign: "center",
-            marginTop: "1em",
+            marginTop: "-1em",
             mx: "3em",
             position: "relative"
           }}
         >
-          <Box>
+          <Box
+            sx={{ 
+              position: "absolute", 
+              // top: "8%"
+            }}
+          >
             <img
             src="../images/uptownhope_logo.jpeg"
             alt="Uptown Hope logo" 
-            width="750"
-            height="500" 
+            width="375vw"
+            height="250vh" 
             marginTop="0"/>
             <Box className="header-title-and-text-container"
               // style={{justifyContent: "center", alignItems: "center", position: "relative", }}
@@ -67,7 +72,7 @@ const Home = () => {
               <Typography
                 className="header-text"
                 variant="body1"
-                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)", marginTop: "20px", fontSize: "1.5rem" }}
+                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)", marginTop: "130px", fontSize: "1.2rem" }}
               >
                 We connect the most qualified individuals to the companies that need them.
               </Typography>
@@ -76,7 +81,10 @@ const Home = () => {
                 variant="outlined"
                 sx={{
                   backgroundColor: 'rgb(230, 115, 23)',
-                  borderRadius: '25px'
+                  borderRadius: '25px', 
+                  position: "relative", 
+                  right: "30px", 
+                  color: "rgb(45, 48, 152)"
                 }}>
                  Get Staffing 
               </Button>
@@ -84,7 +92,10 @@ const Home = () => {
                 variant="outlined"
                 sx={{
                   backgroundColor: 'rgb(230, 115, 23)',
-                  borderRadius: '25px'
+                  borderRadius: '25px', 
+                  position: "relative", 
+                  left: "30px", 
+                  color: "rgb(45, 48, 152)"
                 }}>
                 Find Positions
               </Button>
