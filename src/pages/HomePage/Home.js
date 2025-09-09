@@ -59,13 +59,13 @@ const Home = () => {
             sx={{ 
               padding: "6.5em 22em"
             }}>
-            <div className="logo">
+            <div>
               <img
                 id='home-logo'
                 src="../images/uptownhope_logo.jpeg"
                 alt="Uptown Hope logo" 
-                width="640vw" 
-              />
+                width="625vw" 
+            />
             </div>
             <Box className="header-title-and-text-container"
               style={{ padding: "0 5em" }}
@@ -85,48 +85,51 @@ const Home = () => {
                 We connect the most qualified individuals to the companies that need them.
               </Typography>
               <br />
-              <Button 
-                variant="outlined"
-                onClick={handleClickCar}
-                sx={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: 'rgba(230, 115, 23, .9)',
-                    margin: '1em 0',
-                    fontWeight: 'bold',
-                    borderRadius: '60px',
-                    padding: '10px 40px', 
-                    fontSize: '16px', 
-                    borderColor: 'rgba(15, 3, 196, 1)',
-                    textTransform: 'uppercase',
-                    transition: 'transform 80ms ease-in',
-                    cursor: 'pointer',  
-                  right: "20px", 
-                  color: "rgb(45, 48, 152)"
-                }}>
-                 Explore Careers 
-              </Button>
-              <Button
-                variant="outlined"
-                onClick={handleClickSS}
-                sx={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: 'rgba(230, 115, 23, .9)',
-                    margin: '1em 0',
-                    fontWeight: 'bold',
-                    borderRadius: '60px',
-                    padding: '10px 40px', 
-                    fontSize: '16px', 
-                    borderColor: 'rgba(15, 3, 196, 1)',
-                    textTransform: 'uppercase',
-                    transition: 'transform 80ms ease-in',
-                    cursor: 'pointer',  
-                    left: "20px", 
+              <Grid2>
+                <Button 
+                  variant="outlined"
+                  onClick={handleClickCar}
+                  sx={{
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: 'rgba(230, 115, 23, .9)',
+                      margin: '1em 0',
+                      fontWeight: 'bold',
+                      borderRadius: '60px',
+                      padding: '10px 40px', 
+                      fontSize: '16px', 
+                      borderColor: 'rgba(15, 3, 196, 1)',
+                      textTransform: 'uppercase',
+                      transition: 'transform 80ms ease-in',
+                      cursor: 'pointer',  
+                    right: "20px", 
                     color: "rgb(45, 48, 152)"
-                }}>
-                    Find Staff
-              </Button>
+                  }}>
+                  Explore Careers 
+                </Button>
+                <Button
+                  variant="outlined"
+                  onClick={handleClickSS}
+                  sx={{
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: 'rgba(230, 115, 23, .9)',
+                      margin: '1em 0',
+                      fontWeight: 'bold',
+                      borderRadius: '60px',
+                      padding: '10px 40px', 
+                      fontSize: '16px', 
+                      borderColor: 'rgba(15, 3, 196, 1)',
+                      textTransform: 'uppercase',
+                      transition: 'transform 80ms ease-in',
+                      cursor: 'pointer',  
+                      left: "20px", 
+                      color: "rgb(45, 48, 152)"
+                  }}>
+                      Find Staff
+                </Button>
+
+              </Grid2>
             </Box>
           </Box>
       </Box>

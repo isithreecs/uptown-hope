@@ -22,7 +22,7 @@
 @media  (min-width: 1701px) and (max-width: 1950px) {
 
     .background-content-container {
-        padding: 8em 11em !important;
+        padding: 10em 11em !important;
     }
 
     .header-title-and-text-container {
@@ -43,6 +43,18 @@
         padding: 0 7em !important; 
     }
 
+    .background-content-container {
+        padding: 10em 15em !important;
+    }
+
+    #home-logo {
+        width: 525px;
+    }
+
+    .header-title {
+        font-size: 3em !important; 
+    }
+
     .header-text {
         margin: 12.5em 5em 0 5em !important;
     }
@@ -58,6 +70,10 @@
 
     .background-content-container {
         padding: 10em 15em !important;
+    }
+
+    #home-logo {
+        width: 500px;
     }
 
     .header-title-and-text-container {
@@ -79,14 +95,38 @@
 }
 
 @media (min-width: 1251px) and (max-width: 1450px) { 
-    .homepage-background-photo {
-        /* background-position-y: 52% !important;  */
+    .background-content-container {
+        padding: 13em 8em !important;
+    }
+
+    .background-content-container {
+        padding: 13em 12em !important;
+    }
+
+    .header-title {
+        font-size: 2.5em !important;
+    }
+
+    .header-text {
+        margin: 12em 0 0 0 !important;
     }
 }
 
 @media (max-width: 1250px) { 
-    .homepage-background-photo {
-        background-position-y: 150% !important;
+    .background-content-container {
+        padding: 13em 8em !important;
+    }
+
+    .background-content-container {
+        padding: 13em 12em !important;
+    }
+
+    .header-title {
+        font-size: 2.5em !important;
+    }
+
+    .header-text {
+        margin: 12em 0 0 0 !important;
     }
 
     .header-title-and-text-container {
@@ -100,11 +140,11 @@
 
 @media (min-width: 901px) and (max-width: 1150px) {
     .background-content-container {
-        padding: 12em 8em !important;
+        padding: 13em 8em !important;
     }
 
     .background-content-container {
-        padding: 13em 10em !important;
+        padding: 13em 12em !important;
     }
 
     .header-title {
@@ -160,7 +200,7 @@
     }
 
     .header-text {
-        margin: 11em 2em 0 2em !important;
+        margin: 14em 3em 0 3em !important;
         font-size: 1.1em !important;
     }
 
@@ -214,7 +254,7 @@
     }
 
     .header-text {
-        margin: 11em 2em 0 2em !important;
+        margin: 10em 0 0 0 !important;
         font-size: 1.1em !important;
     }
 
@@ -248,7 +288,7 @@
 
 @media (max-width: 550px) {
     #home-logo {
-        width: 300px;
+        width: 330px;
     }
 }
 
