@@ -22,7 +22,6 @@ const Home = () => {
   
   return (
       <div>
-
         {/* Landing Page Background Image */}
 
         {/* 'sx={{}}' is used for styling in Material UI. It's a shorthand for 
@@ -33,46 +32,45 @@ const Home = () => {
         <Box
           className="homepage-background-photo"
           sx={{
-            height: "115vh",
+            height: "120vh",
             backgroundImage: `url(${require("../coverImages/open_door.jpg")})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "white",
-            textAlign: "center",
-            marginTop: "-1em",
-            mx: "3em",
-            position: "relative"
+            backgroundPositionY:"38%",
+            backgroundRepeat: "no-repeat",
+            // display: "flex",
+            // justifyContent: "center",
+            // alignItems: "center",
+            // textAlign: "center",
+            // mx: "3em",
+            // // position: "relative"
           }}
         >
           <Box
+          className="background-content-container"
             sx={{ 
-              position: "absolute", 
-              // top: "8%"
-            }}
-          >
-            <img
-            src="../images/uptownhope_logo.jpeg"
-            alt="Uptown Hope logo" 
-            width="375vw"
-            height="250vh" 
-            marginTop="0"/>
+              padding: "6.5em 22em"
+            }}>
+              <img
+                id='home-logo'
+                src="../images/uptownhope_logo.jpeg"
+                alt="Uptown Hope logo" 
+                width="500vw" 
+            />
             <Box className="header-title-and-text-container"
-              // style={{justifyContent: "center", alignItems: "center", position: "relative", }}
+              style={{ padding: "0 5em" }}
               >
               <Typography
                 className="header-title"
                 variant="h2"
-                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)" }}
+                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)"}}
               >
                 Staffing done right. 
               </Typography>
               <Typography
                 className="header-text"
                 variant="body1"
-                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)", marginTop: "130px", fontSize: "1.2rem" }}
+                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)", margin: "14.5em 5em 0 5em", fontSize: "1.4rem" }}
               >
                 We connect the most qualified individuals to the companies that need them.
               </Typography>
@@ -80,10 +78,19 @@ const Home = () => {
               <Button 
                 variant="outlined"
                 sx={{
-                  backgroundColor: 'rgb(230, 115, 23)',
-                  borderRadius: '25px', 
-                  position: "relative", 
-                  right: "30px", 
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: 'rgba(230, 115, 23, .9)',
+                    margin: '1em 0',
+                    fontWeight: 'bold',
+                    borderRadius: '60px',
+                    padding: '10px 40px', 
+                    fontSize: '16px', 
+                    borderColor: 'rgba(15, 3, 196, 1)',
+                    textTransform: 'uppercase',
+                    transition: 'transform 80ms ease-in',
+                    cursor: 'pointer',  
+                  right: "20px", 
                   color: "rgb(45, 48, 152)"
                 }}>
                  Get Staffing 
@@ -91,18 +98,27 @@ const Home = () => {
               <Button
                 variant="outlined"
                 sx={{
-                  backgroundColor: 'rgb(230, 115, 23)',
-                  borderRadius: '25px', 
-                  position: "relative", 
-                  left: "30px", 
-                  color: "rgb(45, 48, 152)"
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: 'rgba(230, 115, 23, .9)',
+                    margin: '1em 0',
+                    fontWeight: 'bold',
+                    borderRadius: '60px',
+                    padding: '10px 40px', 
+                    fontSize: '16px', 
+                    borderColor: 'rgba(15, 3, 196, 1)',
+                    textTransform: 'uppercase',
+                    transition: 'transform 80ms ease-in',
+                    cursor: 'pointer',  
+                    left: "20px", 
+                    color: "rgb(45, 48, 152)"
                 }}>
                 Find Positions
               </Button>
-              </Box>
             </Box>
-        </Box>
-        <div 
+          </Box>
+      </Box>
+      <div 
         className="about-company-card-container"
         style={{display: "flex", 
                 height: "20vh", 
@@ -118,10 +134,6 @@ const Home = () => {
         </div>
         <Box
           className="clickable-cards-container">
-          {/* '<Grid>' is deprecated in Material UI v5, and '<Grid2>' is the new replacement 
-          for layout control (like a <div> but with built-in grid functionality). */}
-          {/* By default, <Grid2> uses CSS layout (display: grid). */}
-
           {/* Mapping over an array of services to render service cards dynamically. */}
           <Grid2 className="clickable-cards" container spacing={4} justifyContent="center">
             {[
@@ -270,8 +282,6 @@ const Home = () => {
             </Grid2>
           </Grid2>
         </Box>
-        
-        
       </div>
     );
 }
