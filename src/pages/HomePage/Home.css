@@ -1,7 +1,222 @@
 /* Home page Media Queries */
 
+@media (min-width: 1951px) and (max-width: 2250px) { 
+    .header-title-and-text-container {
+        padding: 0 13.8em !important; 
+    }
+
+    #home-logo {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .header-title {
+        font-size: 3.8em !important; 
+    }
+
+    .header-text {
+        margin: 18em 10em 0 10em !important;
+    }
+}
+
+@media  (min-width: 1701px) and (max-width: 1950px) {
+
+    .background-content-container {
+        padding: 8em 11em !important;
+    }
+
+    .header-title-and-text-container {
+        padding: 0 10em !important; 
+    }
+
+    .header-title {
+        font-size: 3em !important; 
+    }
+
+    .header-text {
+        margin: 13.5em 7em 0 7em !important;
+    }
+}
+
+@media (min-width: 1451px) and (max-width: 1700px) {
+    .header-title-and-text-container {
+        padding: 0 7em !important; 
+    }
+
+    .header-text {
+        margin: 12.5em 5em 0 5em !important;
+    }
+}
+
+
+@media (min-width: 1151px) and (max-width: 1450px) { 
+    .clickable-cards .MuiCard-root { 
+        height: 14rem ;
+        width: 20rem ;
+        margin: 0 auto ;
+    }
+
+    .background-content-container {
+        padding: 10em 15em !important;
+    }
+
+    .header-title-and-text-container {
+        padding: 0 !important; 
+    }
+
+    .header-title {
+        font-size: 2.8em !important; 
+    }
+
+    .header-text {
+        margin: 15em 3em 0 3em !important;
+    }
+
+    .clickable-cards-container { 
+        margin-left: 200px ;
+        margin-right: 200px ; 
+    }
+}
+
+@media (min-width: 1251px) and (max-width: 1450px) { 
+    .homepage-background-photo {
+        /* background-position-y: 52% !important;  */
+    }
+}
+
+@media (max-width: 1250px) { 
+    .homepage-background-photo {
+        background-position-y: 150% !important;
+    }
+
+    .header-title-and-text-container {
+        padding: 0 !important; 
+    }
+
+    #home-logo {
+        width: 400px;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1150px) {
+    .background-content-container {
+        padding: 12em 8em !important;
+    }
+
+    .background-content-container {
+        padding: 13em 10em !important;
+    }
+
+    .header-title {
+        font-size: 2.5em !important;
+    }
+
+    .header-text {
+        margin: 12em 0 0 0 !important;
+    }
+
+    .about-company-card-container { 
+        margin: 10px auto ;
+        display: flex ;
+        justify-content: center ;
+        align-items: center ;
+        margin-top: 2em ;
+        margin-bottom: 2em ; 
+        padding: 25px ; 
+    }
+
+    .about-company-card { 
+        display: flex ;
+        justify-content: center ;
+        align-items: center ;
+        text-align: center ; 
+    }
+
+    .clickable-cards .MuiCard-root { 
+        width: 60vw ;
+        height: auto ;
+    }
+}
+
+@media (max-width: 900px) { 
+   .background-content-container {
+        padding: 13em 3em !important;
+    }
+
+    .logo {
+        margin: 0 2em;
+    }
+
+    #home-logo {
+        width: 400px;
+    }
+
+    .header-title-and-text-container {
+        padding: 0 3em!important; 
+    }
+
+    .header-title {
+        font-size: 2.2em !important;
+    }
+
+    .header-text {
+        margin: 11em 2em 0 2em !important;
+        font-size: 1.1em !important;
+    }
+
+    .about-company-card-container { 
+        padding: 20px ;
+        margin-top: 3.5em ;
+        margin-bottom: 120px ;
+    }
+
+    .clickable-cards .MuiCard-root { 
+        width: 90vw ;
+        height: auto ;
+        margin-bottom: 20px; 
+        gap: .5rem ;
+    }
+
+    .contact-section-text { 
+        margin-top: 20px ;
+        font-size: 1rem ;
+    }
+
+    .contact-section img { 
+        width: 100% ;
+        height: 200 ;
+    }
+}
+
 @media (min-width: 550px) and (max-width: 750px) { 
-   
+    .homepage-background-photo {
+        background-position-y: 0% !important; 
+    }
+    
+    .background-content-container {
+        padding: 14em 3em !important;
+    }
+
+    .logo {
+        margin: 0 2em;
+    }
+
+    #home-logo {
+        width: 400px;
+    }
+
+    .header-title-and-text-container {
+        padding: 0 3em!important; 
+    }
+
+    .header-title {
+        font-size: 2.2em !important;
+    }
+
+    .header-text {
+        margin: 11em 2em 0 2em !important;
+        font-size: 1.1em !important;
+    }
 
     .about-company-card-container { 
         padding: 1.5em ;
@@ -31,115 +246,9 @@
     }
 }
 
-@media (min-width: 751px) and (max-width: 900px) { 
-    .background-content-container {
-        padding: 15em 10em !important;
-    }
-
-    .about-company-card-container { 
-        padding: 20px ;
-        margin-top: 3.5em ;
-        margin-bottom: 120px ;
-    }
-
-    .clickable-cards .MuiCard-root { 
-        width: 90vw ;
-        height: auto ;
-        margin-bottom: 20px; 
-        gap: .5rem ;
-    }
-
-    .contact-section-text { 
-        margin-top: 20px ;
-        font-size: 1rem ;
-    }
-
-    .contact-section img { 
-        width: 100% ;
-        height: 200 ;
-    }
-}
-
-@media (min-width: 901px) and (max-width: 1150px) {
-    .background-content-container {
-        padding: 10em 15em !important;
-    }
-    
-    .header-title {
-        font-size: 2.5em !important;
-    }
-
-    .header-text {
-        margin-top: 2em !important;
-    }
-
+@media (max-width: 550px) {
     #home-logo {
-        width: 28vw !important;
-    }
-
-    .about-company-card-container { 
-        margin: 10px auto ;
-        display: flex ;
-        justify-content: center ;
-        align-items: center ;
-        margin-top: 2em ;
-        margin-bottom: 2em ; 
-        padding: 25px ; 
-    }
-
-    .about-company-card { 
-        display: flex ;
-        justify-content: center ;
-        align-items: center ;
-        text-align: center ; 
-    }
-
-    .clickable-cards .MuiCard-root { 
-        width: 60vw ;
-        height: auto ;
-    }
-}
-
-
-
-@media (min-width: 981px) and (max-width: 1919px) { 
-    .about-company-card-container { 
-        padding: 25px ; 
-    }
-
-    .clickable-cards .MuiCard-root { 
-        width: 20rem ;
-        height: 14rem ;
-        margin: 0 auto ;
-    }
-}
-
-@media (min-width: 1150px) and (max-width: 1450px) { 
-    .clickable-cards .MuiCard-root { 
-        height: 14rem ;
-        width: 20rem ;
-        margin: 0 auto ;
-    }
-
-    .header-title-and-text-container {
-        padding: 0 !important; 
-    }
-
-    .header-title {
-        font-size: 2.8em !important; 
-    }
-
-    .header-text {
-        margin: 8em 3em 0 3em !important;
-    }
-
-    #home-logo {
-        width: 33vw !important;
-    }
-
-    .clickable-cards-container { 
-        margin-left: 200px ;
-        margin-right: 200px ; 
+        width: 300px;
     }
 }
 

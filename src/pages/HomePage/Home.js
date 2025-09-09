@@ -19,6 +19,14 @@ const scaleUp = keyframes`
 const Home = () => {
   
   let navigate = useNavigate();
+
+  function handleClickSS() {
+    navigate("/staffing-solutions");
+  }
+
+  function handleClickCar() {
+    navigate("/career-opportunities");
+  }
   
   return (
       <div>
@@ -43,7 +51,7 @@ const Home = () => {
             // alignItems: "center",
             // textAlign: "center",
             // mx: "3em",
-            // // position: "relative"
+            position: "relative"
           }}
         >
           <Box
@@ -51,12 +59,14 @@ const Home = () => {
             sx={{ 
               padding: "6.5em 22em"
             }}>
+            <div className="logo">
               <img
                 id='home-logo'
                 src="../images/uptownhope_logo.jpeg"
                 alt="Uptown Hope logo" 
-                width="500vw" 
-            />
+                width="640vw" 
+              />
+            </div>
             <Box className="header-title-and-text-container"
               style={{ padding: "0 5em" }}
               >
@@ -77,6 +87,7 @@ const Home = () => {
               <br />
               <Button 
                 variant="outlined"
+                onClick={handleClickCar}
                 sx={{
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -93,10 +104,11 @@ const Home = () => {
                   right: "20px", 
                   color: "rgb(45, 48, 152)"
                 }}>
-                 Get Staffing 
+                 Explore Careers 
               </Button>
               <Button
                 variant="outlined"
+                onClick={handleClickSS}
                 sx={{
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -113,7 +125,7 @@ const Home = () => {
                     left: "20px", 
                     color: "rgb(45, 48, 152)"
                 }}>
-                Find Positions
+                    Find Staff
               </Button>
             </Box>
           </Box>
@@ -220,7 +232,7 @@ const Home = () => {
         >
             <Typography variant="body2" sx={{ fontSize: "1.1em"}}>
             For a full list of positions we fill, please visit the{" "}
-            <strong><a href="/staffing-solutions" target="_self" alt="Services page" style={{color: "rgba(230, 115, 14, 1)", fontSize: "1.5em"}}>Staffing Solutions</a></strong> page.
+            <strong><a href="/staffing-solutions" target="_self" alt="Staffing Solutions page" style={{color: "rgba(230, 115, 14, 1)", fontSize: "1.5em"}}>Staffing Solutions</a></strong> page.
           </Typography>
         </Box>
 
