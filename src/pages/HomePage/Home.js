@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography, Grid2, Card, CardContent, CardMedia, Button, keyframes } from '@mui/material';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPeace, faSun, faHourglass2, faHandsHelping } from "@fortawesome/free-solid-svg-icons";
@@ -15,17 +14,22 @@ const scaleUp = keyframes`
     transform: scale(1.2);
     color: rgba(230, 115, 23, 0.8);
     }
-`;
-
-
+`; 
 
 const Home = () => {
   
   let navigate = useNavigate();
+
+  function handleClickSS() {
+    navigate("/staffing-solutions");
+  }
+
+  function handleClickCar() {
+    navigate("/career-opportunities");
+  }
   
   return (
       <div>
-
         {/* Landing Page Background Image */}
 
         {/* 'sx={{}}' is used for styling in Material UI. It's a shorthand for 
@@ -36,36 +40,115 @@ const Home = () => {
         <Box
           className="homepage-background-photo"
           sx={{
-            height: "145vh",
-            backgroundImage: `url(${require("../coverImages/uptownhope_bkgrd.png")})`,
+            height: "130vh",
+            backgroundImage: `url(${require("../coverImages/open_door.jpg")})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "white",
-            textAlign: "center",
-            px: 2,
+            backgroundPositionY:"38%",
+            backgroundRepeat: "no-repeat",
+            // display: "flex",
+            // justifyContent: "center",
+            // alignItems: "center",
+            // textAlign: "center",
+            // mx: "3em",
+            position: "relative"
           }}
         >
-        </Box>
-        <div 
+          <Box
+          className="background-content-container"
+            sx={{ 
+              padding: "6.5em 22em"
+            }}>
+            <div>
+              <img
+                id='home-logo'
+                src="../images/uptownhope_logo.jpeg"
+                alt="Uptown Hope logo" 
+                width="625vw" 
+            />
+            </div>
+            <Box className="header-title-and-text-container"
+              style={{ padding: "0 5em" }}
+              >
+              <Typography
+                className="header-title"
+                variant="h2"
+                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)"}}
+              >
+                Staffing done right. 
+              </Typography>
+              <Typography
+                className="header-text"
+                variant="body1"
+                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)", margin: "14.5em 5em 0 5em", fontSize: "1.4rem" }}
+              >
+                We connect the most qualified individuals to the companies that need them.
+              </Typography>
+              <br />
+              <Grid2>
+                <Button 
+                  variant="outlined"
+                  onClick={handleClickCar}
+                  sx={{
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: 'rgba(230, 115, 23, .9)',
+                      margin: '1em 0',
+                      fontWeight: 'bold',
+                      borderRadius: '60px',
+                      padding: '10px 40px', 
+                      fontSize: '16px', 
+                      borderColor: 'rgba(15, 3, 196, 1)',
+                      textTransform: 'uppercase',
+                      transition: 'transform 80ms ease-in',
+                      cursor: 'pointer',  
+                    right: "20px", 
+                    color: "rgb(45, 48, 152)"
+                  }}>
+                  Explore Careers 
+                </Button>
+                <Button
+                  variant="outlined"
+                  onClick={handleClickSS}
+                  sx={{
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: 'rgba(230, 115, 23, .9)',
+                      margin: '1em 0',
+                      fontWeight: 'bold',
+                      borderRadius: '60px',
+                      padding: '10px 40px', 
+                      fontSize: '16px', 
+                      borderColor: 'rgba(15, 3, 196, 1)',
+                      textTransform: 'uppercase',
+                      transition: 'transform 80ms ease-in',
+                      cursor: 'pointer',  
+                      left: "20px", 
+                      color: "rgb(45, 48, 152)"
+                  }}>
+                      Find Staff
+                </Button>
+
+              </Grid2>
+            </Box>
+          </Box>
+      </Box>
+      <div 
         className="about-company-card-container"
-        style={{display: "flex", height: "20vh", justifyContent: "center", alignItems: "center"}}>
-        <Typography variant="body2" sx={{ fontSize: "1.1em", m: 3, color: "#0b2ca3"}}>
-            <strong style={{fontSize: "23px"}}>Uptown Hope (UH) </strong>  
-            is a privately held limited liability company organized under the laws of the
-            State of Maryland. Uptown Hope offers staff support to organizations for a wide variety of
-            positions to cover staff shortages due to PTO, sickness, leave of absence, vacancies,
-            or to support sudden increase in workload due to growth and increased productivity needs.
-            </Typography>
+        style={{display: "flex", 
+                height: "20vh", 
+                justifyContent: "center", 
+                alignItems: "center"}}>
+          <Typography variant="body2" sx={{ fontSize: "1.1em", m: 3, color: "#0b2ca3"}}>
+              <strong style={{fontSize: "23px"}}>Uptown Hope (UH) </strong>  
+                is a privately held limited liability company organized under the laws of the
+                State of Maryland. Uptown Hope offers staff support to organizations for a wide variety of
+                positions to cover staff shortages due to PTO, sickness, leave of absence, vacancies,
+                or to support sudden increase in workload due to growth and increased productivity needs.
+          </Typography>
         </div>
         <Box
           className="clickable-cards-container">
-          {/* '<Grid>' is deprecated in Material UI v5, and '<Grid2>' is the new replacement 
-          for layout control (like a <div> but with built-in grid functionality). */}
-          {/* By default, <Grid2> uses CSS layout (display: grid). */}
-
           {/* Mapping over an array of services to render service cards dynamically. */}
           <Grid2 className="clickable-cards" container spacing={4} justifyContent="center">
             {[
@@ -152,7 +235,7 @@ const Home = () => {
         >
             <Typography variant="body2" sx={{ fontSize: "1.1em"}}>
             For a full list of positions we fill, please visit the{" "}
-            <strong><a href="/staffing-solutions" target="_self" alt="Services page" style={{color: "rgba(230, 115, 14, 1)", fontSize: "1.5em"}}>Staffing Solutions</a></strong> page.
+            <strong><a href="/staffing-solutions" target="_self" alt="Staffing Solutions page" style={{color: "rgba(230, 115, 14, 1)", fontSize: "1.5em"}}>Staffing Solutions</a></strong> page.
           </Typography>
         </Box>
 
@@ -214,8 +297,6 @@ const Home = () => {
             </Grid2>
           </Grid2>
         </Box>
-        
-        
       </div>
     );
 }

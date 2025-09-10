@@ -1,4 +1,3 @@
-import React from 'react';
 import axios from 'axios';
 import { Box, Button, TextField } from '@mui/material';
 import { Formik } from 'formik';
@@ -33,6 +32,8 @@ const ContactForm = ({ formType }) => {
         name: '',
         email: '',
         phoneNumber: '',
+        companyName: '',
+        companyZipCode: '',
         description: '',
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -64,10 +65,17 @@ const ContactForm = ({ formType }) => {
         touched,
         errors,
       }) => (
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%' }}>
+        <Box component="form" 
+             noValidate 
+             onSubmit={handleSubmit} 
+             sx={{ display: 'flex', 
+                   flexDirection: 'column', 
+                   gap: 3.5,
+                   padding: '2em 5em 0 5em', 
+                   width: '100%' }}>
           <TextField
             name="name"
-            label={formType === 'contractor' ? "Company Name" : "Name"}
+            label="name"
             variant="outlined"
             value={values.name}
             onChange={handleChange}
@@ -79,7 +87,7 @@ const ContactForm = ({ formType }) => {
 
           <TextField
             name="email"
-            label="Email"
+            label="email"
             type="email"
             variant="outlined"
             value={values.email}
@@ -92,13 +100,37 @@ const ContactForm = ({ formType }) => {
 
           <TextField
             name="phoneNumber"
-            label="(xxx)xxx-xxxx"
+            label="phone number"
             variant="outlined"
             value={values.phoneNumber}
             onChange={handleChange}
             onBlur={handleBlur}
             error={touched.phoneNumber && Boolean(errors.phoneNumber)}
             helperText={touched.phoneNumber && errors.phoneNumber}
+            fullWidth
+          />
+
+          <TextField
+            name="companyName"
+            label="company name"
+            variant="outlined"
+            value={values.companyName}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.companyName && Boolean(errors.companyName)}
+            helperText={touched.companyName && errors.companyName}
+            fullWidth
+          />
+
+          <TextField
+            name="name"
+            label="company zip code"
+            variant="outlined"
+            value={values.companyZipCode}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.companyZipCode && Boolean(errors.companyZipCode)}
+            helperText={touched.companyZipCode && errors.companyZipCode}
             fullWidth
           />
 
@@ -116,8 +148,23 @@ const ContactForm = ({ formType }) => {
             fullWidth
           />
 
-          <Box textAlign="right">
-            <Button variant="contained" sx={{ backgroundColor: '#e6730e' }} type="submit">
+          <Box textAlign="center">
+            <Button 
+              variant="contained" 
+              sx={{ justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: 'rgba(230, 115, 23, .9)',
+                    margin: '1em 0',
+                    fontWeight: 'bold',
+                    borderRadius: '60px',
+                    padding: '10px 55px', 
+                    fontSize: '16px', 
+                    borderColor: 'rgba(15, 3, 196, 1)',
+                    color: 'rgba(15, 3, 196, 1)',
+                    textTransform: 'uppercase',
+                    transition: 'transform 80ms ease-in',
+                    cursor: 'pointer'  
+             }} type="submit">
               Send
             </Button>
           </Box>

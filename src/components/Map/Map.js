@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import GoogleMapReact from "google-map-react";
 import './Map.css';
 import { Box } from "@mui/material";
@@ -15,16 +15,13 @@ const Map = ({ location, zoomLevel }) => {
   const mapRef = useRef(null);
 
 
-  const handleApiLoaded = ({ map, maps }) => {
+  const handleApiLoaded = ({ map }) => {
     mapRef.current = map;
   };
 
   return (
 
-    // Changed the height from '100vh' to '80vh' so the 'Get Directions' button is visible when the
-    // user clicks on the page. Adjust as necessary.
-
-    <Box className="map" sx={{ height: '80vh', width: '100%' }}>
+    <Box className="map" sx={{ height: '60vh', width: '35vw', marginTop: '5em'}}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyCwNXLxVSXuq_2Gy3pUY6XZWxNjuVbkmYs' }}
         defaultCenter={location}
