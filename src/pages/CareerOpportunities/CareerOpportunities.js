@@ -24,16 +24,16 @@ const CareerOpportunities = () => {
             <br />
             <br />
             <strong>
-          <ul>
-            <li>CMA</li>
-            <li>CNA</li>
-            <li>GNA</li>
-            <li>Direct Support Professional/CMT</li>
-            <li>Medical Records Clerk</li>
-            <li>Personal Care Assistant</li>
-            <li>Therapeutic Support Staff</li>
-          </ul>
-          </strong>
+              <ul>
+                <li>CMA</li>
+                <li>CNA</li>
+                <li>GNA</li>
+                <li>Direct Support Professional/CMT</li>
+                <li>Medical Records Clerk</li>
+                <li>Personal Care Assistant</li>
+                <li>Therapeutic Support Staff</li>
+              </ul>
+            </strong>
           </Box>
         ),
         backgroundImage: require("../coverImages/background_image.jpg"),
@@ -101,6 +101,25 @@ const CareerOpportunities = () => {
         </Box>),
         backgroundImage: require("../coverImages/background_image.jpg"),
       },
+      events: { 
+        cardTitle: "Event Planning", 
+        title: "Events", 
+        content: (<Box>
+          Uptown Hope provides exceptional support for a variety of events. Typical events include: 
+          <br />
+          <br />
+          <strong>
+            <ul>
+              <li>Sporting Events</li>
+              <li>Conventions</li>
+              <li>Concerts</li>
+              <li>Festivals</li>
+              <li>Conferences</li>
+            </ul>
+          </strong>
+        </Box>), 
+        backgroundImage: require("../coverImages/background_image.jpg")
+      }
     };
   
     const paperStyling = {
@@ -168,7 +187,7 @@ const CareerOpportunities = () => {
                 backgroundColor: "rgba(40, 39, 161, 0.83)",
                 borderRadius: "10px",
                 padding: "10px 30px",
-                fontSize: "10px",
+                fontSize: "14px",
                 color: "white",
                 height: "60px",
                 width: "90px",
@@ -178,8 +197,7 @@ const CareerOpportunities = () => {
                 },
               }}
               onClick={handleClick}>
-              Contact us here!
-              Apply Now
+              Contact us!
             </Button>
           </Box>
   
@@ -304,7 +322,7 @@ const CareerOpportunities = () => {
             </Paper>
 
             <Grid2 className="modals-container" container={true} spacing={12}>
-              {["healthCare", "nursing", "administration", "finance"].map(
+              {["healthCare", "nursing", "administration", "finance", "events"].map(
                 (category) => renderPaper(category)
               )}
             </Grid2>

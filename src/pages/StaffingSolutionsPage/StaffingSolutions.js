@@ -348,6 +348,23 @@ const StaffingSolutions = () => {
                     </div>
                   </HoverDropdown>
                 </Box>
+                <Box>
+                  <HoverDropdown
+                    title="Event Staffing Support"
+                    icon={
+                      <i
+                        className="fas fa-ticket-alt"
+                        style={{ marginLeft: "5px" }}
+                      ></i> 
+                    }
+                  >
+                    <div>
+                      {" "}
+                      UH provides exceptional support staff for a variety of events. These include, but are not limited to: 
+                      Sporting Events, Conventions, Concerts, Festivals, Conferences, Etc.{" "}
+                    </div>
+                  </HoverDropdown>
+                </Box>
               </Grid2>
 
               <Typography
