@@ -21,7 +21,9 @@ const Map = ({ location, zoomLevel }) => {
 
   return (
 
-    <Box className="map" sx={{ height: '60vh', width: '35vw', marginTop: '5em'}}>
+    <Box className="map" sx={{ height: '60vh', 
+    width: { xs: '70vw', sm: '70vw', md: '70vw', lg: '35vw', xl: '35vw' }, 
+    marginTop: '5em'}}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyCwNXLxVSXuq_2Gy3pUY6XZWxNjuVbkmYs' }}
         defaultCenter={location}

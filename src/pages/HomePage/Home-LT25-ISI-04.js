@@ -19,17 +19,10 @@ const scaleUp = keyframes`
 const Home = () => {
   
   let navigate = useNavigate();
-
-  function handleClickSS() {
-    navigate("/staffing-solutions");
-  }
-
-  function handleClickCar() {
-    navigate("/career-opportunities");
-  }
   
   return (
       <div>
+
         {/* Landing Page Background Image */}
 
         {/* 'sx={{}}' is used for styling in Material UI. It's a shorthand for 
@@ -40,100 +33,76 @@ const Home = () => {
         <Box
           className="homepage-background-photo"
           sx={{
-            height: "130vh",
+            height: "115vh",
             backgroundImage: `url(${require("../coverImages/open_door.jpg")})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundPositionY:"38%",
-            backgroundRepeat: "no-repeat",
-            // display: "flex",
-            // justifyContent: "center",
-            // alignItems: "center",
-            // textAlign: "center",
-            // mx: "3em",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "white",
+            textAlign: "center",
+            marginTop: "-1em",
+            mx: "3em",
             position: "relative"
           }}
         >
           <Box
-          className="background-content-container"
             sx={{ 
-              padding: "6.5em 22em"
-            }}>
-            <div>
-              <img
-                id='home-logo'
-                src="../images/uptownhope_logo.jpeg"
-                alt="Uptown Hope logo" 
-                width="625vw" 
-            />
-            </div>
+              position: "absolute", 
+              // top: "8%"
+            }}
+          >
+            <img
+            src="../images/uptownhope_logo.jpeg"
+            alt="Uptown Hope logo" 
+            width="375vw"
+            height="250vh" 
+            marginTop="0"/>
             <Box className="header-title-and-text-container"
-              style={{ padding: "0 5em" }}
+              // style={{justifyContent: "center", alignItems: "center", position: "relative", }}
               >
               <Typography
                 className="header-title"
                 variant="h2"
-                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)"}}
+                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)" }}
               >
                 Staffing done right. 
               </Typography>
               <Typography
                 className="header-text"
                 variant="body1"
-                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)", margin: "14.5em 5em 0 5em", fontSize: "1.4rem" }}
+                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)", marginTop: "130px", fontSize: "1.2rem" }}
               >
                 We connect the most qualified individuals to the companies that need them.
               </Typography>
               <br />
-              <Grid2>
-                <Button 
-                  variant="outlined"
-                  onClick={handleClickCar}
-                  sx={{
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      backgroundColor: 'rgba(230, 115, 23, .9)',
-                      margin: '1em 0',
-                      fontWeight: 'bold',
-                      borderRadius: '60px',
-                      padding: '10px 40px', 
-                      fontSize: '16px', 
-                      borderColor: 'rgba(15, 3, 196, 1)',
-                      textTransform: 'uppercase',
-                      transition: 'transform 80ms ease-in',
-                      cursor: 'pointer',  
-                    right: "20px", 
-                    color: "rgb(45, 48, 152)"
-                  }}>
-                  Explore Careers 
-                </Button>
-                <Button
-                  variant="outlined"
-                  onClick={handleClickSS}
-                  sx={{
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      backgroundColor: 'rgba(230, 115, 23, .9)',
-                      margin: '1em 0',
-                      fontWeight: 'bold',
-                      borderRadius: '60px',
-                      padding: '10px 40px', 
-                      fontSize: '16px', 
-                      borderColor: 'rgba(15, 3, 196, 1)',
-                      textTransform: 'uppercase',
-                      transition: 'transform 80ms ease-in',
-                      cursor: 'pointer',  
-                      left: "20px", 
-                      color: "rgb(45, 48, 152)"
-                  }}>
-                      Find Staff
-                </Button>
-
-              </Grid2>
+              <Button 
+                variant="outlined"
+                sx={{
+                  backgroundColor: 'rgb(230, 115, 23)',
+                  borderRadius: '25px', 
+                  position: "relative", 
+                  right: "30px", 
+                  color: "rgb(45, 48, 152)"
+                }}>
+                 Get Staffing 
+              </Button>
+              <Button
+                variant="outlined"
+                sx={{
+                  backgroundColor: 'rgb(230, 115, 23)',
+                  borderRadius: '25px', 
+                  position: "relative", 
+                  left: "30px", 
+                  color: "rgb(45, 48, 152)"
+                }}>
+                Find Positions
+              </Button>
+              </Box>
             </Box>
-          </Box>
-      </Box>
-      <div 
+        </Box>
+        <div 
         className="about-company-card-container"
         style={{display: "flex", 
                 height: "20vh", 
@@ -149,6 +118,10 @@ const Home = () => {
         </div>
         <Box
           className="clickable-cards-container">
+          {/* '<Grid>' is deprecated in Material UI v5, and '<Grid2>' is the new replacement 
+          for layout control (like a <div> but with built-in grid functionality). */}
+          {/* By default, <Grid2> uses CSS layout (display: grid). */}
+
           {/* Mapping over an array of services to render service cards dynamically. */}
           <Grid2 className="clickable-cards" container spacing={4} justifyContent="center">
             {[
@@ -235,7 +208,7 @@ const Home = () => {
         >
             <Typography variant="body2" sx={{ fontSize: "1.1em"}}>
             For a full list of positions we fill, please visit the{" "}
-            <strong><a href="/staffing-solutions" target="_self" alt="Staffing Solutions page" style={{color: "rgba(230, 115, 14, 1)", fontSize: "1.5em"}}>Staffing Solutions</a></strong> page.
+            <strong><a href="/staffing-solutions" target="_self" alt="Services page" style={{color: "rgba(230, 115, 14, 1)", fontSize: "1.5em"}}>Staffing Solutions</a></strong> page.
           </Typography>
         </Box>
 
@@ -297,6 +270,8 @@ const Home = () => {
             </Grid2>
           </Grid2>
         </Box>
+        
+        
       </div>
     );
 }
