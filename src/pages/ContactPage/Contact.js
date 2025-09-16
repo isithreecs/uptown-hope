@@ -64,7 +64,7 @@ const Contact = () => {
             lg: '50vw', 
             xl: '50vw'
           },
-          margin: { xs: '2em auto', sm: '2em auto', md: 'auto', lg: '2em auto', xl: 'auto' }, 
+          margin: { xs: '2em auto', sm: '2em auto', md: '2em auto', lg: '2em auto', xl: 'auto' }, 
           alignItems: "center" }}
           >
           <Box sx={{ margin: '2em auto' }}>

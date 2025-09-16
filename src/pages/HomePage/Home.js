@@ -40,52 +40,99 @@ const Home = () => {
         <Box
           className="homepage-background-photo"
           sx={{
-            height: "130vh",
+            height: { xs: "100vh", sm: "100vh", md: "125vh", lg: "125vh", xl: "130vh" },
+            mt: 0, 
             backgroundImage: `url(${require("../coverImages/open_door.jpg")})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundPositionY:"38%",
+            backgroundPositionY: { xs: "0%", sm: "20%", md: "30%", lg: "35%", xl: "38%" },
             backgroundRepeat: "no-repeat",
-            // display: "flex",
-            // justifyContent: "center",
-            // alignItems: "center",
-            // textAlign: "center",
-            // mx: "3em",
-            position: "relative"
+            position: "relative",
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
           }}
         >
           <Box
           className="background-content-container"
             sx={{ 
-              padding: "6.5em 22em"
+              padding: { xs: "2.5rem 1rem", sm: "5rem 2rem", md: "3rem 3rem", lg: "4rem 18rem", xl: "6.5rem 22rem" },
             }}>
             <div>
-              <img
+              <Box
+                component="img"
                 id='home-logo'
                 src="../images/uptownhope_logo.jpeg"
-                alt="Uptown Hope logo" 
-                width="625vw" 
+                alt="Uptown Hope logo"  
+                sx={{ 
+                  width: {xs: "55vw", sm: "40vw", md: "42vw", lg: "35vw", xl: "35vw"}, 
+                  height: "auto", 
+                  display: "block", 
+                  margin: "auto", 
+                  marginTop: "0", 
+                  padding: "1rem"
+                }} 
             />
             </div>
             <Box className="header-title-and-text-container"
-              style={{ padding: "0 5em" }}
+              sx={{ px: { xs: 2, sm: 3, md: 5 } }}
               >
               <Typography
                 className="header-title"
                 variant="h2"
-                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)"}}
+                sx={{ 
+                  fontWeight: "bold", 
+                  color: "rgb(45, 48, 152)", 
+                  fontSize: { 
+                    xs: "1.45rem", 
+                    sm: "2rem", 
+                    md: "2.25rem", 
+                    lg: "2.5rem",
+                    xl: "3rem" 
+                  }, 
+                  textAlign: "center"
+                }}
               >
                 Staffing done right. 
               </Typography>
               <Typography
                 className="header-text"
                 variant="body1"
-                style={{ fontWeight: "bold", color: "rgb(45, 48, 152)", margin: "14.5em 5em 0 5em", fontSize: "1.4rem" }}
+                sx={{ 
+                  fontWeight: "bold", 
+                  color: "rgb(45, 48, 152)", 
+                  fontSize: {
+                    xs: "1.2rem", 
+                    sm: "1.2rem", 
+                    md: "1.21rem", 
+                    lg: "1.22rem", 
+                    xl: "1.22rem"
+                  },  
+                  mt: { xs: "2em", sm: "2em", md: "5em", lg: "6em", xl: "7em" },
+                  mx: { xs: "5em", sm: "7.7em", md: "10.5em", lg: "4em", xl: "5em" },
+                  textAlign: "center" 
+                }}
               >
                 We connect the most qualified individuals to the companies that need them.
               </Typography>
               <br />
-              <Grid2>
+              <Grid2
+                container
+                direction={{ xs: "column", sm: "column", md: "row", lg: "row", xl: "row" }}
+                justifyContent="center"
+                alignItems="center"
+                spacing={2}
+              >
+                <Grid2
+                xs={12}
+                sx={{
+                  display: "flex",
+                  flexDirection: { xs: "column", sm: "column", md: "row", lg: "row", xl: "row" },
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: { xs: 1, sm: 1, md: 4, lg: 4, xl: 8 },
+                }}
+                >
                 <Button 
                   variant="outlined"
                   onClick={handleClickCar}
@@ -97,12 +144,18 @@ const Home = () => {
                       fontWeight: 'bold',
                       borderRadius: '60px',
                       padding: '10px 40px', 
-                      fontSize: '16px', 
+                      fontSize: {
+                        xs: ".9rem", 
+                        sm: ".9rem", 
+                        md: ".95rem", 
+                        lg: ".96rem", 
+                        xl: ".97rem"
+                      }, 
                       borderColor: 'rgba(15, 3, 196, 1)',
                       textTransform: 'uppercase',
                       transition: 'transform 80ms ease-in',
                       cursor: 'pointer',  
-                    right: "20px", 
+                    // right: "20px", 
                     color: "rgb(45, 48, 152)"
                   }}>
                   Explore Careers 
@@ -123,34 +176,50 @@ const Home = () => {
                       textTransform: 'uppercase',
                       transition: 'transform 80ms ease-in',
                       cursor: 'pointer',  
-                      left: "20px", 
+                      // left: "20px", 
                       color: "rgb(45, 48, 152)"
                   }}>
                       Find Staff
                 </Button>
-
+                </Grid2>
               </Grid2>
             </Box>
           </Box>
       </Box>
-      <div 
+
+      <Box 
         className="about-company-card-container"
-        style={{display: "flex", 
-                height: "20vh", 
+        sx={{display: "flex", 
+                height: { xs: "20vh", sm: "20vh", md: "20vh", lg: "15vh", xl: "10vh" }, 
                 justifyContent: "center", 
-                alignItems: "center"}}>
-          <Typography variant="body2" sx={{ fontSize: "1.1em", m: 3, color: "#0b2ca3"}}>
+                alignItems: "center",
+                marginTop: {xs: 5, sm: 5, md: 0, lg: 0, xl: 0},
+                }}>
+          <Typography variant="body2" sx={{ fontSize: "1.1em", m: 3, color: "#0b2ca3", 
+            // pt: { xs: 2, sm: 2, md: 0, lg: 0, xl: 0}
+            }}>
               <strong style={{fontSize: "23px"}}>Uptown Hope (UH) </strong>  
                 is a privately held limited liability company organized under the laws of the
                 State of Maryland. Uptown Hope offers staff support to organizations for a wide variety of
                 positions to cover staff shortages due to PTO, sickness, leave of absence, vacancies,
                 or to support sudden increase in workload due to growth and increased productivity needs.
           </Typography>
-        </div>
+        </Box>
+
         <Box
           className="clickable-cards-container">
           {/* Mapping over an array of services to render service cards dynamically. */}
-          <Grid2 className="clickable-cards" container spacing={4} justifyContent="center">
+          <Grid2 className="clickable-cards" 
+           sx={{
+             display: "flex",
+             flexDirection: { xs: "column", sm: "column", md: "column", lg: "row", xl: "row" },
+             justifyContent: "center", 
+            alignItems: "center",
+            textAlign: "center",
+            gap: { xs: 2, sm: 2, md: 2, lg: 4, xl: 4 },
+            padding: { xs: "1rem", sm: "1.5rem", md: "2rem", lg: "2em", xl: "2em" }, 
+            height: { xs: "auto", sm: "auto", md: "auto", lg: "30vh", xl: "40vh" },           
+          }}>
             {[
               {
                 icon: faPeace,
@@ -189,8 +258,8 @@ const Home = () => {
                 onClick={() => navigate(service.path)}
                   sx={{
                     cursor: 'pointer',
-                    height: "20vh",
-                    width: "20vw",
+                    height: "25vh",
+                    width: { xs: "70vw", sm: "70vw", md: "60vw", lg: "20vw", xl: "20vw" },
                     marginTop: "25px",
                     marginBottom: "10px",
                     padding: "30px 10px",
@@ -206,7 +275,11 @@ const Home = () => {
                     <FontAwesomeIcon
                       icon={service.icon}
                       size="3x"
-                      sx={{ color: "rgba(230, 115, 14, 1)", paddingTop: 2, transition: 'transform 0.3s ease-in-out', }}
+                      sx={{ 
+                        color: "rgba(230, 115, 14, 1)", 
+                        paddingTop: 2, 
+                        transition: 'transform 0.3s ease-in-out', 
+                      }}
                     />
                   </CardMedia>
                   <CardContent>
@@ -269,7 +342,7 @@ const Home = () => {
                 <Grid2>
               <Typography 
               className="contact-section-text"
-              variant="body1" sx={{mt: 2, fontSize: "17px"}} >
+              variant="body1" sx={{mt: 4, fontSize: "17px"}} >
                 300 Redland Ct., Suite 309 <br />
                 Owings Mills, MD 21117 <br />
                 (410) 363-9495 <br />
@@ -288,10 +361,13 @@ const Home = () => {
                 </Button>
               </Typography>
             </Grid2>
-                <img
+                <Box 
+                  component="img"
                   src="../images/sunshine.jpg"
                   alt="Sunshine"
-                  style={{ width: "25rem", height: "10rem" }}
+                  style={{ 
+                    width: {xs: "5rem", sm: "35rem", md: "35rem", lg: "25rem", xl: "25rem"}, 
+                    height: "10rem" }}
                 />
               </Box>
             </Grid2>
