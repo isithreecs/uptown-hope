@@ -123,7 +123,7 @@ const ContactForm = ({ formType }) => {
           />
 
           <TextField
-            name="name"
+            name="companyZipCode"
             label="company zip code"
             variant="outlined"
             value={values.companyZipCode}

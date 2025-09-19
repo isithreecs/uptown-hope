@@ -40,7 +40,7 @@ const Home = () => {
         <Box
           className="homepage-background-photo"
           sx={{
-            height: { xs: "100vh", sm: "100vh", md: "125vh", lg: "125vh", xl: "130vh" },
+            height: { xs: "95vh", sm: "100vh", md: "125vh", lg: "125vh", xl: "130vh" },
             mt: 0, 
             backgroundImage: `url(${require("../coverImages/open_door.jpg")})`,
             backgroundSize: "cover",
@@ -56,7 +56,7 @@ const Home = () => {
           <Box
           className="background-content-container"
             sx={{ 
-              padding: { xs: "2.5rem 1rem", sm: "5rem 2rem", md: "3rem 3rem", lg: "4rem 18rem", xl: "6.5rem 22rem" },
+              padding: { xs: "2rem 1rem", sm: "5rem 2rem", md: "3rem 3rem", lg: "4rem 18rem", xl: "6.5rem 22rem" },
             }}>
             <div>
               <Box
@@ -65,7 +65,7 @@ const Home = () => {
                 src="../images/uptownhope_logo.jpeg"
                 alt="Uptown Hope logo"  
                 sx={{ 
-                  width: {xs: "55vw", sm: "40vw", md: "42vw", lg: "35vw", xl: "35vw"}, 
+                  width: {xs: "65vw", sm: "40vw", md: "42vw", lg: "35vw", xl: "35vw"}, 
                   height: "auto", 
                   display: "block", 
                   margin: "auto", 
@@ -332,6 +332,7 @@ const Home = () => {
           >
             <Grid2>
               <Box
+                className="contact-section-info-and-image"
                 sx={{
                   width: "100%",
                   height: 300,
@@ -342,7 +343,11 @@ const Home = () => {
                 <Grid2>
               <Typography 
               className="contact-section-text"
-              variant="body1" sx={{mt: 4, fontSize: "17px"}} >
+              variant="body1" 
+              sx={{
+                  mt: 4, 
+                  fontSize: { xs: 14, sm: 15, md: 17, lg: 17, xl: 17 }
+                  }} >
                 300 Redland Ct., Suite 309 <br />
                 Owings Mills, MD 21117 <br />
                 (410) 363-9495 <br />
@@ -362,11 +367,12 @@ const Home = () => {
               </Typography>
             </Grid2>
                 <Box 
+                  className="sunshine-image"
                   component="img"
                   src="../images/sunshine.jpg"
                   alt="Sunshine"
                   style={{ 
-                    width: {xs: "5rem", sm: "35rem", md: "35rem", lg: "25rem", xl: "25rem"}, 
+                    width: {xs: "3.5rem", sm: "35rem", md: "35rem", lg: "25rem", xl: "25rem"}, 
                     height: "10rem" }}
                 />
               </Box>
