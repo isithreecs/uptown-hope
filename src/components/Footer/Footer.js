@@ -37,7 +37,7 @@ const Footer = () => {
 			<div className="footer-center">
 			<div>
 				<p>
-				<span>300 Redland Ct., Suite 309</span>{" "}
+				<span>300 Redland Ct., Suite 215</span>{" "}
 				<br />
 				<span>Owings Mills, MD 21117</span>
 				</p>
@@ -50,8 +50,8 @@ const Footer = () => {
 			<div>
 				<p>
 				<span className="footer-email-link">
-					<a href="mailto:info.uptownhope@gmail.com">
-					info.uptownhope@gmail.com
+					<a href="mailto:info@uptownhope.com">
+					info@uptownhope.com
 					</a>
 				</span>
 				</p>

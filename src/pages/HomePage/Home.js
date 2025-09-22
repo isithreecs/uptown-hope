@@ -348,11 +348,11 @@ const Home = () => {
                   mt: 4, 
                   fontSize: { xs: 14, sm: 15, md: 17, lg: 17, xl: 17 }
                   }} >
-                300 Redland Ct., Suite 309 <br />
+                300 Redland Ct., Suite 215 <br />
                 Owings Mills, MD 21117 <br />
                 (410) 363-9495 <br />
                 <Button
-                  href="mailto:info.uptownhope@gmail.com"
+                  href="mailto:info@uptownhope.com"
                   sx={{
                     color: "#0b2ca3",
                     textDecoration: "none",
@@ -362,7 +362,7 @@ const Home = () => {
                     },
                   }}
                 >
-                  info.uptownhope@gmail.com
+                  info@uptownhope.com
                 </Button>
               </Typography>
             </Grid2>
