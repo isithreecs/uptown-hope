@@ -1,294 +1,49 @@
-/* Home page Media Queries */
 
-@media (min-width: 1951px) and (max-width: 2250px) { 
-    .header-title-and-text-container {
-        padding: 0 13.8em !important; 
-    }
-
-    #home-logo {
-        max-width: 100% !important;
-        height: auto !important;
-    }
-
-    .header-title {
-        font-size: 3.8em !important; 
-    }
-
-    .header-text {
-        margin: 18em 10em 0 10em !important;
-    }
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
 }
 
-@media  (min-width: 1701px) and (max-width: 1950px) {
+/*
+  Rules here only cover layout concerns not easily handled via sx.
+*/
 
-    .background-content-container {
-        padding: 10em 11em !important;
+@media (max-width: 600px) { 
+
+    .header-title-and-text-container { 
+        padding: 0 8px; 
     }
 
-    .header-title-and-text-container {
-        padding: 0 10em !important; 
+    .header-text { 
+        margin-left: 8px; 
+        margin-right: 8px; 
+        font-size: 1.1rem; 
     }
 
-    .header-title {
-        font-size: 3em !important; 
+    .card { 
+        height: auto;
     }
 
-    .header-text {
-        margin: 13.5em 7em 0 7em !important;
-    }
-}
-
-@media (min-width: 1451px) and (max-width: 1700px) {
-    .header-title-and-text-container {
-        padding: 0 7em !important; 
-    }
-
-    .background-content-container {
-        padding: 10em 15em !important;
-    }
-
-    #home-logo {
-        width: 525px;
-    }
-
-    .header-title {
-        font-size: 3em !important; 
-    }
-
-    .header-text {
-        margin: 12.5em 5em 0 5em !important;
-    }
-}
-
-
-@media (min-width: 1151px) and (max-width: 1450px) { 
-    .clickable-cards .MuiCard-root { 
-        height: 14rem ;
-        width: 20rem ;
-        margin: 0 auto ;
-    }
-
-    .background-content-container {
-        padding: 10em 15em !important;
-    }
-
-    #home-logo {
-        width: 500px;
-    }
-
-    .header-title-and-text-container {
-        padding: 0 !important; 
-    }
-
-    .header-title {
-        font-size: 2.8em !important; 
-    }
-
-    .header-text {
-        margin: 15em 3em 0 3em !important;
-    }
-
-    .clickable-cards-container { 
-        margin-left: 200px ;
-        margin-right: 200px ; 
-    }
-}
-
-@media (min-width: 1251px) and (max-width: 1450px) { 
-    .background-content-container {
-        padding: 13em 8em !important;
-    }
-
-    .background-content-container {
-        padding: 13em 12em !important;
-    }
-
-    .header-title {
-        font-size: 2.5em !important;
-    }
-
-    .header-text {
-        margin: 12em 0 0 0 !important;
-    }
-}
-
-@media (max-width: 1250px) { 
-    .background-content-container {
-        padding: 13em 8em !important;
-    }
-
-    .background-content-container {
-        padding: 13em 12em !important;
-    }
-
-    .header-title {
-        font-size: 2.5em !important;
-    }
-
-    .header-text {
-        margin: 12em 0 0 0 !important;
-    }
-
-    .header-title-and-text-container {
-        padding: 0 !important; 
-    }
-
-    #home-logo {
-        width: 400px;
-    }
-}
-
-@media (min-width: 901px) and (max-width: 1150px) {
-    .background-content-container {
-        padding: 13em 8em !important;
-    }
-
-    .background-content-container {
-        padding: 13em 12em !important;
-    }
-
-    .header-title {
-        font-size: 2.5em !important;
-    }
-
-    .header-text {
-        margin: 12em 0 0 0 !important;
+    #home-logo { 
+        width: min(75vw, 240px);
+        position: relative;
+        top: 30px;
     }
 
     .about-company-card-container { 
-        margin: 10px auto ;
-        display: flex ;
-        justify-content: center ;
-        align-items: center ;
-        margin-top: 2em ;
-        margin-bottom: 2em ; 
-        padding: 25px ; 
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 6em 0 5em;
+        padding: 0 8px;
+    }
+ 
+    .contact-section-info-and-image { 
+        height: 270px;
     }
 
-    .about-company-card { 
-        display: flex ;
-        justify-content: center ;
-        align-items: center ;
-        text-align: center ; 
-    }
-
-    .clickable-cards .MuiCard-root { 
-        width: 60vw ;
-        height: auto ;
+    .sunshine-image { 
+        width: 16rem;
+        height: auto;
     }
 }
-
-@media (max-width: 900px) { 
-   .background-content-container {
-        padding: 13em 3em !important;
-    }
-
-    .logo {
-        margin: 0 2em;
-    }
-
-    #home-logo {
-        width: 400px;
-    }
-
-    .header-title-and-text-container {
-        padding: 0 3em!important; 
-    }
-
-    .header-title {
-        font-size: 2.2em !important;
-    }
-
-    .header-text {
-        margin: 14em 3em 0 3em !important;
-        font-size: 1.1em !important;
-    }
-
-    .about-company-card-container { 
-        padding: 20px ;
-        margin-top: 3.5em ;
-        margin-bottom: 120px ;
-    }
-
-    .clickable-cards .MuiCard-root { 
-        width: 90vw ;
-        height: auto ;
-        margin-bottom: 20px; 
-        gap: .5rem ;
-    }
-
-    .contact-section-text { 
-        margin-top: 20px ;
-        font-size: 1rem ;
-    }
-
-    .contact-section img { 
-        width: 100% ;
-        height: 200 ;
-    }
-}
-
-@media (min-width: 550px) and (max-width: 750px) { 
-    .homepage-background-photo {
-        background-position-y: 0% !important; 
-    }
-    
-    .background-content-container {
-        padding: 14em 3em !important;
-    }
-
-    .logo {
-        margin: 0 2em;
-    }
-
-    #home-logo {
-        width: 400px;
-    }
-
-    .header-title-and-text-container {
-        padding: 0 3em!important; 
-    }
-
-    .header-title {
-        font-size: 2.2em !important;
-    }
-
-    .header-text {
-        margin: 10em 0 0 0 !important;
-        font-size: 1.1em !important;
-    }
-
-    .about-company-card-container { 
-        padding: 1.5em ;
-        margin-top: 6.2em ;
-        margin-bottom: 7em ;
-    }
-
-    .about-company-card { 
-        font-size: .8em ;
-    }
-
-    .clickable-cards .MuiCard-root { 
-        width: 90vw ;
-        height: auto ;
-        margin-bottom: 20px; 
-        gap: .5rem ;
-    }
-
-    .contact-section-text { 
-        margin-top: 20px ;
-        font-size: .8rem ;
-    }
-
-    .contact-section img { 
-        width: 100% ;
-        height: 200 ;
-    }
-}
-
-@media (max-width: 550px) {
-    #home-logo {
-        width: 330px;
-    }
-}
-

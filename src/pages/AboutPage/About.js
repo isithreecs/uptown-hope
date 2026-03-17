@@ -36,7 +36,7 @@ const About = () => {
         <Parallax
         className="parallax-background"
           blur={0}
-          bgImage={require("../coverImages/group_photo.jpg")}
+          bgImage={require("../images/coverImages/group_photo.jpg")}
           strength={300}
           bgImageStyle={{
             backgroundSize: "cover",

@@ -66,7 +66,7 @@ const StaffingSolutions = () => {
 
       <Parallax
         className="parallax-section"
-        bgImage={require("../coverImages/corporate1.jpg")}
+        bgImage={require("../images/coverImages/corporate1.jpg")}
         strength={300}
         bgImageStyle={{
           backgroundSize: "cover",
@@ -211,7 +211,7 @@ const StaffingSolutions = () => {
                   <img
                     alt="Corporate Card"
                     id="corporate-card-image"
-                    src="../images/corporate_staff.png"
+                    src="images/corporate_staff.png"
                     height="350rem"
                     width="435rem"
                     style={{
