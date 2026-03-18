@@ -36,7 +36,7 @@ const CareerOpportunities = () => {
             </strong>
           </Box>
         ),
-        backgroundImage: require("../images/coverImages/background_image.jpg"),
+        backgroundImage: require("../pageImages/background_image.jpg"),
       },
       nursing: {
         cardTitle: "Nursing Referral Service Support", 
@@ -57,7 +57,7 @@ const CareerOpportunities = () => {
           </ul>
           </strong>
         </Box>),
-        backgroundImage: require("../images/coverImages/background_image.jpg"),
+        backgroundImage: require("../pageImages/background_image.jpg"),
       },
       administration: {
         cardTitle: "Administrative and other Clerical Support", 
@@ -78,7 +78,7 @@ const CareerOpportunities = () => {
           </strong>
           </Box>
         ),
-        backgroundImage: require("../images/coverImages/background_image.jpg"),
+        backgroundImage: require("../pageImages/background_image.jpg"),
       },
       finance: {
         cardTitle: "Accounting and Finance Support",
@@ -99,7 +99,7 @@ const CareerOpportunities = () => {
             </ul>
           </strong>
         </Box>),
-        backgroundImage: require("../images/coverImages/background_image.jpg"),
+        backgroundImage: require("../pageImages/background_image.jpg"),
       },
       events: { 
         cardTitle: "Event Planning", 
@@ -118,7 +118,7 @@ const CareerOpportunities = () => {
             </ul>
           </strong>
         </Box>), 
-        backgroundImage: require("../images/coverImages/background_image.jpg")
+        backgroundImage: require("../pageImages/background_image.jpg")
       }
     };
   
@@ -258,7 +258,7 @@ const CareerOpportunities = () => {
   return (
     <Box>
       <Parallax
-        bgImage={require("../images/coverImages/application.jpg")}
+        bgImage={require("../pageImages/application.jpg")}
         strength={300}
         bgImageStyle={{
           backgroundSize: "cover",

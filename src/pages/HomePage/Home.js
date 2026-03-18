@@ -1,382 +1,388 @@
-import { Box, Typography, Grid2, Card, CardContent, CardMedia, Button, keyframes } from '@mui/material';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPeace, faSun, faHourglass2, faHandsHelping } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
-import openDoorImg from "../images/coverImages/open_door.jpg";
-import logoImg from "../images/uptownhope_logo.jpeg";
-import sunshineImg from "../images/sunshine.jpg";
-import './Home.css';
+import {
+    Box,
+    Button,
+    Card,
+    CardContent,
+    CardMedia,
+    Grid2,
+    Typography,
+    keyframes,
+} from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPeace, faSun, faHourglass2, faHandsHelping } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
+import headerImg from '../pageImages/missing_puzzlepiece.jpg';
+import sunshineImg  from '../pageImages/missing_puzzlepiece.jpg';
 
+// ── Constants ─────────────────────────────────────────────────────────────────
 
-const scaleUp = keyframes`
-  0% {
-    transform: scale(1);
-    color: inherit;
-  }
-  100% { 
-    transform: scale(1.2);
-    color: rgba(230, 115, 23, 0.8);
-  }
-`; 
+const ORANGE = 'rgba(230, 115, 14, 1)';
+const NAVY   = '#072590';
 
-const services = [
-  {
-    icon: faPeace,
-    title: "Holistic",
-    description: "approach to quality service provision for clients and associates",
-    path: '/about'
-  },
-  {
-    icon: faSun,
-    title: "Opportunity",
-    description: "to help improve clients' productivity through effective staff augmentation",
-    path: '/career-opportunities',
-  },
-  {
-    icon: faHourglass2,
-    title: "Preparation",
-    description: "and commitment to achieve positive outcome for clients and associates",
-    path: '/staffing-solutions'
-  },
-  {
-    icon: faHandsHelping,
-    title: "Empowerment",
-    description: "of staff and associates to confidently provide superior support to clients",
-    path: '/contact'
-  },
+const STATS = [
+    { value: '15+',   label: 'Years in Business'      },
+    { value: '500+',  label: 'Positions Filled'        },
+    { value: '100%',  label: 'Commitment to Quality'   },
+    { value: '24/7',  label: 'Support for Clients'     },
 ];
 
+const SERVICES = [
+    {
+        icon: faPeace,
+        title: 'Holistic',
+        description: 'A whole-person approach to quality service provision for clients and associates.',
+        path: '/about',
+    },
+    {
+        icon: faSun,
+        title: 'Opportunity',
+        description: "Improving clients' productivity through effective staff augmentation.",
+        path: '/career-opportunities',
+    },
+    {
+        icon: faHourglass2,
+        title: 'Preparation',
+        description: 'Commitment to achieving positive outcomes for clients and associates.',
+        path: '/staffing-solutions',
+    },
+    {
+        icon: faHandsHelping,
+        title: 'Empowerment',
+        description: 'Staff empowered to confidently provide superior support to every client.',
+        path: '/contact',
+    },
+];
+
+// ── Animation ─────────────────────────────────────────────────────────────────
+
+const cardHover = keyframes`
+  0%   { transform: translateY(0); box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+  100% { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(7,37,144,0.15); }
+`;
+
+// ── Shared sx ─────────────────────────────────────────────────────────────────
+
+const sectionHeadingSx = { color: NAVY, fontWeight: 800, lineHeight: 1.2 };
+
+// ── Component ─────────────────────────────────────────────────────────────────
+
 const Home = () => {
-  
-  const navigate = useNavigate();
-  
-  return (
-    <div>
-      {/* Landing Page Background Image */}
-      <Box
-        className="homepage-background-photo"
-        sx={{
-          height: { xs: "95vh", sm: "100vh", md: "125vh", lg: "125vh", xl: "130vh" },
-          mt: 0, 
-          backgroundImage: `url(${openDoorImg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundPositionY: { xs: "0%", sm: "20%", md: "30%", lg: "35%", xl: "38%" },
-          backgroundRepeat: "no-repeat",
-          position: "relative",
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-        }}
-      >
+    const navigate = useNavigate();
+
+    return (
         <Box
-          className="background-content-container"
-          sx={{ 
-            padding: { xs: "2rem 1rem", sm: "5rem 2rem", md: "3rem 3rem", lg: "4rem 18rem", xl: "6.5rem 22rem" },
-          }}
+            sx={{
+                backgroundColor: '#f9f8f6',
+                backgroundImage: `repeating-linear-gradient(
+                    -45deg,
+                    rgba(7,37,144,0.015) 0px, rgba(7,37,144,0.015) 1px,
+                    transparent 1px, transparent 28px
+                )`,
+                minHeight: '100vh',
+            }}
         >
-          <Box
-            component="img"
-            id="home-logo"
-            src={logoImg}
-            alt="Uptown Hope logo"  
-            sx={{ 
-              width: { xs: "65vw", sm: "40vw", md: "42vw", lg: "35vw", xl: "35vw" }, 
-              height: "auto", 
-              display: "block", 
-              margin: "auto", 
-              marginTop: "0", 
-              padding: "1rem"
-            }} 
-          />
 
-          <Box
-            className="header-title-and-text-container"
-            sx={{ px: { xs: 2, sm: 3, md: 5 } }}
-          >
-            <Typography
-              className="header-title"
-              variant="h2"
-              sx={{ 
-                fontWeight: "bold", 
-                color: "rgb(45, 48, 152)", 
-                fontSize: { 
-                  xs: "1.45rem", 
-                  sm: "2rem", 
-                  md: "2.25rem", 
-                  lg: "2.5rem",
-                  xl: "3rem" 
-                }, 
-                textAlign: "center"
-              }}
-            >
-              Staffing done right. 
-            </Typography>
-
-            <Typography
-              className="header-text"
-              variant="body1"
-              sx={{ 
-                fontWeight: "bold", 
-                color: "rgb(45, 48, 152)", 
-                // Simplified: xs and md differ, lg+ same as md
-                fontSize: { xs: "1.2rem", md: "1.21rem", lg: "1.22rem" },  
-                mt: { xs: "2em", md: "5em", lg: "6em", xl: "7em" },
-                mx: { xs: "5em", sm: "7.7em", md: "10.5em", lg: "4em", xl: "5em" },
-                textAlign: "center" 
-              }}
-            >
-              We connect the most qualified individuals to the companies that need them.
-            </Typography>
-
-            <br />
-
-            <Grid2
-              container
-              direction={{ xs: "column", md: "row" }}
-              justifyContent="center"
-              alignItems="center"
-              spacing={2}
-            >
-              <Grid2
-                size={12}
-                sx={{
-                  display: "flex",
-                  flexDirection: { xs: "column", md: "row" },
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: { xs: 1, md: 4, xl: 8 },
-                }}
-              >
-                <Button 
-                  variant="outlined"
-                  onClick={() => navigate("/career-opportunities")}
-                  sx={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: 'rgba(230, 115, 23, .9)',
-                    margin: '1em 0',
-                    fontWeight: 'bold',
-                    borderRadius: '60px',
-                    padding: '10px 40px', 
-                    fontSize: { xs: ".9rem", md: ".95rem", lg: ".96rem", xl: ".97rem" }, 
-                    borderColor: 'rgba(15, 3, 196, 1)',
-                    textTransform: 'uppercase',
-                    transition: 'transform 80ms ease-in',
-                    cursor: 'pointer',  
-                    color: "rgb(45, 48, 152)"
-                  }}
-                >
-                  Explore Careers 
-                </Button>
-
-                <Button
-                  variant="outlined"
-                  onClick={() => navigate("/staffing-solutions")}
-                  sx={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: 'rgba(230, 115, 23, .9)',
-                    margin: '1em 0',
-                    fontWeight: 'bold',
-                    borderRadius: '60px',
-                    padding: '10px 40px', 
-                    fontSize: '16px', 
-                    borderColor: 'rgba(15, 3, 196, 1)',
-                    textTransform: 'uppercase',
-                    transition: 'transform 80ms ease-in',
-                    cursor: 'pointer',  
-                    color: "rgb(45, 48, 152)"
-                  }}
-                >
-                  Find Staff
-                </Button>
-              </Grid2>
-            </Grid2>
-          </Box>
-        </Box>
-      </Box>
-
-      {/* About Company */}
-      <Box 
-        className="about-company-card-container"
-        sx={{
-          display: "flex", 
-          height: { xs: "20vh", sm: "20vh", md: "20vh", lg: "15vh", xl: "10vh" }, 
-          justifyContent: "center", 
-          alignItems: "center",
-          marginTop: { xs: 5, sm: 5, md: 0 },
-        }}
-      >
-        <Typography variant="body2" sx={{ fontSize: "1.1em", m: 3, color: "#0b2ca3" }}>
-          <strong style={{ fontSize: "23px" }}>Uptown Hope (UH) </strong>  
-          is a privately held limited liability company organized under the laws of the
-          State of Maryland. Uptown Hope offers staff support to organizations for a wide variety of
-          positions to cover staff shortages due to PTO, sickness, leave of absence, vacancies,
-          or to support sudden increase in workload due to growth and increased productivity needs.
-        </Typography>
-      </Box>
-
-      {/* Clickable Service Cards */}
-      <Box className="clickable-cards-container">
-        <Grid2
-          className="clickable-cards" 
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", lg: "row" },
-            justifyContent: "center", 
-            alignItems: "center",
-            textAlign: "center",
-            gap: { xs: 2, lg: 4 },
-            padding: { xs: "1rem", sm: "1.5rem", md: "2rem", lg: "2em" }, 
-            height: { xs: "auto", lg: "30vh", xl: "40vh" },           
-          }}
-        >
-          {services.map((service) => (
-            <Grid2 key={service.title}>
-              <Card
-                className="card"
-                elevation={8}
-                onClick={() => navigate(service.path)}
-                sx={{
-                  cursor: 'pointer',
-                  height: "25vh",
-                  width: { xs: "70vw", sm: "70vw", md: "60vw", lg: "20vw", xl: "20vw" },
-                  marginTop: "25px",
-                  marginBottom: "10px",
-                  padding: "30px 10px",
-                  justifyContent: "center",
-                  borderRadius: "5%",
-                  background: "linear-gradient(175deg, lightgray, #ffffff)",
-                  '&:hover': {
-                    animation: `${scaleUp} 0.3s forwards`,
-                  }
-                }}
-              >
-                <CardMedia>
-                  {/* FIX: FontAwesomeIcon does not support MUI's sx prop — use style instead */}
-                  <FontAwesomeIcon
-                    icon={service.icon}
-                    size="3x"
-                    style={{ 
-                      color: "rgba(230, 115, 14, 1)", 
-                      paddingTop: 2, 
-                      transition: 'transform 0.3s ease-in-out', 
-                    }}
-                  />
-                </CardMedia>
-                <CardContent>
-                  <Typography variant="h6" sx={{ fontWeight: 600, color: "rgba(230, 115, 14, 1)" }}>
-                    {service.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "#0b2ca3" }}>
-                    {service.description}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid2>
-          ))}
-        </Grid2>
-      </Box>
-
-      {/* Footer Banner */}
-      <Box
-        className="homepage-footer"
-        sx={{
-          // FIX: use 'background' not 'backgroundColor' for gradients
-          background: "linear-gradient(175deg, lightgray, #ffffff)",
-          color: "rgba(230, 115, 14, 1)",
-          py: 3,
-          textAlign: "center",
-          mt: 5
-        }}
-      >
-        <Typography variant="body2" sx={{ fontSize: "1.1em" }}>
-          For a full list of positions we fill, please visit the{" "}
-          <strong>
-            <a
-              href="/staffing-solutions"
-              target="_self"
-              alt="Staffing Solutions page"
-              style={{ color: "rgba(230, 115, 14, 1)", fontSize: "1.5em" }}
-            >
-              Staffing Solutions
-            </a>
-          </strong>{" "}
-          page.
-        </Typography>
-      </Box>
-
-      {/* Contact Section */}
-      <Box
-        className="contact-section"
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          p: 5,
-          backgroundColor: "#ffffff",
-        }}
-      >
-        <Grid2
-          container={true}
-          spacing={4}
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Grid2>
+            {/* ── Section 1: Full-bleed hero ── */}
             <Box
-              className="contact-section-info-and-image"
-              sx={{
-                width: "100%",
-                height: 300,
-                overflow: "hidden",
-                borderRadius: "50%"
-              }}
-            >
-              <Grid2>
-                <Typography 
-                  className="contact-section-text"
-                  variant="body1" 
-                  sx={{
-                    mt: 4, 
-                    fontSize: { xs: 14, sm: 15, md: 17 }
-                  }}
-                >
-                  300 Redland Ct., Suite 215 <br />
-                  Owings Mills, MD 21117 <br />
-                  (410) 363-9495 <br />
-                  <Button
-                    href="mailto:info@uptownhope.com"
-                    sx={{
-                      color: "#0b2ca3",
-                      textDecoration: "none",
-                      mt: 1,
-                      "&:hover": {
-                        color: "#1abc9c",
-                      },
-                    }}
-                  >
-                    info@uptownhope.com
-                  </Button>
-                </Typography>
-              </Grid2>
-              <Box 
-                className="sunshine-image"
-                component="img"
-                src={sunshineImg}
-                alt="Sunshine"
-                sx={{ 
-                  width: { xs: "3.5rem", sm: "35rem", md: "35rem", lg: "25rem", xl: "25rem" }, 
-                  height: "10rem"
+                sx={{
+                    position: 'relative',
+                    height: { xs: '82vh', md: '95vh' },
+                    backgroundImage: `url(${headerImg})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    display: 'flex',
+                    alignItems: 'flex-end'
                 }}
-              />
+            >
+                {/* Dark overlay — no blue tint */}
+                <Box
+                    sx={{
+                        position: 'absolute', inset: 0,
+                        background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.65) 100%)',
+                    }}
+                />
+
+                {/* Hero text — bottom-left aligned like Allegis */}
+                <Box
+                    sx={{
+                        position: 'relative', zIndex: 1,
+                        px: { xs: 3, sm: 5, md: 10, lg: 14 },
+                        pb: { xs: 2, sm: 3, md: 4 },
+                        maxWidth: 680,
+                        width: '100%',
+                        textAlign: 'left',
+                    }}
+                >
+                    <Typography
+                        variant="h1"
+                        sx={{
+                            ...sectionHeadingSx,
+                            color: 'white',
+                            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.6rem', lg: '3.2rem', xl: '3.8rem' },
+                            mb: { xs: 2, md: 3 },
+                            letterSpacing: { xs: '-0.5px', md: '-1px' },
+                        }}
+                    >
+                        Staffing Done Right.
+                    </Typography>
+                    <Typography
+                        sx={{
+                            color: 'rgba(255,255,255,0.85)',
+                            fontSize: { xs: '0.85rem', sm: '0.95rem', md: '1.05rem' },
+                            lineHeight: 1.75,
+                            mb: { xs: 3, md: 4 },
+                            maxWidth: 480,
+                        }}
+                    >
+                        We connect the most qualified individuals to the companies that need them —
+                        through a holistic, people-first approach to staffing.
+                    </Typography>
+                    <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+                        {[
+                            { label: 'Explore Careers', path: '/career-opportunities' },
+                            { label: 'Find Staff',      path: '/staffing-solutions'   },
+                        ].map(({ label, path }) => (
+                            <Button
+                                key={label}
+                                variant="outlined"
+                                onClick={() => navigate(path)}
+                                sx={{
+                                    backgroundColor: ORANGE,
+                                    color: 'white',
+                                    fontWeight: 700,
+                                    fontSize: '0.95rem',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '0.05em',
+                                    borderRadius: '60px',
+                                    px: 4.5,
+                                    py: 1.4,
+                                    border: 'none',
+                                    transition: 'background 0.2s, transform 0.1s, box-shadow 0.2s',
+                                    '&:hover': {
+                                        backgroundColor: '#c45e08',
+                                        border: 'none',
+                                        transform: 'translateY(-2px)',
+                                        boxShadow: '0 8px 24px rgba(230,115,14,0.4)',
+                                    },
+                                }}
+                            >
+                                {label}
+                            </Button>
+                        ))}
+                    </Box>
+                </Box>
             </Box>
-          </Grid2>
-        </Grid2>
-      </Box>
-    </div>
-  );
-}
+
+            {/* ── Section 2: Stat bar ── */}
+            <Box
+                sx={{
+                    background: NAVY,
+                    py: { xs: 5, md: 4 },
+                    px: { xs: 3, md: 8 },
+                }}
+            >
+                <Grid2 container justifyContent="center" spacing={0}>
+                    {STATS.map(({ value, label }, i) => (
+                        <Grid2
+                            key={label}
+                            size={{ xs: 6, md: 3 }}
+                            sx={{
+                                textAlign: 'center',
+                                py: { xs: 2, md: 3 },
+                                borderRight: { md: i < STATS.length - 1 ? '1px solid rgba(255,255,255,0.15)' : 'none' },
+                            }}
+                        >
+                            <Typography sx={{ color: ORANGE, fontWeight: 800, fontSize: { xs: '2rem', md: '2.8rem' }, lineHeight: 1 }}>
+                                {value}
+                            </Typography>
+                            <Typography sx={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', mt: 1, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                                {label}
+                            </Typography>
+                        </Grid2>
+                    ))}
+                </Grid2>
+            </Box>
+
+            {/* ── Section 3: About blurb — full-width panel ── */}
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: { xs: 'column', md: 'row' },
+                    alignItems: 'stretch',
+                    mt: 0,
+                }}
+            >
+                {/* Left: text */}
+                <Box
+                    sx={{
+                        flex: 1,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        px: { xs: 4, md: 10, lg: 14 },
+                        py: { xs: 7, md: 10 },
+                        background: 'rgba(218,220,226,0.35)',
+                        borderBottom: '1px solid rgba(218,220,226,0.8)',
+                    }}
+                >
+                    <Typography variant="overline" sx={{ color: ORANGE, fontWeight: 700, letterSpacing: '0.12em', mb: 1 }}>
+                        Who We Are
+                    </Typography>
+                    <Typography sx={{ color: '#444', fontSize: '1rem', lineHeight: 1.9, maxWidth: 560 }}>
+                        <Box component="span" sx={{ fontWeight: 700, color: NAVY }}>Uptown Hope (UH)</Box> is a
+                        privately held limited liability company organized under the laws of the State of Maryland.
+                        We offer staff support to organizations for a wide variety of positions — covering shortages
+                        due to PTO, sickness, leave of absence, vacancies, or sudden increases in workload due to
+                        growth and productivity needs.
+                    </Typography>
+                    <Button
+                        onClick={() => navigate('/about')}
+                        sx={{
+                            mt: 4,
+                            alignSelf: 'flex-start',
+                            color: NAVY,
+                            fontWeight: 700,
+                            fontSize: '0.9rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.08em',
+                            px: 0,
+                            borderBottom: `2px solid ${ORANGE}`,
+                            borderRadius: 0,
+                            '&:hover': { background: 'transparent', color: ORANGE },
+                        }}
+                    >
+                        Learn More →
+                    </Button>
+                </Box>
+
+                {/* Right: image */}
+                <Box
+                    sx={{
+                        width: { xs: '100%', md: '42%' },
+                        minHeight: { xs: 260, md: 'auto' },
+                        flexShrink: 0,
+                        backgroundImage: `url(${sunshineImg})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}
+                />
+            </Box>
+
+            {/* ── Section 4: Service cards ── */}
+            <Box sx={{ px: { xs: 3, md: 8, lg: 12 }, py: { xs: 8, md: 10 }, background: 'transparent' }}>
+                <Typography variant="overline" sx={{ color: ORANGE, fontWeight: 700, letterSpacing: '0.12em' }}>
+                    What We Offer
+                </Typography>
+                <Typography variant="h3" sx={{ ...sectionHeadingSx, fontSize: { xs: '1.8rem', md: '2.4rem' }, mb: 6, mt: 1 }}>
+                    People-Powered Solutions.
+                </Typography>
+
+                <Grid2 container spacing={3}>
+                    {SERVICES.map(({ icon, title, description, path }) => (
+                        <Grid2 key={title} size={{ xs: 12, sm: 6, lg: 3 }}>
+                            <Card
+                                elevation={0}
+                                onClick={() => navigate(path)}
+                                sx={{
+                                    height: '100%',
+                                    cursor: 'pointer',
+                                    borderRadius: '12px',
+                                    border: `1px solid rgba(7,37,144,0.1)`,
+                                    borderTop: `4px solid ${ORANGE}`,
+                                    background: '#fff',
+                                    transition: 'all 0.3s ease',
+                                    '&:hover': {
+                                        animation: `${cardHover} 0.3s forwards`,
+                                    },
+                                }}
+                            >
+                                <CardMedia sx={{ pt: 4, pb: 1, textAlign: 'center' }}>
+                                    <FontAwesomeIcon icon={icon} size="3x" style={{ color: ORANGE }} />
+                                </CardMedia>
+                                <CardContent sx={{ p: 3 }}>
+                                    <Typography variant="h6" sx={{ fontWeight: 700, color: NAVY, mb: 1 }}>
+                                        {title}
+                                    </Typography>
+                                    <Typography variant="body2" sx={{ color: '#666', lineHeight: 1.75 }}>
+                                        {description}
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                        </Grid2>
+                    ))}
+                </Grid2>
+            </Box>
+
+            {/* ── Section 5: Careers CTA — full-bleed navy ── */}
+            <Box
+                sx={{
+                    background: NAVY,
+                    px: { xs: 4, md: 10, lg: 14 },
+                    py: { xs: 8, md: 10 },
+                    display: 'flex',
+                    flexDirection: { xs: 'column', md: 'row' },
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 4,
+                }}
+            >
+                <Box sx={{ maxWidth: 560 }}>
+                    <Typography variant="overline" sx={{ color: ORANGE, fontWeight: 700, letterSpacing: '0.12em' }}>
+                        Staffing Solutions
+                    </Typography>
+                    <Typography variant="h3" sx={{ color: 'white', fontWeight: 800, fontSize: { xs: '1.8rem', md: '2.4rem' }, mt: 1, mb: 2 }}>
+                        Seize Your Opportunity.
+                    </Typography>
+                    <Typography sx={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontSize: '1rem' }}>
+                        For a full list of positions we fill and staffing solutions we provide,
+                        visit our Staffing Solutions page — or reach out directly.
+                    </Typography>
+                </Box>
+                <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', flexShrink: 0 }}>
+                    <Button
+                        onClick={() => navigate('/staffing-solutions')}
+                        sx={{
+                            backgroundColor: ORANGE,
+                            color: 'white',
+                            fontWeight: 700,
+                            fontSize: '0.9rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.06em',
+                            borderRadius: '60px',
+                            px: 4,
+                            py: 1.4,
+                            border: 'none',
+                            '&:hover': { backgroundColor: '#c45e08', border: 'none' },
+                        }}
+                    >
+                        Staffing Solutions
+                    </Button>
+                    <Button
+                        onClick={() => navigate('/contact')}
+                        sx={{
+                            backgroundColor: 'transparent',
+                            color: 'white',
+                            fontWeight: 700,
+                            fontSize: '0.9rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.06em',
+                            borderRadius: '60px',
+                            px: 4,
+                            py: 1.4,
+                            border: '2px solid rgba(255,255,255,0.4)',
+                            '&:hover': {
+                                backgroundColor: 'rgba(255,255,255,0.08)',
+                                border: '2px solid rgba(255,255,255,0.7)',
+                            },
+                        }}
+                    >
+                        Contact Us
+                    </Button>
+                </Box>
+            </Box>
+        </Box>
+    );
+};
 
 export default Home;

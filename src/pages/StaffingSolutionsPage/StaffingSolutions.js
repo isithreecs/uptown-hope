@@ -66,7 +66,7 @@ const StaffingSolutions = () => {
 
       <Parallax
         className="parallax-section"
-        bgImage={require("../images/coverImages/corporate1.jpg")}
+        bgImage={require("../pageImages/corporate1.jpg")}
         strength={300}
         bgImageStyle={{
           backgroundSize: "cover",

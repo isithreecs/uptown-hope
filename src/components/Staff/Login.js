@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import {
     Box,
     Button,
-    Checkbox,
-    Divider,
+    Checkbox,  
     FormControlLabel,
     IconButton,
     InputAdornment,
@@ -15,14 +14,13 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
-import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
 import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
 
 // ── Shared style tokens (mirrors CSS variables from the HTML) ─────────────────
 const t = {
     orange:     '#e6720f',
     orangeDark: '#c45e08',
-    navy:       '#0b2ca3',
+    navy:       '#072693',
     navyMid:    '#1a3dbf',
     navyLight:  '#eef1fc',
     white:      '#ffffff',
@@ -170,33 +168,18 @@ export default function Login() {
                             mb: '32px',
                         }}
                     >
-                        {/* Logo mark */}
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
+                        {/* Logo */}
+                        <Box
+                            component={Link}
+                            to="/"
+                            sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none', ml: 0 }}
+                        >
                             <Box
-                                sx={{
-                                    width: 34,
-                                    height: 34,
-                                    background: t.orange,
-                                    borderRadius: '9px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                }}
-                            >
-                                <PauseCircleOutlineIcon sx={{ color: 'white', fontSize: 18 }} />
-                            </Box>
-                            <Typography
-                                sx={{
-                                    fontFamily: "'Outfit', sans-serif",
-                                    fontSize: 15,
-                                    fontWeight: 800,
-                                    color: t.navy,
-                                    letterSpacing: '-0.2px',
-                                }}
-                            >
-                                Uptown
-                                <Box component="span" sx={{ color: t.orange }}>Hope</Box>
-                            </Typography>
+                                component="img"
+                                src="../images/uptownhope_logo.jpeg"
+                                alt="Uptown Hope logo"
+                                sx={{ width: 100, height: 60, objectFit: 'contain' }}
+                            />
                         </Box>
 
                         {/* Staff badge */}
@@ -371,55 +354,6 @@ export default function Login() {
                         }}
                     >
                         Sign In to Portal
-                    </Button>
-
-                    {/* SSO divider */}
-                    <Divider
-                        sx={{
-                            margin: '18px 0',
-                            fontFamily: "'Outfit', sans-serif",
-                            fontSize: 11,
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.08em',
-                            color: t.textDim,
-                            '&::before, &::after': { borderColor: t.border },
-                        }}
-                    >
-                        or
-                    </Divider>
-
-                    {/* Google Workspace SSO */}
-                    <Button
-                        fullWidth
-                        disableElevation
-                        sx={{
-                            fontFamily: "'Outfit', sans-serif",
-                            fontWeight: 600,
-                            fontSize: '13.5px',
-                            textTransform: 'none',
-                            background: 'transparent',
-                            color: t.textMid,
-                            border: `1.5px solid ${t.border}`,
-                            borderRadius: '9px',
-                            padding: '11px',
-                            display: 'flex',
-                            gap: '9px',
-                            transition: 'border-color 0.15s, background 0.15s',
-                            '&:hover': {
-                                borderColor: '#adb8e8',
-                                background: t.navyLight,
-                                color: t.navy,
-                            },
-                        }}
-                    >
-                        {/* Google icon */}
-                        <Box component="svg" width="16" height="16" viewBox="0 0 24 24" fill="none" sx={{ flexShrink: 0 }}>
-                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                        </Box>
-                        Sign in with Google Workspace
                     </Button>
                 </Box>
 

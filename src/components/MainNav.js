@@ -80,7 +80,7 @@ const MainNav = () => {
                         >
                             <Box
                                 component="img"
-                                src="images/uptownhope_logo.jpeg"
+                                src="../images/uptownhope_logo.jpeg"
                                 alt="Uptown Hope logo"
                                 sx={{ width: 100, height: 60, objectFit: 'contain' }}
                             />
@@ -91,7 +91,7 @@ const MainNav = () => {
                             sx={{
                                 display: { xs: 'none', xl: 'flex' },
                                 alignItems: 'center',
-                                gap: 3,
+                                gap: 6,
                                 position: 'absolute',
                                 left: '50%',
                                 transform: 'translateX(-50%)',
