@@ -8,13 +8,13 @@ import { SocialIcon } from 'react-social-icons';
 const NAV_LINKS = [
     { label: 'Home',               to: '/' },
     { label: 'About',              to: '/about' },
-    { label: 'Careers',            to: '/career-opportunities' },
-    { label: 'Staffing Solutions', to: '/staffing-solutions' },
+    { label: 'Employment',         to: '/employment' },
+    { label: 'Workforce Solutions', to: '/staffing-solutions' },
     { label: 'Contact',            to: '/contact' },
 ];
  
 const CONTACT_LINES = [
-    { text: '300 Redland Ct., Suite 215, Owings Mills, MD 21117' },
+    { text: '300 Redland Ct., Suite 309, Owings Mills, MD 21117' },
     { text: '(410) 363-9495' },
     { text: 'info@uptownhope.com', href: 'mailto:info@uptownhope.com' },
 ];

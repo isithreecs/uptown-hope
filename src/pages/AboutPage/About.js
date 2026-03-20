@@ -16,6 +16,8 @@ import {
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+import hopeImg  from '../pageImages/uptownhope_bkgrd.png';
+
 // ── Constants ─────────────────────────────────────────────────────────────────
 
 const ORANGE = 'rgba(230, 115, 14, 1)';
@@ -189,14 +191,14 @@ const About = () => (
             >
                 <Box
                     component="img"
-                    src="/images/sunshine.jpg"
-                    alt="Direct Support and Client"
+                    src={hopeImg}
+                    alt="Be The Missing Piece"
                     sx={{
                         width: '100%',
-                        height: { xs: '260px', md: '460px' },
+                        height: { xs: '260px', md: '420px' },
                         objectFit: 'cover',
                         borderRadius: '16px',
-                        boxShadow: '0 12px 40px rgba(0,0,0,0.18)',
+                        boxShadow: '0 12px 40px rgba(0,0,0,0.14)',
                         display: 'block',
                     }}
                 />

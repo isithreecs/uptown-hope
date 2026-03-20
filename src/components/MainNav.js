@@ -19,8 +19,8 @@ import CloseIcon from '@mui/icons-material/Close';
 const NAV_LINKS = [
     { label: 'Home',               to: '/',                    exact: true  },
     { label: 'About',              to: '/about',               exact: false },
-    { label: 'Careers',            to: '/career-opportunities',exact: false },
-    { label: 'Staffing Solutions', to: '/staffing-solutions',  exact: false },
+    { label: 'Employment',         to: '/employment',          exact: false },
+    { label: 'Workforce Solutions', to: '/staffing-solutions',  exact: false },
     { label: 'Contact',            to: '/contact',             exact: false },
 ];
 

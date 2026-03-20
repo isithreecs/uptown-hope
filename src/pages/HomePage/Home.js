@@ -1,18 +1,15 @@
 import {
     Box,
     Button,
-    Card,
-    CardContent,
-    CardMedia,
     Grid2,
     Typography,
-    keyframes,
 } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPeace, faSun, faHourglass2, faHandsHelping } from '@fortawesome/free-solid-svg-icons';
+import { faPeopleGroup, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import headerImg from '../pageImages/missing_puzzlepiece.jpg';
-import sunshineImg  from '../pageImages/missing_puzzlepiece.jpg';
+import workforceImg from '../pageImages/stafferWorking.jpg'
+import sunshineImg  from '../pageImages/sunshine.jpg';;
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -20,45 +17,11 @@ const ORANGE = 'rgba(230, 115, 14, 1)';
 const NAVY   = '#072590';
 
 const STATS = [
-    { value: '15+',   label: 'Years in Business'      },
-    { value: '500+',  label: 'Positions Filled'        },
+    { value: '5+',   label: 'Years in Business'      },
+    { value: '300+',  label: 'Positions Filled'        },
     { value: '100%',  label: 'Commitment to Quality'   },
     { value: '24/7',  label: 'Support for Clients'     },
 ];
-
-const SERVICES = [
-    {
-        icon: faPeace,
-        title: 'Holistic',
-        description: 'A whole-person approach to quality service provision for clients and associates.',
-        path: '/about',
-    },
-    {
-        icon: faSun,
-        title: 'Opportunity',
-        description: "Improving clients' productivity through effective staff augmentation.",
-        path: '/career-opportunities',
-    },
-    {
-        icon: faHourglass2,
-        title: 'Preparation',
-        description: 'Commitment to achieving positive outcomes for clients and associates.',
-        path: '/staffing-solutions',
-    },
-    {
-        icon: faHandsHelping,
-        title: 'Empowerment',
-        description: 'Staff empowered to confidently provide superior support to every client.',
-        path: '/contact',
-    },
-];
-
-// ── Animation ─────────────────────────────────────────────────────────────────
-
-const cardHover = keyframes`
-  0%   { transform: translateY(0); box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-  100% { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(7,37,144,0.15); }
-`;
 
 // ── Shared sx ─────────────────────────────────────────────────────────────────
 
@@ -118,8 +81,8 @@ const Home = () => {
                         variant="h1"
                         sx={{
                             ...sectionHeadingSx,
-                            color: 'white',
-                            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.6rem', lg: '3.2rem', xl: '3.8rem' },
+                            color: NAVY,
+                            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.6rem', lg: '3.3rem', xl: '4rem' },
                             mb: { xs: 2, md: 3 },
                             letterSpacing: { xs: '-0.5px', md: '-1px' },
                         }}
@@ -129,8 +92,8 @@ const Home = () => {
                     <Typography
                         sx={{
                             color: 'rgba(255,255,255,0.85)',
-                            fontSize: { xs: '0.85rem', sm: '0.95rem', md: '1.05rem' },
-                            lineHeight: 1.75,
+                            fontSize: { xs: '0.85rem', sm: '0.95rem', md: '1.4rem' },
+                            lineHeight: 1.6,
                             mb: { xs: 3, md: 4 },
                             maxWidth: 480,
                         }}
@@ -210,7 +173,8 @@ const Home = () => {
                     display: 'flex',
                     flexDirection: { xs: 'column', md: 'row' },
                     alignItems: 'stretch',
-                    mt: 0,
+                    background: 'rgba(218,220,226,0.35)',
+                    borderBottom: '1px solid rgba(218,220,226,0.8)',
                 }}
             >
                 {/* Left: text */}
@@ -220,16 +184,16 @@ const Home = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
-                        px: { xs: 4, md: 10, lg: 14 },
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        px: { xs: 4, md: 8, lg: 12 },
                         py: { xs: 7, md: 10 },
-                        background: 'rgba(218,220,226,0.35)',
-                        borderBottom: '1px solid rgba(218,220,226,0.8)',
                     }}
                 >
                     <Typography variant="overline" sx={{ color: ORANGE, fontWeight: 700, letterSpacing: '0.12em', mb: 1 }}>
                         Who We Are
                     </Typography>
-                    <Typography sx={{ color: '#444', fontSize: '1rem', lineHeight: 1.9, maxWidth: 560 }}>
+                    <Typography sx={{ color: '#444', fontSize: '1rem', lineHeight: 1.9, maxWidth: 480 }}>
                         <Box component="span" sx={{ fontWeight: 700, color: NAVY }}>Uptown Hope (UH)</Box> is a
                         privately held limited liability company organized under the laws of the State of Maryland.
                         We offer staff support to organizations for a wide variety of positions — covering shortages
@@ -240,7 +204,7 @@ const Home = () => {
                         onClick={() => navigate('/about')}
                         sx={{
                             mt: 4,
-                            alignSelf: 'flex-start',
+                            alignSelf: 'center',
                             color: NAVY,
                             fontWeight: 700,
                             fontSize: '0.9rem',
@@ -255,129 +219,212 @@ const Home = () => {
                         Learn More →
                     </Button>
                 </Box>
-
-                {/* Right: image */}
+ 
+                {/* Right: styled image */}
                 <Box
                     sx={{
-                        width: { xs: '100%', md: '42%' },
-                        minHeight: { xs: 260, md: 'auto' },
+                        width: { xs: '100%', md: '50%' },
                         flexShrink: 0,
-                        backgroundImage: `url(${sunshineImg})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        p: { xs: 3, md: 5 },
                     }}
-                />
+                >
+                    <Box
+                        component="img"
+                        src={sunshineImg}
+                        alt="Who We Are"
+                        sx={{
+                            width: '100%',
+                            height: { xs: '260px', md: '420px' },
+                            objectFit: 'cover',
+                            borderRadius: '16px',
+                            boxShadow: '0 12px 40px rgba(0,0,0,0.14)',
+                            display: 'block',
+                        }}
+                    />
+                </Box>
+            </Box>
+ 
+            {/* ── Section 4: Image + text panel ── */}
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: { xs: 'column-reverse', md: 'row' },
+                    alignItems: 'stretch',
+                    background: 'transparent',
+                }}
+            >
+                {/* Left: styled image */}
+                <Box
+                    sx={{
+                        width: { xs: '100%', md: '50%' },
+                        flexShrink: 0,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        p: { xs: 3, md: 5 },
+                    }}
+                >
+                    <Box
+                        component="img"
+                        src={workforceImg}
+                        alt="Be The Missing Piece"
+                        sx={{
+                            width: '100%',
+                            height: { xs: '260px', md: '420px' },
+                            objectFit: 'cover',
+                            borderRadius: '16px',
+                            boxShadow: '0 12px 40px rgba(0,0,0,0.14)',
+                            display: 'block',
+                        }}
+                    />
+                </Box>
+ 
+                {/* Right: text */}
+                <Box
+                    sx={{
+                        flex: 1,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        px: { xs: 4, md: 8, lg: 12 },
+                        py: { xs: 7, md: 10 },
+                    }}
+                >
+                    <Typography variant="overline" sx={{ color: ORANGE, fontWeight: 700, letterSpacing: '0.12em', mb: 1 }}>
+                        Employment Opportunities
+                    </Typography>
+                    <Typography variant="h3" sx={{ ...sectionHeadingSx, fontSize: { xs: '1.8rem', md: '2.4rem' }, mb: 3 }}>
+                        Be The Missing Piece
+                    </Typography>
+                    <Typography sx={{ color: '#555', fontSize: '1rem', lineHeight: 1.9, mb: 2 }}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </Typography>
+                    <Typography sx={{ color: '#555', fontSize: '1rem', lineHeight: 1.9 }}>
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.
+                    </Typography>
+                    <Button
+                        onClick={() => navigate('/career-opportunities')}
+                        sx={{
+                            mt: 4,
+                            alignSelf: 'center',
+                            color: NAVY,
+                            fontWeight: 700,
+                            fontSize: '0.9rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.08em',
+                            px: 0,
+                            borderBottom: `2px solid ${ORANGE}`,
+                            borderRadius: 0,
+                            '&:hover': { background: 'transparent', color: ORANGE },
+                        }}
+                    >
+                        Explore Careers →
+                    </Button>
+                </Box>
             </Box>
 
-            {/* ── Section 4: Service cards ── */}
-            <Box sx={{ px: { xs: 3, md: 8, lg: 12 }, py: { xs: 8, md: 10 }, background: 'transparent' }}>
-                <Typography variant="overline" sx={{ color: ORANGE, fontWeight: 700, letterSpacing: '0.12em' }}>
-                    What We Offer
-                </Typography>
-                <Typography variant="h3" sx={{ ...sectionHeadingSx, fontSize: { xs: '1.8rem', md: '2.4rem' }, mb: 6, mt: 1 }}>
-                    People-Powered Solutions.
-                </Typography>
-
-                <Grid2 container spacing={3}>
-                    {SERVICES.map(({ icon, title, description, path }) => (
-                        <Grid2 key={title} size={{ xs: 12, sm: 6, lg: 3 }}>
-                            <Card
-                                elevation={0}
-                                onClick={() => navigate(path)}
-                                sx={{
-                                    height: '100%',
-                                    cursor: 'pointer',
-                                    borderRadius: '12px',
-                                    border: `1px solid rgba(7,37,144,0.1)`,
-                                    borderTop: `4px solid ${ORANGE}`,
-                                    background: '#fff',
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        animation: `${cardHover} 0.3s forwards`,
-                                    },
-                                }}
-                            >
-                                <CardMedia sx={{ pt: 4, pb: 1, textAlign: 'center' }}>
-                                    <FontAwesomeIcon icon={icon} size="3x" style={{ color: ORANGE }} />
-                                </CardMedia>
-                                <CardContent sx={{ p: 3 }}>
-                                    <Typography variant="h6" sx={{ fontWeight: 700, color: NAVY, mb: 1 }}>
-                                        {title}
-                                    </Typography>
-                                    <Typography variant="body2" sx={{ color: '#666', lineHeight: 1.75 }}>
-                                        {description}
-                                    </Typography>
-                                </CardContent>
-                            </Card>
-                        </Grid2>
-                    ))}
-                </Grid2>
-            </Box>
-
-            {/* ── Section 5: Careers CTA — full-bleed navy ── */}
+            {/* ── Section 5: Lines of business — full-bleed navy ── */}
             <Box
                 sx={{
                     background: NAVY,
                     px: { xs: 4, md: 10, lg: 14 },
                     py: { xs: 8, md: 10 },
-                    display: 'flex',
-                    flexDirection: { xs: 'column', md: 'row' },
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    gap: 4,
                 }}
             >
-                <Box sx={{ maxWidth: 560 }}>
+                {/* Section header */}
+                <Box sx={{ mb: 6, textAlign: 'center' }}>
                     <Typography variant="overline" sx={{ color: ORANGE, fontWeight: 700, letterSpacing: '0.12em' }}>
                         Staffing Solutions
                     </Typography>
-                    <Typography variant="h3" sx={{ color: 'white', fontWeight: 800, fontSize: { xs: '1.8rem', md: '2.4rem' }, mt: 1, mb: 2 }}>
-                        Seize Your Opportunity.
-                    </Typography>
-                    <Typography sx={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontSize: '1rem' }}>
-                        For a full list of positions we fill and staffing solutions we provide,
-                        visit our Staffing Solutions page — or reach out directly.
+                    <Typography variant="h3" sx={{ color: 'white', fontWeight: 800, fontSize: { xs: '1.8rem', md: '2.4rem' }, mt: 1 }}>
+                        Better People. Better Business
                     </Typography>
                 </Box>
-                <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', flexShrink: 0 }}>
+ 
+                {/* Two business line blocks */}
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: { xs: 'column', md: 'row' },
+                        gap: { xs: 6, md: 8 },
+                        justifyContent: 'center',
+                        mb: 8,
+                    }}
+                >
+                    {/* Contingent Workforce */}
+                    <Box sx={{ flex: 1, maxWidth: 460, textAlign: 'center' }}>
+                        <Box sx={{ mb: 2 }}>
+                            <FontAwesomeIcon icon={faPeopleGroup} size="3x" style={{ color: ORANGE }} />
+                        </Box>
+                        <Typography variant="h6" sx={{ color: 'white', fontWeight: 700, mb: 1.5 }}>
+                            Contingent Workforce Solutions
+                        </Typography>
+                        <Typography sx={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, fontSize: '0.95rem' }}>
+                            We provide flexible, on-demand staffing to help organizations manage workforce
+                            fluctuations — covering PTO, leave of absence, vacancies, and surges in workload
+                            with qualified, ready-to-contribute associates.
+                        </Typography>
+                    </Box>
+ 
+                    {/* Divider */}
+                    <Box sx={{ width: '1px', background: 'rgba(255,255,255,0.12)', display: { xs: 'none', md: 'block' }, flexShrink: 0 }} />
+ 
+                    {/* RPO */}
+                    <Box sx={{ flex: 1, maxWidth: 460, textAlign: 'center' }}>
+                        <Box sx={{ mb: 2 }}>
+                            <FontAwesomeIcon icon={faMagnifyingGlass} size="3x" style={{ color: ORANGE }} />
+                        </Box>
+                        <Typography variant="h6" sx={{ color: 'white', fontWeight: 700, mb: 1.5 }}>
+                            Recruitment Process Outsourcing (RPO)
+                        </Typography>
+                        <Typography sx={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, fontSize: '0.95rem' }}>
+                            Our RPO services take the complexity out of talent acquisition — delivering
+                            end-to-end recruitment solutions that reduce time-to-hire, improve candidate
+                            quality, and scale with your organization's growth.
+                        </Typography>
+                    </Box>
+                </Box>
+ 
+                {/* Links */}
+                <Box sx={{ display: 'flex', gap: 4, flexWrap: 'wrap', justifyContent: 'center' }}>
                     <Button
                         onClick={() => navigate('/staffing-solutions')}
                         sx={{
-                            backgroundColor: ORANGE,
                             color: 'white',
                             fontWeight: 700,
                             fontSize: '0.9rem',
                             textTransform: 'uppercase',
-                            letterSpacing: '0.06em',
-                            borderRadius: '60px',
-                            px: 4,
-                            py: 1.4,
-                            border: 'none',
-                            '&:hover': { backgroundColor: '#c45e08', border: 'none' },
+                            letterSpacing: '0.08em',
+                            px: 0,
+                            borderBottom: `2px solid ${ORANGE}`,
+                            borderRadius: 0,
+                            '&:hover': { background: 'transparent', color: ORANGE },
                         }}
                     >
-                        Staffing Solutions
+                        Staffing Solutions →
                     </Button>
                     <Button
                         onClick={() => navigate('/contact')}
                         sx={{
-                            backgroundColor: 'transparent',
                             color: 'white',
                             fontWeight: 700,
                             fontSize: '0.9rem',
                             textTransform: 'uppercase',
-                            letterSpacing: '0.06em',
-                            borderRadius: '60px',
-                            px: 4,
-                            py: 1.4,
-                            border: '2px solid rgba(255,255,255,0.4)',
-                            '&:hover': {
-                                backgroundColor: 'rgba(255,255,255,0.08)',
-                                border: '2px solid rgba(255,255,255,0.7)',
-                            },
+                            letterSpacing: '0.08em',
+                            px: 0,
+                            borderBottom: `2px solid ${ORANGE}`,
+                            borderRadius: 0,
+                            '&:hover': { background: 'transparent', color: ORANGE },
                         }}
                     >
-                        Contact Us
+                        Contact Us →
                     </Button>
                 </Box>
             </Box>
