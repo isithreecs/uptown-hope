@@ -230,7 +230,7 @@ export default function Login() {
                         fullWidth
                         label="Work Email"
                         type="email"
-                        placeholder="name@uptownhope.org"
+                        placeholder="name@uptownhope.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required

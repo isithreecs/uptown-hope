@@ -18,7 +18,7 @@ import { useNavigate } from 'react-router-dom';
 const ORANGE = 'rgba(230, 115, 14, 1)';
 const NAVY   = '#072590';
 
-const CATEGORIES = [
+export const CATEGORIES = [
     {
         key:       'healthCare',
         title:     'Healthcare',

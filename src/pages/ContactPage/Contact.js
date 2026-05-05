@@ -21,7 +21,7 @@ const MAP_LOCATION = {
 const CONTACT_DETAILS = [
     {
         icon: <LocationOnOutlinedIcon sx={{ color: ORANGE, fontSize: 20, mt: '2px', flexShrink: 0 }} />,
-        content: '300 Redland Court, Suite 215\nOwings Mills, MD 21117',
+        content: '300 Redland Court, Suite 309\nOwings Mills, MD 21117',
     },
     {
         icon: <PhoneOutlinedIcon sx={{ color: ORANGE, fontSize: 20, flexShrink: 0 }} />,
