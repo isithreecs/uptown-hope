@@ -18,8 +18,8 @@ import { useState } from 'react';
 const ORANGE = 'rgba(230, 115, 14, 1)';
 const NAVY   = '#072590';
 
-// const API_URL = process.env.REACT_APP_SERVER_URL_PROD; 
-const API_URL = 'http://localhost:5001'
+const API_URL = process.env.REACT_APP_SERVER_URL_PROD;
+// const API_URL = 'http://localhost:5001'
 
 // ── Validation ────────────────────────────────────────────────────────────────
 
