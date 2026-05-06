@@ -21,6 +21,7 @@ const SOCIAL_LINKS = [
     { url: 'mailto:info@uptownhope.com',                   network: 'email'     },
 ];
 
+// const NAVY        = '#0b2ca3';
 const HOVER_SHADOW = '2px 2px 5px rgba(230, 114, 15, 0.9)';
 
 // ── Shared sx ─────────────────────────────────────────────────────────────────
@@ -124,14 +125,14 @@ const Footer = () => {
                         pl: { md: 6 },
                     }}
                 >
-                    <Box component={Link} to="/" aria-label="Uptown Hope home">
+                    <Link to="/" aria-label="Uptown Hope home" style={{ display: 'block' }}>
                         <Box
                             component="img"
                             src="/images/uptownhope_logo.jpeg"
                             alt="Uptown Hope logo"
                             sx={{ display: 'block', width: 160, height: 'auto', maxWidth: '100%' }}
                         />
-                    </Box>
+                    </Link>
                     <Typography
                         sx={{
                             fontFamily: "'Open Sans', sans-serif",
@@ -139,7 +140,8 @@ const Footer = () => {
                             color: 'white',
                             fontSize: 16,
                             lineHeight: 1.7,
-                            textAlign: 'center'
+                            textAlign: 'center',
+                            opacity: 0.75,
                         }}
                     >
                         300 Redland Ct, Suite 309<br />
@@ -211,8 +213,8 @@ const Footer = () => {
                     sx={{
                         fontFamily: "'Open Sans', sans-serif",
                         fontSize: 12,
-                        fontWeight: 600,
                         color: 'white',
+                        opacity: 0.6,
                         textAlign: { xs: 'center', md: 'left' },
                     }}
                 >
