@@ -114,7 +114,7 @@ const Home = () => {
                         }}
                     >
                         {[
-                            { label: 'Explore Careers', path: '/career-opportunities' },
+                            { label: 'Explore Careers', path: '/employment' },
                             { label: 'Find Staff',      path: '/staffing-solutions'   },
                         ].map(({ label, path }) => (
                             <Button
@@ -321,7 +321,7 @@ const Home = () => {
                         Short-term, long-term, or permanent — the choice is yours.
                     </Typography>
                     <Button
-                        onClick={() => navigate('/career-opportunities')}
+                        onClick={() => navigate('/employment')}
                         sx={{
                             mt: 4,
                             alignSelf: 'center',
