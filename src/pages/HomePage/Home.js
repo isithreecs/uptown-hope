@@ -313,14 +313,12 @@ const Home = () => {
                         Be The Missing Piece
                     </Typography>
                     <Typography sx={{ color: '#555', fontSize: '1rem', lineHeight: 1.9, mb: 2 }}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Ready to make your move? Uptown Hope connects driven individuals with employers who need them — on terms that work for you. 
+                        Whether you're stepping back into the workforce, pivoting to something new, or simply looking for flexibility that fits your life, we have opportunities that meet you where you are.
                     </Typography>
                     <Typography sx={{ color: '#555', fontSize: '1rem', lineHeight: 1.9 }}>
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
+                        From healthcare to finance, events and more, we work across a wide range of industries to match the right people with the right roles. 
+                        Short-term, long-term, or permanent — the choice is yours.
                     </Typography>
                     <Button
                         onClick={() => navigate('/career-opportunities')}
@@ -366,20 +364,21 @@ const Home = () => {
                     sx={{
                         display: 'flex',
                         flexDirection: { xs: 'column', md: 'row' },
-                        gap: { xs: 6, md: 8 },
+                        gap: { xs: 4, md: 8 },
                         justifyContent: 'center',
-                        mb: 8,
+                        alignItems: { xs: 'center', md: 'flex-start' },
+                        mb: { xs: 6, md: 8 },
                     }}
                 >
                     {/* Contingent Workforce */}
-                    <Box sx={{ flex: 1, maxWidth: 460, textAlign: 'center' }}>
+                    <Box sx={{ flex: 1, maxWidth: { xs: '100%', md: 460 }, textAlign: 'center' }}>
                         <Box sx={{ mb: 2 }}>
-                            <FontAwesomeIcon icon={faPeopleGroup} size="3x" style={{ color: ORANGE }} />
+                            <FontAwesomeIcon icon={faPeopleGroup} size="2x" style={{ color: ORANGE }} />
                         </Box>
-                        <Typography variant="h6" sx={{ color: 'white', fontWeight: 700, mb: 1.5 }}>
+                        <Typography variant="h6" sx={{ color: 'white', fontWeight: 700, mb: 1.5, fontSize: { xs: '1rem', md: '1.25rem' } }}>
                             Contingent Workforce Solutions
                         </Typography>
-                        <Typography sx={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, fontSize: '0.95rem' }}>
+                        <Typography sx={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, fontSize: { xs: '0.875rem', md: '0.95rem' } }}>
                             We provide flexible, on-demand staffing to help organizations manage workforce
                             fluctuations — covering PTO, leave of absence, vacancies, and surges in workload
                             with qualified, ready-to-contribute associates.
@@ -387,17 +386,17 @@ const Home = () => {
                     </Box>
  
                     {/* Divider */}
-                    <Box sx={{ width: '1px', background: 'rgba(255,255,255,0.12)', display: { xs: 'none', md: 'block' }, flexShrink: 0 }} />
+                    <Box sx={{ width: { xs: '60%', md: '1px' }, height: { xs: '1px', md: 'auto' }, background: 'rgba(255,255,255,0.12)', flexShrink: 0 }} />
  
                     {/* RPO */}
-                    <Box sx={{ flex: 1, maxWidth: 460, textAlign: 'center' }}>
+                    <Box sx={{ flex: 1, maxWidth: { xs: '100%', md: 460 }, textAlign: 'center' }}>
                         <Box sx={{ mb: 2 }}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} size="3x" style={{ color: ORANGE }} />
+                            <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" style={{ color: ORANGE }} />
                         </Box>
-                        <Typography variant="h6" sx={{ color: 'white', fontWeight: 700, mb: 1.5 }}>
+                        <Typography variant="h6" sx={{ color: 'white', fontWeight: 700, mb: 1.5, fontSize: { xs: '1rem', md: '1.25rem' } }}>
                             Recruitment Process Outsourcing (RPO)
                         </Typography>
-                        <Typography sx={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, fontSize: '0.95rem' }}>
+                        <Typography sx={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, fontSize: { xs: '0.875rem', md: '0.95rem' } }}>
                             Our RPO services take the complexity out of talent acquisition — delivering
                             end-to-end recruitment solutions that reduce time-to-hire, improve candidate
                             quality, and scale with your organization's growth.
