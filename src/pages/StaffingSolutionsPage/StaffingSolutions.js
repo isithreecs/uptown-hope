@@ -398,13 +398,26 @@ const StaffingSolutions = () => {
                 >
                     <Typography
                         variant="h2"
-                        sx={{ fontWeight: 800, color: ORANGE }}
+                        sx={{
+                            fontWeight: 800,
+                            color: ORANGE,
+                            fontSize: { xs: '2rem', sm: '2.6rem', md: '3.2rem', lg: '3.8rem', xl: '4.4rem' },
+                            letterSpacing: { xs: '-0.5px', md: '-1px' },
+                            lineHeight: 1.15,
+                        }}
                     >
                         Workforce Solutions
                     </Typography>
                     <Typography
                         variant="body1"
-                        sx={{ fontWeight: 600, color: 'white', mt: 2.5, fontSize: '1.4rem' }}
+                        sx={{
+                            fontWeight: 600,
+                            color: 'white',
+                            mt: 2.5,
+                            fontSize: { xs: '0.95rem', sm: '1.1rem', md: '1.4rem' },
+                            lineHeight: 1.6,
+                            maxWidth: { xs: '100%', md: 600 },
+                        }}
                     >
                         Short on Staff?
                     </Typography>
@@ -415,7 +428,7 @@ const StaffingSolutions = () => {
             <Box
                 sx={{
                     textAlign: 'center',
-                    px: { xs: 4, md: 10, lg: 14 },
+                    px: { xs: 4, md: 8, lg: 12 },
                     py: { xs: 7, md: 9 },
                     // background: 'rgba(230,115,14,0.75)',
                     borderBottom: '1px solid rgba(230,115,14,0.15)',
@@ -436,7 +449,7 @@ const StaffingSolutions = () => {
             </Box>
 
             {/* ── Section 3: How It Works timeline ── */}
-            <Box sx={{ px: { xs: 3, md: 8, lg: 12 }, py: { xs: 8, md: 10 }, background: NAVY, borderBottom: '1px solid rgba(7,37,144,0.8)' }}>
+            <Box sx={{ px: { xs: 4, md: 8, lg: 12 }, py: { xs: 8, md: 10 }, background: NAVY, borderBottom: '1px solid rgba(7,37,144,0.8)' }}>
                 <Typography variant="overline" sx={{ color: ORANGE, fontWeight: 700, letterSpacing: '0.12em', display: 'block', textAlign: 'center' }}>
                     How It Works
                 </Typography>
@@ -551,7 +564,7 @@ const StaffingSolutions = () => {
                 {/* Left: image */}
                 <Box
                     sx={{
-                        width: { xs: '100%', md: '42%' },
+                        width: { xs: '100%', md: '55%' },
                         flexShrink: 0,
                         display: 'flex',
                         alignItems: 'center',
@@ -567,6 +580,7 @@ const StaffingSolutions = () => {
                             width: '100%',
                             height: { xs: '260px', md: '460px' },
                             objectFit: 'cover',
+                            objectPosition: 'top center',
                             borderRadius: '16px',
                             boxShadow: '0 12px 40px rgba(0,0,0,0.14)',
                             display: 'block',
@@ -581,7 +595,7 @@ const StaffingSolutions = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
-                        px: { xs: 3, md: 6, lg: 8 },
+                        px: { xs: 4, md: 8, lg: 12 },
                         py: { xs: 6, md: 8 },
                     }}
                 >
@@ -627,7 +641,7 @@ const StaffingSolutions = () => {
             </Box>
 
             {/* ── Section 5: Staffing Needs Quiz ── */}
-            <Box sx={{ px: { xs: 3, md: 8, lg: 12 }, py: { xs: 8, md: 10 }, background: 'transparent' }}>
+            <Box sx={{ px: { xs: 4, md: 8, lg: 12 }, py: { xs: 8, md: 10 }, background: 'transparent' }}>
                 <Typography variant="overline" sx={{ color: ORANGE, fontWeight: 700, letterSpacing: '0.12em', display: 'block', textAlign: 'center' }}>
                     Find Your Fit
                 </Typography>
@@ -644,7 +658,7 @@ const StaffingSolutions = () => {
             <Box
                 sx={{
                     background: NAVY,
-                    px: { xs: 3, md: 8, lg: 12 },
+                    px: { xs: 4, md: 8, lg: 12 },
                     py: { xs: 8, md: 10 },
                     textAlign: 'center',
                 }}

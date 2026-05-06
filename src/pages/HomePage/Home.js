@@ -55,7 +55,8 @@ const Home = () => {
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
                     display: 'flex',
-                    alignItems: 'flex-end'
+                    alignItems: 'flex-end',
+                    justifyContent: { xs: 'center', md: 'flex-start' },
                 }}
             >
                 {/* Dark overlay — no blue tint */}
@@ -66,15 +67,16 @@ const Home = () => {
                     }}
                 />
 
-                {/* Hero text — bottom-left aligned like Allegis */}
+                {/* Hero text — centered on mobile, bottom-left on desktop */}
                 <Box
                     sx={{
                         position: 'relative', zIndex: 1,
-                        px: { xs: 3, sm: 5, md: 10, lg: 14 },
+                        px: { xs: 4, md: 10, lg: 14 },
                         pb: { xs: 2, sm: 3, md: 4 },
-                        maxWidth: 680,
+                        maxWidth: { xs: '100%', md: 680 },
                         width: '100%',
-                        textAlign: 'left',
+                        textAlign: { xs: 'center', md: 'left' },
+                        mx: { xs: 'auto', md: 0 },
                     }}
                 >
                     <Typography
@@ -95,13 +97,22 @@ const Home = () => {
                             fontSize: { xs: '0.85rem', sm: '0.95rem', md: '1.4rem' },
                             lineHeight: 1.6,
                             mb: { xs: 3, md: 4 },
-                            maxWidth: 480,
+                            maxWidth: { xs: '100%', md: 480 },
                         }}
                     >
                         We connect the most qualified individuals to the companies that need them —
                         through a holistic, people-first approach to staffing.
                     </Typography>
-                    <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            gap: 2,
+                            flexWrap: 'wrap',
+                            flexDirection: { xs: 'column', sm: 'row' },
+                            alignItems: { xs: 'center', md: 'flex-start' },
+                            justifyContent: { xs: 'center', md: 'flex-start' },
+                        }}
+                    >
                         {[
                             { label: 'Explore Careers', path: '/career-opportunities' },
                             { label: 'Find Staff',      path: '/staffing-solutions'   },
@@ -142,7 +153,7 @@ const Home = () => {
                 sx={{
                     background: NAVY,
                     py: { xs: 5, md: 4 },
-                    px: { xs: 3, md: 8 },
+                    px: { xs: 4, md: 8 },
                 }}
             >
                 <Grid2 container justifyContent="center" spacing={0}>
@@ -289,6 +300,8 @@ const Home = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
+                        alignItems: 'center',
+                        textAlign: 'center',
                         px: { xs: 4, md: 8, lg: 12 },
                         py: { xs: 7, md: 10 },
                     }}
@@ -334,7 +347,7 @@ const Home = () => {
             <Box
                 sx={{
                     background: NAVY,
-                    px: { xs: 4, md: 10, lg: 14 },
+                    px: { xs: 4, md: 8, lg: 12 },
                     py: { xs: 8, md: 10 },
                 }}
             >
