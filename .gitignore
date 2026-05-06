@@ -2,3 +2,4 @@ node_modules
 yarn.lock
 .env
 archives
+sliding-panel-animation.css
