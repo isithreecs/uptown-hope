@@ -115,13 +115,26 @@ const About = () => (
             >
                 <Typography
                     variant="h2"
-                    sx={{ fontWeight: 'bold', color: ORANGE }}
+                    sx={{
+                        fontWeight: 'bold',
+                        color: ORANGE,
+                        fontSize: { xs: '2rem', sm: '2.6rem', md: '3.2rem', lg: '3.8rem', xl: '4.4rem' },
+                        letterSpacing: { xs: '-0.5px', md: '-1px' },
+                        lineHeight: 1.15,
+                    }}
                 >
                     Learn More About Us!
                 </Typography>
                 <Typography
                     variant="body1"
-                    sx={{ fontWeight: 'bold', color: 'white', mt: 2.5, fontSize: '1.5rem' }}
+                    sx={{
+                        fontWeight: 'bold',
+                        color: 'white',
+                        mt: 2.5,
+                        fontSize: { xs: '1rem', sm: '1.1rem', md: '1.3rem', lg: '1.5rem' },
+                        lineHeight: 1.6,
+                        maxWidth: { xs: '100%', md: 600 },
+                    }}
                 >
                     Discover the mission, vision, and values at Uptown Hope!
                 </Typography>
@@ -144,7 +157,7 @@ const About = () => (
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
-                    px: { xs: 4, md: 8 },
+                    px: { xs: 4, md: 8, lg: 12 },
                     py: { xs: 6, md: 8 },
                     gap: 3,
                 }}
@@ -210,11 +223,11 @@ const About = () => (
             backgroundColor: '#f9f8f6',
             backgroundImage: `repeating-linear-gradient(
                 -45deg,
-                rgba(7,37,144,0.015) 0px, rgba(7,37,144,0.5) 1px,
+                rgba(7,37,144,0.015) 0px, rgba(7,37,144,0.015) 1px,
                 transparent 1px, transparent 28px
             )`,
-            px: { xs: 2, md: 6 }, 
-            py: 8, 
+            px: { xs: 4, md: 8, lg: 12 },
+            py: { xs: 8, md: 10 },
         }}>
             <Grid2 container spacing={3}>
                 {MISSION_CARDS.map(({ title, text }) => (
@@ -242,8 +255,8 @@ const About = () => (
         {/* ── Section 4: Leadership credentials ── */}
         <Box
             sx={{
-                px: { xs: 2, md: 8 },
-                py: 8,
+                px: { xs: 4, md: 8, lg: 12 },
+                py: { xs: 8, md: 10 },
                 background: 'rgba(218, 220, 226, 0.35)',
             }}
         >

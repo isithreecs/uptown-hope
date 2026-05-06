@@ -64,7 +64,7 @@ const Contact = () => {
             <Box
                 sx={{
                     background: NAVY,
-                    px: { xs: 3, md: 10, lg: 14 },
+                    px: { xs: 4, md: 8, lg: 12 },
                     py: { xs: 10, md: 14 },
                     textAlign: 'center',
                     position: 'relative',
@@ -93,8 +93,8 @@ const Contact = () => {
                     sx={{
                         color: 'white',
                         fontWeight: 800,
-                        fontSize: { xs: '2.2rem', sm: '3rem', md: '3.8rem' },
-                        letterSpacing: '-0.5px',
+                        fontSize: { xs: '2rem', sm: '2.6rem', md: '3.2rem', lg: '3.8rem', xl: '4.4rem' },
+                        letterSpacing: { xs: '-0.5px', md: '-1px' },
                         mb: 2,
                         position: 'relative',
                         zIndex: 1,
@@ -105,7 +105,7 @@ const Contact = () => {
                 <Typography
                     sx={{
                         color: 'rgba(255,255,255,0.75)',
-                        fontSize: { xs: '1rem', md: '1.15rem' },
+                        fontSize: { xs: '0.95rem', sm: '1.1rem', md: '1.4rem' },
                         maxWidth: 520, mx: 'auto',
                         lineHeight: 1.8,
                         position: 'relative', zIndex: 1,
@@ -119,7 +119,7 @@ const Contact = () => {
             {/* ── Section 2: Full-width contact form ── */}
             <Box
                 sx={{
-                    px: { xs: 3, md: 8, lg: 14 },
+                    px: { xs: 4, md: 8, lg: 12 },
                     py: { xs: 8, md: 10 },
                     maxWidth: 900,
                     mx: 'auto',
@@ -131,7 +131,7 @@ const Contact = () => {
                         borderRadius: '16px',
                         border: '1px solid rgba(7,37,144,0.08)',
                         borderTop: `4px solid ${ORANGE}`,
-                        px: { xs: 3, md: 6 },
+                        px: { xs: 4, md: 6 },
                         py: { xs: 4, md: 6 },
                         boxShadow: '0 8px 40px rgba(0,0,0,0.08)',
                     }}
@@ -146,7 +146,7 @@ const Contact = () => {
             {/* ── Section 3: Unified map + contact info card ── */}
             <Box
                 sx={{
-                    px: { xs: 3, md: 8, lg: 14 },
+                    px: { xs: 4, md: 8, lg: 12 },
                     pb: { xs: 8, md: 10 },
                     maxWidth: 900,
                     mx: 'auto',
@@ -183,20 +183,19 @@ const Contact = () => {
                     <Box
                         sx={{
                             flex: 1,
-                            px: { xs: 3, md: 5 },
+                            px: { xs: 4, md: 5 },
                             py: { xs: 4, md: 5 },
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'center',
+                            alignItems: 'center',
+                            textAlign: 'center',
                             gap: 2.5,
                         }}
                     >
                         <Box>
-                            <Typography variant="overline" sx={{ color: ORANGE, fontWeight: 700, letterSpacing: '0.12em' }}>
-                                Find Us
-                            </Typography>
                             <Typography variant="h5" sx={{ color: NAVY, fontWeight: 800, mt: 0.5 }}>
-                                Our Office
+                                Find Us
                             </Typography>
                         </Box>
 
@@ -232,7 +231,7 @@ const Contact = () => {
                             rel="noopener noreferrer"
                             endIcon={<OpenInNewIcon sx={{ fontSize: '14px !important' }} />}
                             sx={{
-                                alignSelf: 'flex-start',
+                                alignSelf: 'center',
                                 color: NAVY,
                                 fontWeight: 700,
                                 fontSize: '0.875rem',

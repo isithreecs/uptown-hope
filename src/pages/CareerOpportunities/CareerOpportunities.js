@@ -189,7 +189,7 @@ const CardSlideshow = ({ onOpenModal }) => {
                     border: '1px solid rgba(7,37,144,0.08)',
                     borderTop: `4px solid ${ORANGE}`,
                     boxShadow: '0 8px 40px rgba(0,0,0,0.09)',
-                    px: { xs: 4, md: 6 },
+                    px: { xs: 4, md: 6, lg: 8 },
                     py: { xs: 5, md: 6 },
                     textAlign: 'center',
                     minHeight: 320,
@@ -203,7 +203,7 @@ const CardSlideshow = ({ onOpenModal }) => {
                 <Typography variant="overline" sx={{ color: ORANGE, fontWeight: 700, letterSpacing: '0.12em', mb: 1 }}>
                     {card.cardTitle}
                 </Typography>
-                <Typography variant="h3" sx={{ ...sectionHeadingSx, fontSize: { xs: '2rem', md: '2.8rem' }, mb: 2 }}>
+                <Typography variant="h3" sx={{ ...sectionHeadingSx, fontSize: { xs: '1.8rem', md: '2.2rem' }, mb: 2 }}>
                     {card.title}
                 </Typography>
                 <Typography sx={{ color: '#666', fontSize: '1rem', lineHeight: 1.8, maxWidth: 460, mb: 3 }}>
@@ -288,10 +288,29 @@ const CareerOpportunities = () => {
                         px: 3,
                     }}
                 >
-                    <Typography variant="h2" sx={{ fontWeight: 800, color: ORANGE }}>
+                    <Typography
+                        variant="h2"
+                        sx={{
+                            fontWeight: 800,
+                            color: ORANGE,
+                            fontSize: { xs: '2rem', sm: '2.6rem', md: '3.2rem', lg: '3.8rem', xl: '4.4rem' },
+                            letterSpacing: { xs: '-0.5px', md: '-1px' },
+                            lineHeight: 1.15,
+                        }}
+                    >
                         Employment at Uptown Hope
                     </Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 600, color: 'white', mt: 2.5, fontSize: '1.4rem' }}>
+                    <Typography
+                        variant="body1"
+                        sx={{
+                            fontWeight: 600,
+                            color: 'white',
+                            mt: 2.5,
+                            fontSize: { xs: '0.95rem', sm: '1.1rem', md: '1.4rem' },
+                            lineHeight: 1.6,
+                            maxWidth: { xs: '100%', md: 600 },
+                        }}
+                    >
                         Work when you want, where you want.
                     </Typography>
                 </Box>
@@ -336,7 +355,7 @@ const CareerOpportunities = () => {
 
                 <Box
                     sx={{
-                        width: { xs: '100%', md: '45%' },
+                        width: { xs: '100%', md: '55%' },
                         flexShrink: 0,
                         display: 'flex',
                         alignItems: 'center',
@@ -352,6 +371,7 @@ const CareerOpportunities = () => {
                             width: '100%',
                             height: { xs: '260px', md: '400px' },
                             objectFit: 'cover',
+                            objectPosition: 'top center',
                             borderRadius: '16px',
                             boxShadow: '0 12px 40px rgba(0,0,0,0.14)',
                             display: 'block',
@@ -375,7 +395,7 @@ const CareerOpportunities = () => {
             <Box
                 sx={{
                     background: NAVY,
-                    px: { xs: 3, md: 8, lg: 12 },
+                    px: { xs: 4, md: 8, lg: 12 },
                     py: { xs: 8, md: 10 },
                     textAlign: 'center',
                 }}
