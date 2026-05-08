@@ -218,7 +218,7 @@ const Footer = () => {
                         textAlign: { xs: 'center', md: 'left' },
                     }}
                 >
-                    © {currentYear} Uptown Hope, LLC. All Rights Reserved
+                    © {currentYear} Uptown Hope Corporation. All Rights Reserved
                 </Typography>
             </Box>
         </Box>

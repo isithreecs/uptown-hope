@@ -168,26 +168,37 @@ const About = () => (
                     { letter: 'P', word: 'Preparation', desc: 'Our staff and associates are thoroughly trained and ready to contribute from day one.' },
                     { letter: 'E', word: 'Empowerment', desc: 'We invest in people — building confidence, capability, and long-term success.' },
                 ].map(({ letter, word, desc }) => (
-                    <Box key={letter} sx={{ display: 'flex', alignItems: 'flex-start', gap: 2.5 }}>
+                    <Box
+                        key={letter}
+                        sx={{
+                            display: 'grid',
+                            gridTemplateColumns: { xs: '3rem 1fr', md: '4.5rem 1fr' },
+                            gridTemplateRows: 'auto auto',
+                            columnGap: 2.5,
+                            rowGap: 0.5,
+                        }}
+                    >
+                        {/* Letter spans both rows */}
                         <Typography
                             sx={{
+                                gridRow: '1 / 3',
                                 fontSize: { xs: '3rem', md: '4rem' },
                                 fontWeight: 800,
                                 color: NAVY,
                                 lineHeight: 1,
-                                minWidth: { xs: '3rem', md: '4rem' },
+                                alignSelf: 'center',
                             }}
                         >
                             {letter}
                         </Typography>
-                        <Box sx={{ pt: 0.5 }}>
-                            <Typography sx={{ fontWeight: 700, color: ORANGE, fontSize: '1.1rem', lineHeight: 1.2, mb: 0.5 }}>
-                                {word}
-                            </Typography>
-                            <Typography sx={{ color: 'gray', fontStyle: 'italic', fontSize: '0.9rem', lineHeight: 1.7 }}>
-                                {desc}
-                            </Typography>
-                        </Box>
+                        {/* Word — row 1 */}
+                        <Typography sx={{ fontWeight: 700, color: ORANGE, fontSize: '1.1rem', lineHeight: 1.3, alignSelf: 'end' }}>
+                            {word}
+                        </Typography>
+                        {/* Desc — row 2 */}
+                        <Typography sx={{ color: 'gray', fontStyle: 'italic', fontSize: '0.9rem', lineHeight: 1.7, alignSelf: 'start' }}>
+                            {desc}
+                        </Typography>
                     </Box>
                 ))}
             </Box>

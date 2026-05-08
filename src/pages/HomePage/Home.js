@@ -206,7 +206,7 @@ const Home = () => {
                     </Typography>
                     <Typography sx={{ color: '#444', fontSize: '1rem', lineHeight: 1.9, maxWidth: 480 }}>
                         <Box component="span" sx={{ fontWeight: 700, color: NAVY }}>Uptown Hope (UH)</Box> is a
-                        privately held limited liability company organized under the laws of the State of Maryland.
+                        privately held corporation organized under the laws of the State of Maryland.
                         We offer staff support to organizations for a wide variety of positions — covering shortages
                         due to PTO, sickness, leave of absence, vacancies, or sudden increases in workload due to
                         growth and productivity needs.
