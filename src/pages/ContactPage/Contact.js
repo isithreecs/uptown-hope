@@ -25,8 +25,8 @@ const CONTACT_DETAILS = [
     },
     {
         icon: <PhoneOutlinedIcon sx={{ color: ORANGE, fontSize: 20, flexShrink: 0 }} />,
-        content: '(410) 363-9495',
-        href: 'tel:4103639495',
+        content: '(443) 334-7444',
+        href: 'tel:4433347444',
     },
     {
         icon: <EmailOutlinedIcon sx={{ color: ORANGE, fontSize: 20, flexShrink: 0 }} />,

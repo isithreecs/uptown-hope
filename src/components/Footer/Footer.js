@@ -17,7 +17,7 @@ const SOCIAL_LINKS = [
     { url: 'https://linkedin.com/company/uptown-hope-llc/', network: 'linkedin'  },
     { url: 'https://facebook.com',                         network: 'facebook'  },
     { url: 'https://instagram.com/uptownhope',             network: 'instagram' },
-    { url: 'tel:4103639495',                               network: 'sharethis' },
+    { url: 'tel:4433347444',                               network: 'sharethis' },
     { url: 'mailto:info@uptownhope.com',                   network: 'email'     },
 ];
 
