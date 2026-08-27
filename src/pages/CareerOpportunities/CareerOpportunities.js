@@ -3,14 +3,11 @@ import { Parallax } from 'react-parallax';
 import {
     Box,
     Button,
-    Chip,
     IconButton,
-    Modal,
     Typography,
 } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate } from 'react-router-dom';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
@@ -24,35 +21,30 @@ export const CATEGORIES = [
         title:     'Healthcare',
         cardTitle: 'Health Care Staff Support',
         desc:      'Qualified healthcare practitioners for hospitals, clinics, and medical facilities on flexible arrangements.',
-        positions: ['CMA', 'CNA', 'GNA', 'Direct Support Professional / CMT', 'Medical Records Clerk', 'Personal Care Assistant', 'Therapeutic Support Staff'],
     },
     {
         key:       'nursing',
         title:     'Nursing',
         cardTitle: 'Nursing Referral Service Support',
         desc:      'Licensed and certified health professionals providing nursing and home health care services.',
-        positions: ['LPN', 'RN'],
     },
     {
         key:       'administration',
         title:     'Administration',
         cardTitle: 'Administrative & Clerical Support',
         desc:      'Qualified administrative support staff for a variety of organizations on flexible terms.',
-        positions: ['Receptionist', 'Administrative Assistant', 'File Clerk', 'Office Manager / Coordinator'],
     },
     {
         key:       'finance',
         title:     'Finance',
         cardTitle: 'Accounting & Finance Support',
         desc:      'Accounting and finance professionals for short or long-term placements.',
-        positions: ['Bookkeeper', 'Accounts Payable / Receivable', 'Junior Accountant', 'Staff Accountant', 'Senior Accountant'],
     },
     {
         key:       'events',
         title:     'Events',
         cardTitle: 'Event Planning',
         desc:      'Exceptional staff support for a variety of events of any size.',
-        positions: ['Sporting Events', 'Conventions', 'Concerts', 'Festivals', 'Conferences'],
     },
 ];
 
@@ -99,79 +91,9 @@ const arrowBtnSx = (side) => ({
     '&:hover': { background: ORANGE, color: 'white' },
 });
 
-// ── CategoryModal ─────────────────────────────────────────────────────────────
-
-const CategoryModal = ({ index, onClose, onContact }) => {
-    if (index === null) return null;
-    const cat = CATEGORIES[index];
-
-    return (
-        <Box
-            sx={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: { xs: '90vw', sm: 480 },
-                background: 'white',
-                borderRadius: '16px',
-                borderTop: `4px solid ${ORANGE}`,
-                boxShadow: '0 24px 80px rgba(0,0,0,0.25)',
-                p: 4,
-                outline: 'none',
-            }}
-        >
-            <IconButton
-                onClick={onClose}
-                aria-label="Close modal"
-                sx={{ position: 'absolute', top: 12, right: 12, color: '#aaa', '&:hover': { color: NAVY } }}
-            >
-                <CloseIcon />
-            </IconButton>
-
-            <Typography variant="overline" sx={{ color: ORANGE, fontWeight: 700, letterSpacing: '0.12em' }}>
-                {cat.cardTitle}
-            </Typography>
-            <Typography variant="h5" sx={{ color: NAVY, fontWeight: 800, mt: 0.5, mb: 1 }}>
-                {cat.title}
-            </Typography>
-
-            <Box sx={{ width: '100%', height: '2px', background: `linear-gradient(90deg, ${ORANGE}, transparent)`, mb: 2.5 }} />
-
-            <Typography sx={{ color: '#555', fontSize: '0.95rem', lineHeight: 1.8, mb: 2.5 }}>
-                {cat.desc}
-            </Typography>
-
-            <Typography sx={{ color: NAVY, fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', mb: 1.5 }}>
-                Typical Positions
-            </Typography>
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
-                {cat.positions.map((pos) => (
-                    <Chip
-                        key={pos}
-                        label={pos}
-                        size="small"
-                        sx={{
-                            background: 'rgba(230,115,14,0.1)',
-                            color: NAVY,
-                            fontWeight: 600,
-                            fontSize: '0.8rem',
-                            border: '1px solid rgba(230,115,14,0.25)',
-                        }}
-                    />
-                ))}
-            </Box>
-
-            <Button onClick={onContact} sx={solidBtnSx}>
-                Contact Us →
-            </Button>
-        </Box>
-    );
-};
-
 // ── CardSlideshow ─────────────────────────────────────────────────────────────
 
-const CardSlideshow = ({ onOpenModal }) => {
+const CardSlideshow = ({ onApply }) => {
     const [index, setIndex] = useState(0);
 
     const prev = useCallback(() => setIndex((i) => (i - 1 + CATEGORIES.length) % CATEGORIES.length), []);
@@ -209,8 +131,8 @@ const CardSlideshow = ({ onOpenModal }) => {
                 <Typography sx={{ color: '#666', fontSize: '1rem', lineHeight: 1.8, maxWidth: 460, mb: 3 }}>
                     {card.desc}
                 </Typography>
-                <Button onClick={() => onOpenModal(index)} sx={solidBtnSx}>
-                    View Positions
+                <Button onClick={() => onApply(card.title)} sx={solidBtnSx}>
+                    Click to Apply
                 </Button>
             </Box>
 
@@ -251,11 +173,22 @@ const CardSlideshow = ({ onOpenModal }) => {
 
 const CareerOpportunities = () => {
     const navigate = useNavigate();
-    const [openModal, setOpenModal] = useState(null);
+    // "Contact Us" lands ready to send a message; the apply routes below land
+    // ready to submit an application.
+    const handleContact = useCallback(
+        () => navigate('/contact?form=contractor&intent=message'),
+        [navigate]
+    );
 
-    const handleOpenModal  = useCallback((i) => setOpenModal(i), []);
-    const handleCloseModal = useCallback(() => setOpenModal(null), []);
-    const handleContact    = useCallback(() => { setOpenModal(null); navigate('/contact'); }, [navigate]);
+    // Routes to the contractor tab. Called with an industry from the carousel
+    // cards, and without one from the inline "Apply now" link. Uses `position`
+    // rather than `industry` because Contact.js reads `industry` as a
+    // staffing-quiz param and would force the business tab.
+    const handleApply = useCallback((industry) => {
+        const params = new URLSearchParams({ form: 'contractor' });
+        if (industry) params.set('position', industry);
+        navigate(`/contact?${params.toString()}`);
+    }, [navigate]);
 
     return (
         <Box
@@ -345,8 +278,27 @@ const CareerOpportunities = () => {
                         Looking for a Fresh Start?
                     </Typography>
                     <Typography sx={{ color: '#555', fontSize: '1rem', lineHeight: 1.9, maxWidth: 480, mb: 4 }}>
-                        If you're interested in any of our positions, reach out via email or click
-                        "Contact Us" below. Including a PDF copy of your resume is greatly appreciated.
+                        If you're interested in any of our positions,{' '}
+                        <Box
+                            component="button"
+                            type="button"
+                            onClick={() => handleApply()}
+                            sx={{
+                                background: 'none',
+                                border: 'none',
+                                p: 0,
+                                font: 'inherit',
+                                color: ORANGE,
+                                fontWeight: 700,
+                                cursor: 'pointer',
+                                borderBottom: `2px solid ${ORANGE}`,
+                                transition: 'color 0.2s, border-color 0.2s',
+                                '&:hover': { color: NAVY, borderBottomColor: NAVY },
+                            }}
+                        >
+                            Apply now
+                        </Box>{' '}
+                        or click "Contact Us" below.
                     </Typography>
                     <Button onClick={handleContact} sx={underlineLinkSx}>
                         Contact Us →
@@ -388,7 +340,7 @@ const CareerOpportunities = () => {
                 <Typography variant="h4" sx={{ ...sectionHeadingSx, fontSize: { xs: '1.8rem', md: '2.2rem' }, mt: 1, mb: 8, textAlign: 'center' }}>
                     Explore Employment Opportunities
                 </Typography>
-                <CardSlideshow onOpenModal={handleOpenModal} />
+                <CardSlideshow onApply={handleApply} />
             </Box>
 
             {/* ── Section 4: CTA ── */}
@@ -413,15 +365,6 @@ const CareerOpportunities = () => {
                     Contact Us →
                 </Button>
             </Box>
-
-            {/* ── Modal ── */}
-            <Modal open={openModal !== null} onClose={handleCloseModal}>
-                <CategoryModal
-                    index={openModal}
-                    onClose={handleCloseModal}
-                    onContact={handleContact}
-                />
-            </Modal>
 
         </Box>
     );

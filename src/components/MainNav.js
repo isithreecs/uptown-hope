@@ -80,9 +80,14 @@ const MainNav = () => {
                         >
                             <Box
                                 component="img"
-                                src="../images/uptownhope_logo.jpeg"
-                                alt="Uptown Hope logo"
-                                sx={{ width: 100, height: 60, objectFit: 'contain' }}
+                                src="/images/UHlogo.png"
+                                alt="Uptown Hope Staffing Solutions"
+                                sx={{
+                                    height: { xs: 44, sm: 52 },
+                                    width: 'auto',
+                                    display: 'block',
+                                    objectFit: 'contain',
+                                }}
                             />
                         </Box>
 

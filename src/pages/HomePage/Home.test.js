@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
-import Home from './Home';
+import Home, { HERO_ACTIONS, STATS } from './Home';
 
 // ── Mocks ─────────────────────────────────────────────────────────────────────
 
@@ -58,6 +58,23 @@ describe('Hero section', () => {
     test('renders the Find Staff CTA button', () => {
         renderHome();
         expect(screen.getByRole('button', { name: /find staff/i })).toBeInTheDocument();
+    });
+
+    test('renders the For Businesses audience label', () => {
+        renderHome();
+        expect(screen.getByText('For Businesses')).toBeInTheDocument();
+    });
+
+    test('renders the For Job Seekers audience label', () => {
+        renderHome();
+        expect(screen.getByText('For Job Seekers')).toBeInTheDocument();
+    });
+
+    test('renders one audience label per hero action', () => {
+        renderHome();
+        HERO_ACTIONS.forEach(({ audience }) => {
+            expect(screen.getByText(audience)).toBeInTheDocument();
+        });
     });
 });
 
@@ -241,5 +258,54 @@ describe('Navigation', () => {
         renderHome();
         await userEvent.click(screen.getByRole('button', { name: /contact us →/i }));
         expect(mockNavigate).toHaveBeenCalledWith('/contact');
+    });
+});
+// ── HERO_ACTIONS data integrity ────────────────────────────────────────────────
+
+describe('HERO_ACTIONS data integrity', () => {
+    test('has exactly 2 entries', () => {
+        expect(HERO_ACTIONS).toHaveLength(2);
+    });
+
+    test('every entry has an audience, label, and path', () => {
+        HERO_ACTIONS.forEach(({ audience, label, path }) => {
+            expect(audience).toBeTruthy();
+            expect(label).toBeTruthy();
+            expect(path).toBeTruthy();
+        });
+    });
+
+    test('exactly one action is primary', () => {
+        expect(HERO_ACTIONS.filter(({ primary }) => primary)).toHaveLength(1);
+    });
+
+    test('businesses are listed first as the primary action', () => {
+        expect(HERO_ACTIONS[0].audience).toBe('For Businesses');
+        expect(HERO_ACTIONS[0].primary).toBe(true);
+    });
+
+    test('all paths are unique', () => {
+        const paths = HERO_ACTIONS.map(({ path }) => path);
+        expect(new Set(paths).size).toBe(paths.length);
+    });
+});
+
+// ── STATS data integrity ──────────────────────────────────────────────────────
+
+describe('STATS data integrity', () => {
+    test('has exactly 4 entries', () => {
+        expect(STATS).toHaveLength(4);
+    });
+
+    test('every entry has a value and label', () => {
+        STATS.forEach(({ value, label }) => {
+            expect(value).toBeTruthy();
+            expect(label).toBeTruthy();
+        });
+    });
+
+    test('all labels are unique', () => {
+        const labels = STATS.map(({ label }) => label);
+        expect(new Set(labels).size).toBe(labels.length);
     });
 });

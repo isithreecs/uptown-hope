@@ -128,9 +128,14 @@ const Footer = () => {
                     <Link to="/" aria-label="Uptown Hope home" style={{ display: 'block' }}>
                         <Box
                             component="img"
-                            src="/images/uptownhope_logo.jpeg"
-                            alt="Uptown Hope logo"
-                            sx={{ display: 'block', width: 160, height: 'auto', maxWidth: '100%' }}
+                            src="/images/UHlogo.png"
+                            alt="Uptown Hope Staffing Solutions"
+                            sx={{
+                                display: 'block',
+                                width: { xs: 180, md: 220 },
+                                height: 'auto',
+                                maxWidth: '100%',
+                            }}
                         />
                     </Link>
                     <Typography

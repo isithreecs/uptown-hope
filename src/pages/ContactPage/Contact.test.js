@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
-import Contact from './Contact';
+import Contact, { CONTACT_DETAILS, MAP_LOCATION, FORM_TABS } from './Contact';
 
 // ── Mocks ─────────────────────────────────────────────────────────────────────
 
@@ -13,42 +14,23 @@ jest.mock('../../components/Map/Map', () => ({
     ),
 }));
 
-// ContactForm is tested independently — mock it here to isolate Contact
+// ContactForm is tested independently — mock it here to isolate Contact.
+// Every prop Contact passes is surfaced as an attribute so the wiring is
+// assertable without rendering the real form.
 jest.mock('../../components/ContactForm', () => ({
     __esModule: true,
-    default: ({ formType, initialMessage }) => (
+    default: ({ formType, initialMessage, initialPosition, initialIntent }) => (
         <div
             data-testid="contact-form"
             data-form-type={formType}
             data-initial-message={initialMessage}
+            data-initial-position={initialPosition}
+            data-initial-intent={initialIntent}
         />
     ),
 }));
 
-// ── Constants exported from source for single source of truth ─────────────────
-
-export const CONTACT_DETAILS = [
-    {
-        content: '300 Redland Court, Suite 309\nOwings Mills, MD 21117',
-        href:    undefined,
-    },
-    {
-        content: '(410) 363-9495',
-        href:    'tel:4103639495',
-    },
-    {
-        content: 'info@uptownhope.com',
-        href:    'mailto:info@uptownhope.com',
-    },
-];
-
-export const MAP_LOCATION = {
-    address: 'Uptown Hope',
-    lat:     39.42452,
-    lng:     -76.81139,
-};
-
-// ── Helper ────────────────────────────────────────────────────────────────────
+// ── Helpers ───────────────────────────────────────────────────────────────────
 
 const renderContact = (search = '') =>
     render(
@@ -60,6 +42,9 @@ const renderContact = (search = '') =>
         </MemoryRouter>
     );
 
+const form = () => screen.getByTestId('contact-form');
+const attr = (name) => form().getAttribute(name);
+
 // ── Section 1: Hero ───────────────────────────────────────────────────────────
 
 describe('Hero section', () => {
@@ -70,64 +55,161 @@ describe('Hero section', () => {
 
     test('renders the hero subtitle', () => {
         renderContact();
-        expect(
-            screen.getByText(/Whether you need staff support/i)
-        ).toBeInTheDocument();
+        expect(screen.getByText(/Whether you need staff support/i)).toBeInTheDocument();
     });
 });
 
-// ── Section 2: Contact form ───────────────────────────────────────────────────
+// ── Section 2: Audience toggle ────────────────────────────────────────────────
 
-describe('Contact form section', () => {
-    test('renders the ContactForm component', () => {
+describe('Audience toggle', () => {
+    test('renders both tabs', () => {
         renderContact();
-        expect(screen.getByTestId('contact-form')).toBeInTheDocument();
+        expect(screen.getAllByRole('tab')).toHaveLength(FORM_TABS.length);
     });
 
-    test('passes formType="contact" to ContactForm', () => {
+    test('renders the business tab label', () => {
         renderContact();
-        expect(screen.getByTestId('contact-form')).toHaveAttribute('data-form-type', 'contact');
+        expect(screen.getByRole('tab', { name: /i need staff/i })).toBeInTheDocument();
+    });
+
+    test('renders the job seeker tab label', () => {
+        renderContact();
+        expect(screen.getByRole('tab', { name: /looking for work/i })).toBeInTheDocument();
+    });
+
+    test('business tab is selected by default', () => {
+        renderContact();
+        expect(screen.getByRole('tab', { name: /i need staff/i }))
+            .toHaveAttribute('aria-selected', 'true');
+    });
+
+    test('job seeker tab is not selected by default', () => {
+        renderContact();
+        expect(screen.getByRole('tab', { name: /looking for work/i }))
+            .toHaveAttribute('aria-selected', 'false');
+    });
+
+    test('clicking the job seeker tab switches the form', async () => {
+        renderContact();
+        await userEvent.click(screen.getByRole('tab', { name: /looking for work/i }));
+        expect(attr('data-form-type')).toBe('contractor');
+    });
+
+    test('clicking back to the business tab switches the form again', async () => {
+        renderContact('?form=contractor');
+        await userEvent.click(screen.getByRole('tab', { name: /i need staff/i }));
+        expect(attr('data-form-type')).toBe('business');
+    });
+});
+
+// ── Section 2: ContactForm wiring ─────────────────────────────────────────────
+
+describe('ContactForm wiring', () => {
+    test('renders the ContactForm component', () => {
+        renderContact();
+        expect(form()).toBeInTheDocument();
+    });
+
+    test('passes formType="business" by default', () => {
+        renderContact();
+        expect(attr('data-form-type')).toBe('business');
     });
 
     test('passes empty initialMessage when no quiz params present', () => {
         renderContact();
-        expect(screen.getByTestId('contact-form')).toHaveAttribute('data-initial-message', '');
+        expect(attr('data-initial-message')).toBe('');
     });
 
-    test('passes pre-filled quiz message when industry param is present', () => {
+    test('passes application intent by default', () => {
+        renderContact();
+        expect(attr('data-initial-intent')).toBe('application');
+    });
+});
+
+// ── Section 2: URL param handling ─────────────────────────────────────────────
+
+describe('URL param handling', () => {
+    test('?form=contractor opens the job seeker tab', () => {
+        renderContact('?form=contractor');
+        expect(attr('data-form-type')).toBe('contractor');
+    });
+
+    test('?form=contractor marks the job seeker tab as selected', () => {
+        renderContact('?form=contractor');
+        expect(screen.getByRole('tab', { name: /looking for work/i }))
+            .toHaveAttribute('aria-selected', 'true');
+    });
+
+    test('position param prefills the contractor form', () => {
+        renderContact('?form=contractor&position=Healthcare');
+        expect(attr('data-initial-position')).toBe('Healthcare');
+    });
+
+    test('position param is ignored on the business tab', () => {
+        renderContact('?position=Healthcare');
+        expect(attr('data-initial-position')).toBe('');
+    });
+
+    test('intent=message is passed through', () => {
+        renderContact('?form=contractor&intent=message');
+        expect(attr('data-initial-intent')).toBe('message');
+    });
+
+    test('an unrecognised intent falls back to application', () => {
+        renderContact('?form=contractor&intent=nonsense');
+        expect(attr('data-initial-intent')).toBe('application');
+    });
+
+    test('quiz params keep the business tab even alongside form=contractor', () => {
+        renderContact('?form=contractor&industry=Healthcare');
+        expect(attr('data-form-type')).toBe('business');
+    });
+});
+
+// ── Section 2: Staffing quiz prefill ──────────────────────────────────────────
+
+describe('Staffing quiz prefill', () => {
+    test('industry param populates the message', () => {
         renderContact('?industry=Healthcare&headcount=1-5&timeline=Immediately');
-        const form = screen.getByTestId('contact-form');
-        const message = form.getAttribute('data-initial-message');
+        const message = attr('data-initial-message');
         expect(message).toContain('Healthcare');
         expect(message).toContain('1-5');
         expect(message).toContain('Immediately');
     });
 
-    test('quiz message contains the staffing needs quiz intro text', () => {
+    test('message contains the staffing needs quiz intro text', () => {
         renderContact('?industry=Finance&headcount=6-15&timeline=Within+2+weeks');
-        const form = screen.getByTestId('contact-form');
-        const message = form.getAttribute('data-initial-message');
-        expect(message).toContain("staffing needs quiz");
+        expect(attr('data-initial-message')).toContain('staffing needs quiz');
     });
 
-    test('quiz message uses Not specified for missing headcount', () => {
+    test('missing headcount falls back to Not specified', () => {
         renderContact('?industry=Nursing');
-        const form = screen.getByTestId('contact-form');
-        const message = form.getAttribute('data-initial-message');
-        expect(message).toContain('Not specified');
+        expect(attr('data-initial-message')).toContain('Not specified');
     });
 
-    test('quiz message uses Not specified for missing timeline', () => {
+    test('missing timeline falls back to Not specified', () => {
         renderContact('?industry=Nursing&headcount=1-5');
-        const form = screen.getByTestId('contact-form');
-        const message = form.getAttribute('data-initial-message');
-        expect(message).toContain('Not specified');
+        expect(attr('data-initial-message')).toContain('Not specified');
     });
 
-    test('no quiz message when no params are present', () => {
-        renderContact();
-        const form = screen.getByTestId('contact-form');
-        expect(form.getAttribute('data-initial-message')).toBe('');
+    test('industry param alone is sufficient', () => {
+        renderContact('?industry=Healthcare');
+        const message = attr('data-initial-message');
+        expect(message).not.toBe('');
+        expect(message).toContain('Healthcare');
+    });
+
+    test('all three quiz params decode correctly', () => {
+        renderContact('?industry=Events&headcount=30%2B&timeline=Planning+ahead');
+        const message = attr('data-initial-message');
+        expect(message).toContain('Events');
+        expect(message).toContain('30+');
+        expect(message).toContain('Planning ahead');
+    });
+
+    test('unrelated params do not trigger a quiz message', () => {
+        renderContact('?foo=bar&baz=qux');
+        expect(attr('data-initial-message')).toBe('');
     });
 });
 
@@ -141,39 +223,28 @@ describe('Map section', () => {
 
     test('passes the correct latitude to Map', () => {
         renderContact();
-        expect(screen.getByTestId('map')).toHaveAttribute(
-            'data-lat',
-            String(MAP_LOCATION.lat)
-        );
+        expect(screen.getByTestId('map'))
+            .toHaveAttribute('data-lat', String(MAP_LOCATION.lat));
     });
 
     test('passes the correct longitude to Map', () => {
         renderContact();
-        expect(screen.getByTestId('map')).toHaveAttribute(
-            'data-lng',
-            String(MAP_LOCATION.lng)
-        );
+        expect(screen.getByTestId('map'))
+            .toHaveAttribute('data-lng', String(MAP_LOCATION.lng));
     });
 });
 
 // ── Section 3: Contact details ────────────────────────────────────────────────
 
 describe('Contact details section', () => {
-    test('renders the Find Us overline', () => {
+    test('renders the Find Us heading', () => {
         renderContact();
         expect(screen.getByText('Find Us')).toBeInTheDocument();
     });
 
-    test('renders the Our Office heading', () => {
-        renderContact();
-        expect(screen.getByText('Our Office')).toBeInTheDocument();
-    });
-
     test('renders the street address', () => {
         renderContact();
-        expect(
-            screen.getByText(/300 Redland Court, Suite 309/i)
-        ).toBeInTheDocument();
+        expect(screen.getByText(/300 Redland Court, Suite 309/i)).toBeInTheDocument();
     });
 
     test('renders the city and state', () => {
@@ -181,31 +252,28 @@ describe('Contact details section', () => {
         expect(screen.getByText(/Owings Mills, MD 21117/i)).toBeInTheDocument();
     });
 
-    test('renders the phone number', () => {
+    test('renders every contact detail from the source data', () => {
         renderContact();
-        expect(screen.getByText('(410) 363-9495')).toBeInTheDocument();
+        CONTACT_DETAILS.forEach(({ content }) => {
+            // The address renders as one pre-line node, so match its first line
+            const [firstLine] = content.split('\n');
+            expect(screen.getByText(new RegExp(firstLine.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i')))
+                .toBeInTheDocument();
+        });
     });
 
-    test('phone number links to correct tel href', () => {
+    test('phone number links to the matching tel href', () => {
         renderContact();
-        const phoneLink = screen.getByRole('link', { name: /410/ });
-        expect(phoneLink).toHaveAttribute('href', 'tel:4103639495');
+        const phone = CONTACT_DETAILS.find(({ href }) => href?.startsWith('tel:'));
+        const link  = screen.getByRole('link', { name: phone.content });
+        expect(link).toHaveAttribute('href', phone.href);
     });
 
-    test('renders the email address', () => {
+    test('email links to the matching mailto href', () => {
         renderContact();
-        expect(screen.getByText('info@uptownhope.com')).toBeInTheDocument();
-    });
-
-    test('email links to correct mailto href', () => {
-        renderContact();
-        const emailLink = screen.getByRole('link', { name: /info@uptownhope.com/i });
-        expect(emailLink).toHaveAttribute('href', 'mailto:info@uptownhope.com');
-    });
-
-    test('renders exactly 3 contact detail entries', () => {
-        renderContact();
-        expect(CONTACT_DETAILS).toHaveLength(3);
+        const email = CONTACT_DETAILS.find(({ href }) => href?.startsWith('mailto:'));
+        const link  = screen.getByRole('link', { name: email.content });
+        expect(link).toHaveAttribute('href', email.href);
     });
 
     test('renders the Get Directions button', () => {
@@ -213,22 +281,22 @@ describe('Contact details section', () => {
         expect(screen.getByRole('link', { name: /get directions/i })).toBeInTheDocument();
     });
 
-    test('Get Directions links to correct Google Maps URL', () => {
+    test('Get Directions links to the correct Google Maps URL', () => {
         renderContact();
-        const link = screen.getByRole('link', { name: /get directions/i });
-        expect(link).toHaveAttribute('href', 'https://goo.gl/maps/Vw2s6sVSfVeaSy4v9');
+        expect(screen.getByRole('link', { name: /get directions/i }))
+            .toHaveAttribute('href', 'https://goo.gl/maps/Vw2s6sVSfVeaSy4v9');
     });
 
     test('Get Directions opens in a new tab', () => {
         renderContact();
-        const link = screen.getByRole('link', { name: /get directions/i });
-        expect(link).toHaveAttribute('target', '_blank');
+        expect(screen.getByRole('link', { name: /get directions/i }))
+            .toHaveAttribute('target', '_blank');
     });
 
     test('Get Directions has rel="noopener noreferrer" for security', () => {
         renderContact();
-        const link = screen.getByRole('link', { name: /get directions/i });
-        expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+        expect(screen.getByRole('link', { name: /get directions/i }))
+            .toHaveAttribute('rel', 'noopener noreferrer');
     });
 });
 
@@ -240,29 +308,53 @@ describe('CONTACT_DETAILS data integrity', () => {
     });
 
     test('every entry has a content value', () => {
-        CONTACT_DETAILS.forEach(({ content }) => {
-            expect(content).toBeTruthy();
-        });
+        CONTACT_DETAILS.forEach(({ content }) => expect(content).toBeTruthy());
     });
 
     test('address entry has no href', () => {
-        const address = CONTACT_DETAILS[0];
-        expect(address.href).toBeFalsy();
+        expect(CONTACT_DETAILS[0].href).toBeFalsy();
     });
 
-    test('phone entry has a tel href', () => {
-        const phone = CONTACT_DETAILS[1];
-        expect(phone.href).toMatch(/^tel:/);
+    test('exactly one entry is a tel link', () => {
+        const tels = CONTACT_DETAILS.filter(({ href }) => href?.startsWith('tel:'));
+        expect(tels).toHaveLength(1);
     });
 
-    test('email entry has a mailto href', () => {
-        const email = CONTACT_DETAILS[2];
-        expect(email.href).toMatch(/^mailto:/);
+    test('exactly one entry is a mailto link', () => {
+        const mailtos = CONTACT_DETAILS.filter(({ href }) => href?.startsWith('mailto:'));
+        expect(mailtos).toHaveLength(1);
+    });
+
+    test('the tel href digits match the displayed phone number', () => {
+        const phone  = CONTACT_DETAILS.find(({ href }) => href?.startsWith('tel:'));
+        const digits = phone.content.replace(/\D/g, '');
+        expect(phone.href).toBe(`tel:${digits}`);
+    });
+
+    test('the mailto href matches the displayed email', () => {
+        const email = CONTACT_DETAILS.find(({ href }) => href?.startsWith('mailto:'));
+        expect(email.href).toBe(`mailto:${email.content}`);
     });
 
     test('all content values are unique', () => {
         const contents = CONTACT_DETAILS.map((d) => d.content);
         expect(new Set(contents).size).toBe(contents.length);
+    });
+});
+
+// ── FORM_TABS data integrity ──────────────────────────────────────────────────
+
+describe('FORM_TABS data integrity', () => {
+    test('has exactly 2 tabs', () => {
+        expect(FORM_TABS).toHaveLength(2);
+    });
+
+    test('tab ids match the form types ContactForm expects', () => {
+        expect(FORM_TABS.map((t) => t.id)).toEqual(['business', 'contractor']);
+    });
+
+    test('every tab has a label', () => {
+        FORM_TABS.forEach(({ label }) => expect(label).toBeTruthy());
     });
 });
 
@@ -283,30 +375,5 @@ describe('MAP_LOCATION data integrity', () => {
         // Owings Mills, MD is approximately -76.8° W
         expect(MAP_LOCATION.lng).toBeGreaterThan(-77);
         expect(MAP_LOCATION.lng).toBeLessThan(-76);
-    });
-});
-
-// ── Quiz param handling ───────────────────────────────────────────────────────
-
-describe('Quiz URL param handling', () => {
-    test('all three quiz params populate the message correctly', () => {
-        renderContact('?industry=Events&headcount=30%2B&timeline=Planning+ahead');
-        const message = screen.getByTestId('contact-form').getAttribute('data-initial-message');
-        expect(message).toContain('Events');
-        expect(message).toContain('30+');
-        expect(message).toContain('Planning ahead');
-    });
-
-    test('unrelated params do not trigger quiz message', () => {
-        renderContact('?foo=bar&baz=qux');
-        const form = screen.getByTestId('contact-form');
-        expect(form.getAttribute('data-initial-message')).toBe('');
-    });
-
-    test('industry param alone is sufficient to trigger quiz message', () => {
-        renderContact('?industry=Healthcare');
-        const message = screen.getByTestId('contact-form').getAttribute('data-initial-message');
-        expect(message).not.toBe('');
-        expect(message).toContain('Healthcare');
     });
 });

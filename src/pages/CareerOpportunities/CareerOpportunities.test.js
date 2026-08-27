@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
@@ -67,7 +67,12 @@ describe('Intro section', () => {
 
     test('renders the intro description', () => {
         renderPage();
-        expect(screen.getByText(/reach out via email or click/i)).toBeInTheDocument();
+        expect(screen.getByText(/interested in any of our positions/i)).toBeInTheDocument();
+    });
+
+    test('renders the inline Apply now link', () => {
+        renderPage();
+        expect(screen.getByRole('button', { name: /apply now/i })).toBeInTheDocument();
     });
 
     test('renders the section image with correct alt text', () => {
@@ -110,9 +115,9 @@ describe('Card slideshow', () => {
         expect(screen.getByText(CATEGORIES[0].desc)).toBeInTheDocument();
     });
 
-    test('renders the View Positions button', () => {
+    test('renders the Click to Apply button', () => {
         renderPage();
-        expect(screen.getByRole('button', { name: /view positions/i })).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: /click to apply/i })).toBeInTheDocument();
     });
 
     test('renders the Previous arrow button', () => {
@@ -150,7 +155,6 @@ describe('Card slideshow', () => {
         renderPage();
         await userEvent.click(screen.getByRole('button', { name: /previous/i }));
         expect(screen.getByText('Events')).toBeInTheDocument();
-        expect(screen.getByText('Event Planning')).toBeInTheDocument();
     });
 
     test('clicking a dot navigates directly to that slide', async () => {
@@ -160,84 +164,6 @@ describe('Card slideshow', () => {
         await userEvent.click(dots[3]);
         expect(screen.getByText('Finance')).toBeInTheDocument();
         expect(screen.getByText('Accounting & Finance Support')).toBeInTheDocument();
-    });
-});
-
-// ── Section 3: Modal ──────────────────────────────────────────────────────────
-
-describe('Category modal', () => {
-    test('modal is not visible on initial render', () => {
-        renderPage();
-        expect(screen.queryByText('Typical Positions')).not.toBeInTheDocument();
-    });
-
-    test('clicking View Positions opens the modal', async () => {
-        renderPage();
-        await userEvent.click(screen.getByRole('button', { name: /view positions/i }));
-        expect(screen.getByText('Typical Positions')).toBeInTheDocument();
-    });
-
-    test('modal shows the correct card title for Healthcare', async () => {
-        renderPage();
-        await userEvent.click(screen.getByRole('button', { name: /view positions/i }));
-        expect(screen.getByText('Health Care Staff Support')).toBeInTheDocument();
-    });
-
-    test('modal shows the correct description for Healthcare', async () => {
-        renderPage();
-        await userEvent.click(screen.getByRole('button', { name: /view positions/i }));
-        expect(screen.getByText(CATEGORIES[0].desc)).toBeInTheDocument();
-    });
-
-    test('modal shows all Healthcare position chips', async () => {
-        renderPage();
-        await userEvent.click(screen.getByRole('button', { name: /view positions/i }));
-        CATEGORIES[0].positions.forEach((pos) => {
-            expect(screen.getByText(pos)).toBeInTheDocument();
-        });
-    });
-
-    test(`modal shows exactly ${CATEGORIES[0].positions.length} position chips for Healthcare`, async () => {
-        renderPage();
-        await userEvent.click(screen.getByRole('button', { name: /view positions/i }));
-        // Each chip renders the position label — count them in the modal region
-        const modal = screen.getByRole('presentation');
-        const chips = within(modal).getAllByRole('button').filter(
-            (el) => el.className.includes('MuiChip') || el.tagName === 'DIV'
-        );
-        // Assert directly via position text count
-        CATEGORIES[0].positions.forEach((pos) => {
-            expect(within(modal).getByText(pos)).toBeInTheDocument();
-        });
-    });
-
-    test('clicking Close button closes the modal', async () => {
-        renderPage();
-        await userEvent.click(screen.getByRole('button', { name: /view positions/i }));
-        expect(screen.getByText('Typical Positions')).toBeInTheDocument();
-        await userEvent.click(screen.getByRole('button', { name: /close modal/i }));
-        expect(screen.queryByText('Typical Positions')).not.toBeInTheDocument();
-    });
-
-    test('modal shows correct positions for Finance when navigated to', async () => {
-        renderPage();
-        // Navigate to Finance (index 3)
-        const dots = screen.getAllByRole('button', { name: /go to slide/i });
-        await userEvent.click(dots[3]);
-        await userEvent.click(screen.getByRole('button', { name: /view positions/i }));
-        CATEGORIES[3].positions.forEach((pos) => {
-            expect(screen.getByText(pos)).toBeInTheDocument();
-        });
-    });
-
-    test('modal shows correct positions for Events when navigated to', async () => {
-        renderPage();
-        const dots = screen.getAllByRole('button', { name: /go to slide/i });
-        await userEvent.click(dots[4]);
-        await userEvent.click(screen.getByRole('button', { name: /view positions/i }));
-        CATEGORIES[4].positions.forEach((pos) => {
-            expect(screen.getByText(pos)).toBeInTheDocument();
-        });
     });
 });
 
@@ -263,27 +189,38 @@ describe('CTA section', () => {
 // ── Navigation ────────────────────────────────────────────────────────────────
 
 describe('Navigation', () => {
-    test('intro Contact Us button navigates to /contact', async () => {
+    test('intro Contact Us button navigates to the contractor tab with message intent', async () => {
         renderPage();
         const buttons = screen.getAllByRole('button', { name: /contact us/i });
         await userEvent.click(buttons[0]);
-        expect(mockNavigate).toHaveBeenCalledWith('/contact');
+        expect(mockNavigate).toHaveBeenCalledWith('/contact?form=contractor&intent=message');
     });
 
-    test('modal Contact Us button navigates to /contact and closes modal', async () => {
+    test('Click to Apply routes to the contractor tab with the industry prefilled', async () => {
         renderPage();
-        await userEvent.click(screen.getByRole('button', { name: /view positions/i }));
-        const modalContactBtn = screen.getByRole('button', { name: /contact us →/i });
-        await userEvent.click(modalContactBtn);
-        expect(mockNavigate).toHaveBeenCalledWith('/contact');
-        expect(screen.queryByText('Typical Positions')).not.toBeInTheDocument();
+        await userEvent.click(screen.getByRole('button', { name: /click to apply/i }));
+        expect(mockNavigate).toHaveBeenCalledWith('/contact?form=contractor&position=Healthcare');
     });
 
-    test('CTA Contact Us button navigates to /contact', async () => {
+    test('Click to Apply carries the industry of the visible card', async () => {
+        renderPage();
+        const dots = screen.getAllByRole('button', { name: /go to slide/i });
+        await userEvent.click(dots[3]);
+        await userEvent.click(screen.getByRole('button', { name: /click to apply/i }));
+        expect(mockNavigate).toHaveBeenCalledWith('/contact?form=contractor&position=Finance');
+    });
+
+    test('Apply now routes to the contractor tab with no industry prefilled', async () => {
+        renderPage();
+        await userEvent.click(screen.getByRole('button', { name: /apply now/i }));
+        expect(mockNavigate).toHaveBeenCalledWith('/contact?form=contractor');
+    });
+
+    test('CTA Contact Us button navigates to the contractor tab with message intent', async () => {
         renderPage();
         const buttons = screen.getAllByRole('button', { name: /contact us/i });
         await userEvent.click(buttons[buttons.length - 1]);
-        expect(mockNavigate).toHaveBeenCalledWith('/contact');
+        expect(mockNavigate).toHaveBeenCalledWith('/contact?form=contractor&intent=message');
     });
 });
 
@@ -295,12 +232,11 @@ describe('CATEGORIES data integrity', () => {
     });
 
     test('every category has required fields', () => {
-        CATEGORIES.forEach(({ key, title, cardTitle, desc, positions }) => {
+        CATEGORIES.forEach(({ key, title, cardTitle, desc }) => {
             expect(key).toBeTruthy();
             expect(title).toBeTruthy();
             expect(cardTitle).toBeTruthy();
             expect(desc).toBeTruthy();
-            expect(positions.length).toBeGreaterThan(0);
         });
     });
 
@@ -314,35 +250,4 @@ describe('CATEGORIES data integrity', () => {
         expect(new Set(titles).size).toBe(titles.length);
     });
 
-    test('Healthcare has exactly 7 positions', () => {
-        const healthcare = CATEGORIES.find((c) => c.key === 'healthCare');
-        expect(healthcare.positions).toHaveLength(7);
-    });
-
-    test('Nursing has exactly 2 positions', () => {
-        const nursing = CATEGORIES.find((c) => c.key === 'nursing');
-        expect(nursing.positions).toHaveLength(2);
-    });
-
-    test('Administration has exactly 4 positions', () => {
-        const admin = CATEGORIES.find((c) => c.key === 'administration');
-        expect(admin.positions).toHaveLength(4);
-    });
-
-    test('Finance has exactly 5 positions', () => {
-        const finance = CATEGORIES.find((c) => c.key === 'finance');
-        expect(finance.positions).toHaveLength(5);
-    });
-
-    test('Events has exactly 5 positions', () => {
-        const events = CATEGORIES.find((c) => c.key === 'events');
-        expect(events.positions).toHaveLength(5);
-    });
-
-    test('all positions within each category are unique', () => {
-        CATEGORIES.forEach(({ title, positions }) => {
-            const unique = new Set(positions);
-            expect(unique.size).toBe(positions.length);
-        });
-    });
 });

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
@@ -12,13 +13,18 @@ import ContactForm from '../../components/ContactForm';
 const ORANGE = 'rgba(230, 115, 14, 1)';
 const NAVY   = '#072590';
 
-const MAP_LOCATION = {
+export const MAP_LOCATION = {
     address: 'Uptown Hope',
     lat: 39.42452,
     lng: -76.81139,
 };
 
-const CONTACT_DETAILS = [
+export const FORM_TABS = [
+    { id: 'business',   label: 'I Need Staff' },
+    { id: 'contractor', label: 'I\'m Looking for Work' },
+];
+
+export const CONTACT_DETAILS = [
     {
         icon: <LocationOnOutlinedIcon sx={{ color: ORANGE, fontSize: 20, mt: '2px', flexShrink: 0 }} />,
         content: '300 Redland Court, Suite 309\nOwings Mills, MD 21117',
@@ -43,6 +49,18 @@ const Contact = () => {
     const quizIndustry  = params.get('industry');
     const quizHeadcount = params.get('headcount');
     const quizTimeline  = params.get('timeline');
+
+    // Set by the "Click to Apply" buttons on the Career Opportunities page
+    const quizPosition = params.get('position');
+
+    // "Contact Us" links arrive with intent=message; apply links omit it
+    const contractorIntent = params.get('intent') === 'message' ? 'message' : 'application';
+
+    // ?form=contractor deep-links straight to the job-seeker form.
+    // Anyone arriving from the staffing quiz lands on the business form.
+    const [activeTab, setActiveTab] = useState(
+        params.get('form') === 'contractor' && !quizIndustry ? 'contractor' : 'business'
+    );
 
     const quizMessage = quizIndustry
         ? `Hi, I'm reaching out after completing the staffing needs quiz on your website.\n\nIndustry: ${quizIndustry}\nStaff needed: ${quizHeadcount || 'Not specified'}\nTimeline: ${quizTimeline || 'Not specified'}\n\nI'd love to learn more about how Uptown Hope can help.`
@@ -116,7 +134,7 @@ const Contact = () => {
                 </Typography>
             </Box>
 
-            {/* ── Section 2: Full-width contact form ── */}
+            {/* ── Section 2: Contact form with audience toggle ── */}
             <Box
                 sx={{
                     px: { xs: 4, md: 8, lg: 12 },
@@ -136,9 +154,62 @@ const Contact = () => {
                         boxShadow: '0 8px 40px rgba(0,0,0,0.08)',
                     }}
                 >
+                    {/* Audience toggle */}
+                    <Box
+                        role="tablist"
+                        aria-label="Choose who you are"
+                        sx={{
+                            display: 'flex',
+                            gap: 0.5,
+                            p: 0.5,
+                            mb: { xs: 4, md: 5 },
+                            background: 'rgba(7,37,144,0.05)',
+                            borderRadius: '60px',
+                            maxWidth: 460,
+                            mx: 'auto',
+                        }}
+                    >
+                        {FORM_TABS.map(({ id, label }) => {
+                            const selected = activeTab === id;
+                            return (
+                                <Button
+                                    key={id}
+                                    role="tab"
+                                    aria-selected={selected}
+                                    onClick={() => setActiveTab(id)}
+                                    disableElevation
+                                    sx={{
+                                        flex: 1,
+                                        py: 1.1,
+                                        px: 2,
+                                        borderRadius: '60px',
+                                        fontWeight: 700,
+                                        fontSize: { xs: '0.72rem', sm: '0.8rem' },
+                                        letterSpacing: '0.05em',
+                                        textTransform: 'uppercase',
+                                        lineHeight: 1.3,
+                                        background: selected ? ORANGE : 'transparent',
+                                        color: selected ? 'white' : NAVY,
+                                        boxShadow: selected ? '0 4px 14px rgba(230,115,14,0.3)' : 'none',
+                                        transition: 'background 0.2s, color 0.2s, box-shadow 0.2s',
+                                        '&:hover': {
+                                            background: selected ? '#c45e08' : 'rgba(7,37,144,0.07)',
+                                        },
+                                    }}
+                                >
+                                    {label}
+                                </Button>
+                            );
+                        })}
+                    </Box>
+
+                    {/* key forces a remount so Formik picks up the correct field set */}
                     <ContactForm
-                        formType="contact"
-                        initialMessage={quizMessage}
+                        key={activeTab}
+                        formType={activeTab}
+                        initialMessage={activeTab === 'business' ? quizMessage : ''}
+                        initialPosition={activeTab === 'contractor' ? (quizPosition || '') : ''}
+                        initialIntent={contractorIntent}
                     />
                 </Box>
             </Box>

@@ -27,16 +27,20 @@ const SERVICES = [
         body: 'UH provides qualified administrative support staff — including Receptionists, Administrative Assistants, File Clerks, and Office Managers — to a variety of organizations on flexible staffing arrangements.',
     },
     {
-        title: 'Accounting & Finance Support',
+        title: 'Accounting & Finance Staff Support',
         body: 'UH provides qualified Accounting and Finance professionals to a variety of organizations on a short-term or long-term temporary, permanent full-time or part-time, or associate basis.',
     },
     {
-        title: 'Nursing Referral Service Support',
+        title: 'Nursing Service Support',
         body: 'UH provides qualified licensed or certified health professionals and care providers — including nurses, home health aides, and other home health care specialists — to hospitals, clinics, and related medical facilities.',
     },
     {
-        title: 'Event Planning',
+        title: 'Event Staffing',
         body: 'Uptown Hope provides exceptional staff support for a variety of events, including Sporting Events, Conventions, Concerts, Festivals, and Conferences.',
+    },
+    {
+        title: 'Security Services',
+        body: 'Uptown Hope provides qualified security personnel for events, facilities, etc. Whatever your security needs, we can provide the right personnel for the job.',
     },
 ];
 
@@ -45,7 +49,7 @@ const SERVICES = [
 const QUIZ = [
     {
         question: 'What industry are you in?',
-        options: ['Healthcare', 'Administrative', 'Accounting & Finance', 'Events', 'Other'],
+        options: ['Healthcare', 'Administrative', 'Accounting & Finance', 'Security' ,'Events', 'Other'],
     },
     {
         question: 'How many staff do you need?',
@@ -58,10 +62,11 @@ const QUIZ = [
 ];
 
 const RECOMMENDATIONS = {
-    'Healthcare':           'Our Healthcare Staff Support team specializes in CNA, GNA, CMA, and Direct Support Professionals — ready to deploy quickly.',
-    'Administrative':       'Our Administrative Support division can place Receptionists, Administrative Assistants, and Office Managers on flexible terms.',
-    'Accounting & Finance': 'Our Finance Support team covers Bookkeepers, Junior Accountants, and Senior Accountants for short or long-term placements.',
-    'Events':               'Our Events team provides trained staff for sporting events, concerts, conventions, and conferences of any scale.',
+    'Healthcare':           'We specialize in CNA, GNA, CMA, and Direct Support Professionals — ready to deploy quickly.',
+    'Administrative':       'We can place Receptionists, Administrative Assistants, Office Managers, and the like on flexible terms.',
+    'Accounting & Finance': 'We can cover Bookkeepers, Junior and Senior Accountants, and Payroll Specialists for short or long-term placements.',
+    'Events':               'We provide trained staff for sporting events, concerts, conventions, and conferences of any scale.',
+    'Security':             'We can provide qualified security personnel for events, facilities, and other needs.',
     'Other':                'We handle a wide range of staffing needs. Reach out and we\'ll match you with the right solution.',
 };
 
@@ -202,7 +207,7 @@ const QuizWidget = ({ navigate }) => {
                             '&:hover': { backgroundColor: '#c45e08', border: 'none' },
                         }}
                     >
-                        Contact Us →
+                        Request a Proposal →
                     </Button>
                     <Button
                         onClick={reset}
@@ -670,13 +675,13 @@ const StaffingSolutions = () => {
                     Let's Discuss Your Needs.
                 </Typography>
                 <Typography sx={{ color: 'rgba(255,255,255,0.72)', lineHeight: 1.8, fontSize: '1rem', maxWidth: 560, mx: 'auto', mb: 5 }}>
-                    Get in touch with us to discuss your staffing needs — we'll match you with the right people for the job.
+                    Request a proposal today and let's discuss how we can match you with the right staffing solutions for your business.
                 </Typography>
                 <Button
                     onClick={() => navigate('/contact')}
                     sx={{ ...underlineLinkSx, color: 'white' }}
                 >
-                    Contact Us →
+                    Request a Proposal →
                 </Button>
             </Box>
 

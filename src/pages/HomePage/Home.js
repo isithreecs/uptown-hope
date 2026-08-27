@@ -16,16 +16,72 @@ import sunshineImg  from '../pageImages/sunshine.jpg';;
 const ORANGE = 'rgba(230, 115, 14, 1)';
 const NAVY   = '#072590';
 
-const STATS = [
+export const STATS = [
     { value: '5+',   label: 'Years in Business'      },
     { value: '300+',  label: 'Positions Filled'        },
     { value: '100%',  label: 'Commitment to Quality'   },
     { value: '24/7',  label: 'Support for Clients'     },
 ];
 
+// Two labeled entry points — businesses first, since they're the paying side
+export const HERO_ACTIONS = [
+    {
+        audience: 'For Businesses',
+        label:    'Find Staff',
+        path:     '/staffing-solutions',
+        primary:  true,
+    },
+    {
+        audience: 'For Job Seekers',
+        label:    'Explore Careers',
+        path:     '/employment',
+        primary:  false,
+    },
+];
+
 // ── Shared sx ─────────────────────────────────────────────────────────────────
 
 const sectionHeadingSx = { color: NAVY, fontWeight: 800, lineHeight: 1.2 };
+
+const heroButtonBaseSx = {
+    fontWeight: 700,
+    fontSize: '0.95rem',
+    textTransform: 'uppercase',
+    letterSpacing: '0.05em',
+    borderRadius: '60px',
+    px: 4.5,
+    py: 1.4,
+    minWidth: 210,
+    transition: 'background 0.2s, color 0.2s, border-color 0.2s, transform 0.1s, box-shadow 0.2s',
+};
+
+const heroPrimaryButtonSx = {
+    ...heroButtonBaseSx,
+    backgroundColor: ORANGE,
+    color: 'white',
+    border: 'none',
+    '&:hover': {
+        backgroundColor: '#c45e08',
+        border: 'none',
+        transform: 'translateY(-2px)',
+        boxShadow: '0 8px 24px rgba(230,115,14,0.4)',
+    },
+};
+
+const heroSecondaryButtonSx = {
+    ...heroButtonBaseSx,
+    backgroundColor: 'rgba(255,255,255,0.1)',
+    color: 'white',
+    border: '1.5px solid rgba(255,255,255,0.45)',
+    backdropFilter: 'blur(2px)',
+    '&:hover': {
+        backgroundColor: 'rgba(255,255,255,0.95)',
+        color: NAVY,
+        border: '1.5px solid rgba(255,255,255,0.95)',
+        transform: 'translateY(-2px)',
+        boxShadow: '0 8px 24px rgba(0,0,0,0.25)',
+    },
+};
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
@@ -87,6 +143,14 @@ const Home = () => {
                             fontSize: { xs: '1.5rem', sm: '2rem', md: '2.6rem', lg: '3.3rem', xl: '4rem' },
                             mb: { xs: 2, md: 3 },
                             letterSpacing: { xs: '-0.5px', md: '-1px' },
+                            // Halo separates navy text from the dark overlay behind it.
+                            // Stacked twice per breakpoint to thicken the edge, and scaled
+                            // up with font size so it stays proportional.
+                            textShadow: {
+                                xs: '0 0 2px rgba(255,255,255,0.95), 0 0 2px rgba(255,255,255,0.95)',
+                                md: '0 0 3px rgba(255,255,255,0.95), 0 0 3px rgba(255,255,255,0.95)',
+                                xl: '0 0 4px rgba(255,255,255,0.95), 0 0 4px rgba(255,255,255,0.95)',
+                            },
                         }}
                     >
                         Staffing Done Right.
@@ -106,43 +170,43 @@ const Home = () => {
                     <Box
                         sx={{
                             display: 'flex',
-                            gap: 2,
+                            gap: { xs: 3, sm: 4 },
                             flexWrap: 'wrap',
                             flexDirection: { xs: 'column', sm: 'row' },
                             alignItems: { xs: 'center', md: 'flex-start' },
                             justifyContent: { xs: 'center', md: 'flex-start' },
                         }}
                     >
-                        {[
-                            { label: 'Explore Careers', path: '/employment' },
-                            { label: 'Find Staff',      path: '/staffing-solutions'   },
-                        ].map(({ label, path }) => (
-                            <Button
+                        {HERO_ACTIONS.map(({ audience, label, path, primary }) => (
+                            <Box
                                 key={label}
-                                variant="outlined"
-                                onClick={() => navigate(path)}
                                 sx={{
-                                    backgroundColor: ORANGE,
-                                    color: 'white',
-                                    fontWeight: 700,
-                                    fontSize: '0.95rem',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '0.05em',
-                                    borderRadius: '60px',
-                                    px: 4.5,
-                                    py: 1.4,
-                                    border: 'none',
-                                    transition: 'background 0.2s, transform 0.1s, box-shadow 0.2s',
-                                    '&:hover': {
-                                        backgroundColor: '#c45e08',
-                                        border: 'none',
-                                        transform: 'translateY(-2px)',
-                                        boxShadow: '0 8px 24px rgba(230,115,14,0.4)',
-                                    },
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: { xs: 'center', md: 'flex-start' },
+                                    gap: 1,
                                 }}
                             >
-                                {label}
-                            </Button>
+                                <Typography
+                                    sx={{
+                                        color: 'rgba(255,255,255,0.7)',
+                                        fontSize: '0.7rem',
+                                        fontWeight: 700,
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.14em',
+                                        pl: { md: 0.5 },
+                                    }}
+                                >
+                                    {audience}
+                                </Typography>
+                                <Button
+                                    onClick={() => navigate(path)}
+                                    disableElevation
+                                    sx={primary ? heroPrimaryButtonSx : heroSecondaryButtonSx}
+                                >
+                                    {label}
+                                </Button>
+                            </Box>
                         ))}
                     </Box>
                 </Box>
