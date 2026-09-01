@@ -102,7 +102,7 @@ describe('Card slideshow', () => {
 
     test('renders the first card title on load — Healthcare', () => {
         renderPage();
-        expect(screen.getByText('Health Care Staff Support')).toBeInTheDocument();
+        expect(screen.getByText('Healthcare Staff Support')).toBeInTheDocument();
     });
 
     test('renders the first card heading — Healthcare', () => {
@@ -136,34 +136,35 @@ describe('Card slideshow', () => {
         expect(dots).toHaveLength(CATEGORIES.length);
     });
 
-    test('clicking Next advances to second card — Nursing', async () => {
+    test('clicking Next advances to second card — Administration', async () => {
         renderPage();
         await userEvent.click(screen.getByRole('button', { name: /next/i }));
-        expect(screen.getByText('Nursing')).toBeInTheDocument();
-        expect(screen.getByText('Nursing Referral Service Support')).toBeInTheDocument();
+        expect(screen.getByText('Administration')).toBeInTheDocument();
+        expect(screen.getByText('Administrative Support')).toBeInTheDocument();
     });
 
-    test('clicking Next twice advances to third card — Administration', async () => {
+    test('clicking Next twice advances to third card — Finance', async () => {
         renderPage();
         const next = screen.getByRole('button', { name: /next/i });
         await userEvent.click(next);
         await userEvent.click(next);
-        expect(screen.getByText('Administration')).toBeInTheDocument();
+        expect(screen.getByText('Finance')).toBeInTheDocument();
     });
 
-    test('clicking Previous from first card wraps to last card — Events', async () => {
+    test('clicking Previous from first card wraps to last card — Other', async () => {
         renderPage();
         await userEvent.click(screen.getByRole('button', { name: /previous/i }));
-        expect(screen.getByText('Events')).toBeInTheDocument();
+        expect(screen.getByText('Other')).toBeInTheDocument();
+        expect(screen.getByText('Something Else in Mind?')).toBeInTheDocument();
     });
 
     test('clicking a dot navigates directly to that slide', async () => {
         renderPage();
-        // Click dot 3 (Finance — index 3)
+        // Dot 4 is Nursing under the StaffingSolutions ordering
         const dots = screen.getAllByRole('button', { name: /go to slide/i });
         await userEvent.click(dots[3]);
-        expect(screen.getByText('Finance')).toBeInTheDocument();
-        expect(screen.getByText('Accounting & Finance Support')).toBeInTheDocument();
+        expect(screen.getByText('Nursing')).toBeInTheDocument();
+        expect(screen.getByText('Nursing Service Support')).toBeInTheDocument();
     });
 });
 
@@ -207,7 +208,7 @@ describe('Navigation', () => {
         const dots = screen.getAllByRole('button', { name: /go to slide/i });
         await userEvent.click(dots[3]);
         await userEvent.click(screen.getByRole('button', { name: /click to apply/i }));
-        expect(mockNavigate).toHaveBeenCalledWith('/contact?form=contractor&position=Finance');
+        expect(mockNavigate).toHaveBeenCalledWith('/contact?form=contractor&position=Nursing');
     });
 
     test('Apply now routes to the contractor tab with no industry prefilled', async () => {
@@ -227,8 +228,8 @@ describe('Navigation', () => {
 // ── CATEGORIES data integrity ─────────────────────────────────────────────────
 
 describe('CATEGORIES data integrity', () => {
-    test('has exactly 5 categories', () => {
-        expect(CATEGORIES).toHaveLength(5);
+    test('has exactly 7 categories', () => {
+        expect(CATEGORIES).toHaveLength(7);
     });
 
     test('every category has required fields', () => {
@@ -238,6 +239,29 @@ describe('CATEGORIES data integrity', () => {
             expect(cardTitle).toBeTruthy();
             expect(desc).toBeTruthy();
         });
+    });
+
+    test('includes Security', () => {
+        const security = CATEGORIES.find((c) => c.key === 'security');
+        expect(security).toBeDefined();
+        expect(security.cardTitle).toBe('Security Services');
+    });
+
+    test('includes an Other catch-all as the final entry', () => {
+        expect(CATEGORIES[CATEGORIES.length - 1].key).toBe('other');
+    });
+
+    test('card titles match the StaffingSolutions service names', () => {
+        // Guards against the two pages drifting apart again
+        const expected = [
+            'Healthcare Staff Support',
+            'Administrative Support',
+            'Accounting & Finance Staff Support',
+            'Nursing Service Support',
+            'Event Staffing',
+            'Security Services',
+        ];
+        expect(CATEGORIES.slice(0, 6).map((c) => c.cardTitle)).toEqual(expected);
     });
 
     test('all category keys are unique', () => {

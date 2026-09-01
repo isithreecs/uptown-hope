@@ -15,36 +15,51 @@ import { useNavigate } from 'react-router-dom';
 const ORANGE = 'rgba(230, 115, 14, 1)';
 const NAVY   = '#072590';
 
+// Order and cardTitle values mirror SERVICES in StaffingSolutions.js — the two
+// pages describe the same six lines of business and shouldn't drift apart.
+// 'other' is careers-only: it gives someone whose field isn't listed a way in.
 export const CATEGORIES = [
     {
         key:       'healthCare',
         title:     'Healthcare',
-        cardTitle: 'Health Care Staff Support',
+        cardTitle: 'Healthcare Staff Support',
         desc:      'Qualified healthcare practitioners for hospitals, clinics, and medical facilities on flexible arrangements.',
-    },
-    {
-        key:       'nursing',
-        title:     'Nursing',
-        cardTitle: 'Nursing Referral Service Support',
-        desc:      'Licensed and certified health professionals providing nursing and home health care services.',
     },
     {
         key:       'administration',
         title:     'Administration',
-        cardTitle: 'Administrative & Clerical Support',
-        desc:      'Qualified administrative support staff for a variety of organizations on flexible terms.',
+        cardTitle: 'Administrative Support',
+        desc:      'Receptionists, administrative assistants, file clerks, and office managers for organizations of every size.',
     },
     {
         key:       'finance',
         title:     'Finance',
-        cardTitle: 'Accounting & Finance Support',
-        desc:      'Accounting and finance professionals for short or long-term placements.',
+        cardTitle: 'Accounting & Finance Staff Support',
+        desc:      'Accounting and finance professionals for short-term, long-term, or permanent placements.',
+    },
+    {
+        key:       'nursing',
+        title:     'Nursing',
+        cardTitle: 'Nursing Service Support',
+        desc:      'Licensed and certified nurses, home health aides, and care providers for hospitals, clinics, and home health.',
     },
     {
         key:       'events',
         title:     'Events',
-        cardTitle: 'Event Planning',
-        desc:      'Exceptional staff support for a variety of events of any size.',
+        cardTitle: 'Event Staffing',
+        desc:      'Staff support for sporting events, conventions, concerts, festivals, and conferences.',
+    },
+    {
+        key:       'security',
+        title:     'Security',
+        cardTitle: 'Security Services',
+        desc:      'Qualified security personnel for events, facilities, and wherever else the right people matter.',
+    },
+    {
+        key:       'other',
+        title:     'Other',
+        cardTitle: 'Something Else in Mind?',
+        desc:      "Don't see your field? Tell us what you do — we place across a range of industries and we're always adding more.",
     },
 ];
 

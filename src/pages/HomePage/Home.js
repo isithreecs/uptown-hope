@@ -34,7 +34,7 @@ export const HERO_ACTIONS = [
     {
         audience: 'For Job Seekers',
         label:    'Explore Careers',
-        path:     '/employment',
+        path:     '/career-opportunities',
         primary:  false,
     },
 ];
@@ -242,6 +242,68 @@ const Home = () => {
                 </Grid2>
             </Box>
 
+            {/* ── Section 2b: Baltimore Ravens Small Business Partner ──
+                The crest is used exactly as supplied by Eleven Sports Media:
+                not edited, recoloured, skewed, cropped, or made transparent,
+                with the 2026 season date intact. The wording deliberately says
+                "Small Business Partner" — "Official Partner", "Sponsor" and
+                "Sponsorship" are contractual breaches. */}
+            <Box
+                sx={{
+                    background: '#f9f8f6',
+                    borderBottom: '1px solid rgba(7,37,144,0.08)',
+                    px: { xs: 4, md: 8, lg: 12 },
+                    py: { xs: 7, md: 9 },
+                    display: 'flex',
+                    flexDirection: { xs: 'column', md: 'row' },
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: { xs: 5, md: 8 },
+                }}
+            >
+                {/* Crest container */}
+                <Box
+                    component="a"
+                    // href="https://www.baltimoreravens.com/fans/eleven-sports-media/small-business-program/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Baltimore Ravens Small Business Program"
+                    sx={{ display: 'block', flexShrink: 0, lineHeight: 0 }}
+                >
+                    <Box
+                        component="img"
+                        src="/images/Ravens_SBP_2_26.jpg"
+                        alt="Small Business Partner of the Baltimore Ravens, 2026"
+                        sx={{
+                            display: 'block',
+                            width: { xs: 280, sm: 360, md: 400 },
+                            maxWidth: '100%',
+                            height: 'auto',   // never set both — skewing is a breach
+                        }}
+                    />
+                </Box>
+
+                {/* Text container — centred within its own column */}
+                <Box sx={{ textAlign: 'center', maxWidth: 520 }}>
+                    <Typography
+                        variant="overline"
+                        sx={{ color: ORANGE, fontWeight: 700, letterSpacing: '0.12em', display: 'block' }}
+                    >
+                        In Good Company
+                    </Typography>
+                    <Typography
+                        variant="h4"
+                        sx={{ ...sectionHeadingSx, fontSize: { xs: '1.8rem', md: '2.2rem' }, mt: 1, mb: 2.5 }}
+                    >
+                        A Baltimore Ravens Small Business Partner
+                    </Typography>
+                    <Typography sx={{ color: '#555', fontSize: '1rem', lineHeight: 1.9 }}>
+                        We're proud to stand alongside Baltimore's team. The care we put into every
+                        placement comes from the same love for the community we serve.
+                    </Typography>
+                </Box>
+            </Box>
+
             {/* ── Section 3: About blurb — full-width panel ── */}
             <Box
                 sx={{
@@ -385,7 +447,7 @@ const Home = () => {
                         Short-term, long-term, or permanent — the choice is yours.
                     </Typography>
                     <Button
-                        onClick={() => navigate('/employment')}
+                        onClick={() => navigate('/career-opportunities')}
                         sx={{
                             mt: 4,
                             alignSelf: 'center',

@@ -184,6 +184,48 @@ const Footer = () => {
                         pr: { md: 6 },
                     }}
                 >
+                    {/*
+                        Baltimore Ravens Small Business Partner crest.
+                        Under Eleven Sports Media's IP guidelines this asset must
+                        not be edited, recoloured, skewed, cropped, or given a
+                        transparent background — the white panel is padding around
+                        the supplied file, not a change to it. The 2026 season date
+                        must stay visible, and Uptown Hope must never be described
+                        as an "Official Partner" or the relationship as a
+                        "sponsorship".
+                    */}
+                    <Box
+                        sx={{
+                            mb: '0.5em',
+                            backgroundColor: '#ffffff',
+                            borderRadius: '8px',
+                            px: 1.5,
+                            py: 1,
+                            display: 'flex',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <Box
+                            component="a"
+                            // href="https://www.baltimoreravens.com/fans/eleven-sports-media/small-business-program/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Baltimore Ravens Small Business Program"
+                            sx={{ display: 'block', lineHeight: 0 }}
+                        >
+                            <Box
+                                component="img"
+                                src="/images/Ravens_SBP_1_26.jpg"
+                                alt="Small Business Partner of the Baltimore Ravens, 2026"
+                                sx={{
+                                    display: 'block',
+                                    width: { xs: 200, md: 240 },
+                                    height: 'auto',   // never set both — skewing is a breach
+                                }}
+                            />
+                        </Box>
+                    </Box>
+
                     <Typography
                         sx={{
                             fontFamily: "'Open Sans', sans-serif",
