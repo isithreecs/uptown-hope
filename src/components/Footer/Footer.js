@@ -207,7 +207,7 @@ const Footer = () => {
                     >
                         <Box
                             component="a"
-                            // href="https://www.baltimoreravens.com/fans/eleven-sports-media/small-business-program/"
+                            href="https://www.baltimoreravens.com/fans/eleven-sports-media/small-business-program/"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Baltimore Ravens Small Business Program"
